@@ -32,6 +32,24 @@ export interface HighTicketProduct {
   isHot: boolean;
   asin: string;
   bulletPoints: string[];
+  imageUrl: string;
+  // Pre-generated profit page content
+  profitPage: {
+    headline: string;
+    subheadline: string;
+    overview: string;
+    pros: string[];
+    cons: string[];
+    verdict: string;
+    faq: { q: string; a: string }[];
+  };
+  // Social media captions ready to copy
+  socialCaptions: {
+    facebook: string;
+    instagram: string;
+    twitter: string;
+    tiktok: string;
+  };
 }
 
 // FITNESS PACK - 30 Days of Posts
@@ -2925,6 +2943,36 @@ export const highTicketProducts: HighTicketProduct[] = [
       '512GB SSD storage',
       '22-hour battery life',
     ],
+    imageUrl: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=800',
+    profitPage: {
+      headline: 'The MacBook Pro M3 Changed How I Work Forever',
+      subheadline: 'Why creative professionals are calling this the most powerful laptop ever made',
+      overview: `After spending 3 months with the new MacBook Pro 16" with M3 Pro chip, I can confidently say this is the most impressive laptop I have ever used. The performance is absolutely mind-blowing - I can edit 4K video while running multiple apps without a single stutter. The battery life is insane - I regularly get 15-18 hours on a single charge with real-world usage. The display is gorgeous with ProMotion technology making everything buttery smooth. If you do any kind of creative work - video editing, music production, photography, design, or development - this machine will transform your workflow.`,
+      pros: [
+        'Unmatched performance for creative tasks',
+        'Incredible 22-hour battery life',
+        'Stunning Liquid Retina XDR display',
+        'Runs cool and quiet even under load',
+        'Best-in-class speakers and microphones',
+      ],
+      cons: [
+        'Premium price point',
+        'Heavy at 4.8 lbs',
+        'Limited to macOS ecosystem',
+      ],
+      verdict: `If you need a laptop that can handle anything you throw at it while lasting all day on battery, the MacBook Pro 16" M3 Pro is simply the best option available. Yes, it is expensive - but for professionals who depend on their tools, this investment pays for itself in productivity gains.`,
+      faq: [
+        { q: 'Is the M3 Pro worth it over the base M3?', a: 'Absolutely, especially for video editing and heavy multitasking. The extra cores make a noticeable difference.' },
+        { q: 'How does battery life compare to Intel MacBooks?', a: 'Night and day difference. You will easily get 2-3x the battery life of older Intel models.' },
+        { q: 'Can it run Windows?', a: 'Not natively, but you can use Parallels to run Windows in a virtual machine with excellent performance.' },
+      ],
+    },
+    socialCaptions: {
+      facebook: `Just upgraded to the MacBook Pro M3 and WOW. 🤯\n\nI used to wait 20+ minutes to export a 10-minute 4K video. Now? Under 4 minutes.\n\nThe battery lasts literally all day. I forgot what it feels like to carry a charger.\n\nIf you're a creative professional still using an older laptop, you're leaving money on the table. The productivity boost alone paid for this machine in the first month.\n\nFull review on my page - link in comments! 💻`,
+      instagram: `This laptop changed everything for me. 💻✨\n\nMacBook Pro 16" M3 Pro:\n→ 4K video exports in under 4 min\n→ 18+ hours battery (not exaggerating)\n→ Runs completely silent\n→ Best display I've ever used\n\nI was skeptical about the price. Then I calculated how much time I was wasting on my old laptop.\n\nTime is money. This saves both.\n\nLink in bio for full review 👆\n\n#macbookpro #m3pro #techreview #creativeprofessional #laptoplife #apple #productivity`,
+      twitter: `The MacBook Pro M3 Pro is absolutely insane.\n\nExported a 20-min 4K video while on a Zoom call while running Photoshop.\n\nNo fan noise. No slowdown. Battery barely moved.\n\nWe're living in the future. Full review 👇`,
+      tiktok: `POV: You finally got the MacBook Pro M3 and your old laptop is SHOOK 😂💻\n\nSeriously though - 4K exports in 4 minutes, 18 hour battery, completely silent.\n\nI thought the hype was overblown. I was wrong.\n\n#macbookpro #m3chip #techreview #apple #laptopupgrade #productivity`,
+    },
   },
   {
     id: 'ht-2',
@@ -2942,6 +2990,36 @@ export const highTicketProducts: HighTicketProduct[] = [
       'Real-time Eye AF',
       '10fps continuous shooting',
     ],
+    imageUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800',
+    profitPage: {
+      headline: 'The Sony A7 IV: Why Photographers Are Switching in Droves',
+      subheadline: 'The hybrid camera that finally does photos AND video at a professional level',
+      overview: `After shooting with the Sony A7 IV for 6 months across weddings, portraits, and content creation, I understand why this camera has taken over the industry. The 33MP sensor delivers stunning detail while the autofocus system is borderline magical - it locks onto eyes and tracks subjects like nothing I have used before. What really sets it apart is the video capability. 4K 60fps with 10-bit color depth means this one camera can do everything. No more carrying separate bodies for photo and video work.`,
+      pros: [
+        'Best-in-class autofocus system',
+        'Excellent low light performance',
+        'Professional 4K video with 10-bit color',
+        'Dual card slots for backup',
+        'Incredible battery life for mirrorless',
+      ],
+      cons: [
+        'Menu system has learning curve',
+        'Rolling shutter in 4K 60p',
+        'Body only - lenses add to cost',
+      ],
+      verdict: `The Sony A7 IV is the camera I recommend to anyone who needs both exceptional photos and professional video. It has eliminated the need for multiple camera bodies in my kit. Worth every penny for serious creators.`,
+      faq: [
+        { q: 'Is it good for beginners?', a: 'It is a professional camera, but the auto modes make it accessible. You will grow into its features over time.' },
+        { q: 'What lenses do you recommend?', a: 'Start with the 24-70mm f/2.8 GM for versatility, or the 50mm f/1.8 for budget-friendly portraits.' },
+        { q: 'How does it compare to Canon R6?', a: 'Both are excellent. Sony wins on resolution and autofocus, Canon has slight edge in video stabilization.' },
+      ],
+    },
+    socialCaptions: {
+      facebook: `6 months with the Sony A7 IV and I finally understand the hype. 📸\n\nThe autofocus is genuinely scary good. It tracks eyes through obstacles, in low light, while subjects are moving. Magic.\n\nAnd the fact that I can shoot a wedding AND film 4K video with ONE camera? Game changer.\n\nNo more carrying 15 lbs of gear. Just this body and a few lenses.\n\nFull review with sample photos on my page!`,
+      instagram: `This camera changed my business. No exaggeration. 📸\n\nSony A7 IV highlights:\n→ Autofocus that literally never misses\n→ 33MP for massive prints\n→ 4K 60fps video (10-bit!)\n→ All-day battery life\n→ Weather sealed for any condition\n\nI used to bring 2 cameras to shoots. Now I bring one.\n\nIf you're still shooting on an older body... it's time.\n\nLink in bio for full review + sample shots 👆\n\n#sonya7iv #sonycamera #photographygear #camerareview #contentcreator #hybridshooter`,
+      twitter: `The Sony A7 IV autofocus is actually insane.\n\nShot a moving subject in low light. Every. Single. Frame. In focus.\n\nI genuinely did not think this was possible. Full review with samples 👇`,
+      tiktok: `Wait until you see what this camera can do 👀📸\n\nSony A7 IV autofocus test:\n- Moving subject ✓\n- Low light ✓\n- Obstacles in the way ✓\n- STILL locked on eyes\n\nI literally gasped when I reviewed the footage.\n\n#sonycamera #a7iv #autofocus #photographytiktok #cameragear`,
+    },
   },
   {
     id: 'ht-3',
@@ -2959,6 +3037,36 @@ export const highTicketProducts: HighTicketProduct[] = [
       'LED touch screen',
       'Professional-grade power',
     ],
+    imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800',
+    profitPage: {
+      headline: 'How the Theragun PRO Plus Eliminated My Chronic Back Pain',
+      subheadline: 'The recovery tool that professional athletes use - now in your home',
+      overview: `I was spending $150 per week on massage therapy for chronic back and shoulder pain. After 3 months with the Theragun PRO Plus, I have cut that to maybe once a month for maintenance. This device delivers professional-grade percussive therapy that genuinely works. The smart app guides you through routines based on your specific needs - whether that is post-workout recovery, pain relief, or just relaxation. The quiet motor means you can use it while watching TV, and the ergonomic design lets you reach your own back without contortion.`,
+      pros: [
+        'Professional-grade percussive therapy',
+        'Smart app with guided routines',
+        'Whisper-quiet operation',
+        'Ergonomic rotating arm design',
+        '5 attachments for different needs',
+      ],
+      cons: [
+        'Premium price point',
+        'Heavier than basic models',
+        'App required for full features',
+      ],
+      verdict: `If you deal with muscle pain, soreness, or just want faster recovery from workouts, the Theragun PRO Plus is a worthwhile investment. I have saved thousands on massage therapy and have 24/7 access to relief whenever I need it.`,
+      faq: [
+        { q: 'Is it too intense for beginners?', a: 'No - it has multiple speed settings and the app suggests gentle routines for new users.' },
+        { q: 'How long does battery last?', a: 'About 2+ hours of continuous use. More than enough for multiple sessions.' },
+        { q: 'Can it help with sciatica?', a: 'Many users report relief. The app has specific protocols for lower back and sciatic issues.' },
+      ],
+    },
+    socialCaptions: {
+      facebook: `I used to spend $600/month on massage therapy.\n\nNow I spend $0.\n\nThe Theragun PRO Plus has completely replaced my massage appointments. Sounds dramatic but it is true.\n\nChronic back pain? Gone.\nPost-workout soreness? Gone in half the time.\nShoulder tension from desk work? Handled in 5 minutes.\n\nThis thing paid for itself in one month. Now every month after is pure savings.\n\nFull review on my page - especially if you deal with chronic pain!`,
+      instagram: `$600/month on massage therapy → $0 💰\n\nHow? This Theragun PRO Plus.\n\nI was skeptical. It is expensive. But the math made sense:\n\n→ Massage: $150/week = $600/month\n→ Theragun: $599 ONE TIME\n\nPaid for itself in 30 days.\n\nNow I have professional-grade recovery 24/7, whenever I need it.\n\nBack pain? 5 minutes.\nSore legs after gym? 10 minutes.\nShoulder tension? Instant relief.\n\nIf you deal with any kind of muscle pain... link in bio 👆\n\n#theragun #musclerecovery #painrelief #wellness #selfcare #recovery`,
+      twitter: `The Theragun PRO Plus paid for itself in one month.\n\nWas spending $150/week on massage. Now $0.\n\nChronic back pain is basically gone. Still kind of shocked tbh.\n\nFull review 👇`,
+      tiktok: `POV: You finally try the Theragun and realize you've been wasting money on massages 😭💆\n\nSeriously though:\n- Chronic back pain: handled\n- Post-gym soreness: 50% faster recovery\n- Monthly massage costs: $600 → $0\n\nThis thing paid for itself in 30 days.\n\n#theragun #painrelief #recovery #wellness #massagegun #selfcare`,
+    },
   },
   {
     id: 'ht-4',
@@ -2976,6 +3084,36 @@ export const highTicketProducts: HighTicketProduct[] = [
       'Quick dial adjustment',
       'Compact space-saving design',
     ],
+    imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800',
+    profitPage: {
+      headline: 'How I Built a Complete Home Gym with Just These Dumbbells',
+      subheadline: 'The space-saving solution that replaces 15 sets of weights',
+      overview: `When I decided to build a home gym, my biggest challenge was space. I live in a small apartment with no room for a traditional weight rack. The Bowflex SelectTech 552 dumbbells solved everything. Each dumbbell adjusts from 5 to 52.5 pounds with a simple dial turn - taking literally 2 seconds. That means I have the equivalent of 15 different dumbbell sets taking up the space of just one. After 2 years of daily use, they still work perfectly. The build quality is excellent and the adjustment mechanism has never jammed or failed.`,
+      pros: [
+        'Replaces 15 pairs of dumbbells',
+        'Takes 30 seconds to change weight',
+        'Compact footprint for apartments',
+        'Smooth dial adjustment system',
+        'Durable long-lasting build',
+      ],
+      cons: [
+        'Max 52.5 lbs may limit advanced lifters',
+        'Slightly bulky compared to traditional',
+        'Must be gentle when setting down',
+      ],
+      verdict: `For home gym enthusiasts with limited space, the Bowflex SelectTech 552 dumbbells are the best investment you can make. I have done thousands of workouts with these over 2 years and they still perform like new. Essential for any home gym.`,
+      faq: [
+        { q: 'Are they durable enough for drop sets?', a: 'Yes, the dial adjustment is quick enough for drop sets. Just do not literally drop them on the floor.' },
+        { q: 'Is 52.5 lbs enough?', a: 'For most people, yes. They also make a 1090 version that goes up to 90 lbs if you need more.' },
+        { q: 'How much space do they need?', a: 'About 2 feet x 1 foot for the stand. Incredibly compact for what you get.' },
+      ],
+    },
+    socialCaptions: {
+      facebook: `Best home gym purchase I have ever made: Bowflex SelectTech 552 dumbbells.\n\nThese replace 15 SETS of traditional dumbbells. 5 to 52.5 lbs each, adjustable in 2 seconds.\n\nI live in a small apartment. Absolutely no room for a weight rack. These fit in a corner and give me a complete strength training setup.\n\n2 years of daily use later - still work perfectly.\n\nIf you have been wanting to build a home gym but do not have space... this is the answer. Full review on my page!`,
+      instagram: `2 years with these dumbbells. Thousands of workouts. Still perfect. 💪\n\nBowflex SelectTech 552:\n→ 5 to 52.5 lbs per dumbbell\n→ Replaces 15 pairs of weights\n→ Adjusts in 2 seconds\n→ Fits in a tiny corner\n\nI built my entire home gym around these.\n\nNo gym membership. No commute. No excuses.\n\nBest fitness investment I have made.\n\nLink in bio for full review 👆\n\n#homegym #bowflex #dumbbells #fitnessequipment #homeworkout #strengthtraining #fitfam`,
+      twitter: `2 years with Bowflex SelectTech dumbbells:\n\n✓ Still work perfectly\n✓ Used them 500+ times\n✓ Replaced my gym membership\n✓ Fit in my small apartment\n\nBest fitness purchase I have made. Full review 👇`,
+      tiktok: `POV: You finally get adjustable dumbbells and realize you wasted years at the gym 🏋️💀\n\nBowflex SelectTech:\n- 5 to 52.5 lbs\n- Changes in 2 seconds\n- Replaces 15 dumbbell sets\n- Fits in a corner\n\n2 years later still using them daily.\n\n#homegym #bowflex #dumbbells #fitnesstok #homeworkout`,
+    },
   },
   {
     id: 'ht-5',
@@ -2993,6 +3131,36 @@ export const highTicketProducts: HighTicketProduct[] = [
       'Self-cleaning cycle',
       '10-year warranty',
     ],
+    imageUrl: 'https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=800',
+    profitPage: {
+      headline: 'The Vitamix A3500 Made Me Stop Buying Smoothies Forever',
+      subheadline: 'Why this blender is worth 10x what you pay for it',
+      overview: `I used to spend $8-12 per day on smoothies and juices. That is $240-360 per month. The Vitamix A3500 paid for itself in less than 3 months, and now I save that money every single month. But it is not just about savings - the quality is better than any smoothie shop. This thing pulverizes anything. Frozen fruit, ice, nuts, leafy greens - all silky smooth in 60 seconds. The touchscreen makes it dead simple, and the self-cleaning cycle means cleanup takes 30 seconds. I have used this every single day for 18 months and it still works like new.`,
+      pros: [
+        'Restaurant-quality results at home',
+        'Self-cleaning in 60 seconds',
+        'Intuitive touchscreen controls',
+        'Handles anything - ice, nuts, frozen fruit',
+        'Built to last with 10-year warranty',
+      ],
+      cons: [
+        'Premium price point',
+        'Loud during operation',
+        'Large footprint on counter',
+      ],
+      verdict: `If you buy smoothies, juices, or soups regularly, the Vitamix A3500 will pay for itself within months. The quality is unmatched and the convenience of the self-cleaning feature makes it something you will actually use daily.`,
+      faq: [
+        { q: 'Is it really that much better than cheaper blenders?', a: 'Night and day. No chunks, no grit, perfectly smooth every time. Once you use a Vitamix you cannot go back.' },
+        { q: 'How loud is it?', a: 'About as loud as a vacuum. Not ideal for early mornings, but blend cycles are short (60-90 seconds).' },
+        { q: 'What else can it make besides smoothies?', a: 'Hot soup (friction heating), nut butter, ice cream, dips, sauces, baby food - it does everything.' },
+      ],
+    },
+    socialCaptions: {
+      facebook: `Math that changed my life:\n\nBefore Vitamix: $10/day on smoothies = $300/month\nAfter Vitamix: ~$3/day in ingredients = $90/month\n\nSavings: $210/month = $2,520/year\n\nThe blender cost $650. Paid for itself in 3 months.\n\n18 months later I have saved over $3,000 AND my smoothies are better than the shop.\n\nOh and it cleans itself in 60 seconds. Add water, drop of soap, blend, rinse. Done.\n\nThis is the appliance that actually gets used daily. Full review on my page!`,
+      instagram: `$300/month on smoothies → $90/month 🥤💰\n\nThe Vitamix A3500 changed everything.\n\n→ Silky smooth results every time\n→ Self-cleans in 60 seconds\n→ Makes hot soup, ice cream, nut butter\n→ 10 year warranty\n→ Paid for itself in 3 months\n\n18 months later, saved $3,000+\n\nThe math just makes sense.\n\nLink in bio for full review 👆\n\n#vitamix #smoothie #kitchenappliance #healthylifestyle #mealprep #smoothierecipe #kitchengadget`,
+      twitter: `The Vitamix paid for itself in 3 months.\n\nWas spending $300/mo on smoothies. Now $90/mo on ingredients.\n\n18 months later: $3,000+ saved.\n\nAlso makes hot soup, nut butter, ice cream. Self-cleans in 60 seconds.\n\nBest kitchen purchase ever. Review 👇`,
+      tiktok: `POV: You finally get a Vitamix and realize you've been wasting money on smoothie shops 😭🥤\n\n$300/month → $90/month\n$3,000+ saved in 18 months\n\nPlus it:\n- Self cleans in 60 seconds\n- Makes hot soup\n- Makes ice cream\n- Never leaves chunks\n\nMy only regret is not buying it sooner.\n\n#vitamix #smoothie #kitchentok #moneysaving #healthyeating`,
+    },
   },
   {
     id: 'ht-6',
@@ -3010,6 +3178,36 @@ export const highTicketProducts: HighTicketProduct[] = [
       'Dolby Vision & Atmos',
       '120Hz gaming with G-Sync',
     ],
+    imageUrl: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=800',
+    profitPage: {
+      headline: 'The LG C3 OLED Ruined Every Other TV For Me',
+      subheadline: 'Why once you go OLED, you never go back',
+      overview: `I have owned a lot of TVs. LED, QLED, different brands. But nothing prepared me for OLED. The LG C3 displays the deepest blacks I have ever seen because each pixel produces its own light - when something is supposed to be black, those pixels just turn off completely. The contrast is infinite. Colors pop like nothing else. And for gaming, the 120Hz refresh rate with G-Sync support makes everything buttery smooth with zero screen tearing. Movies look like you are watching through a window. Gaming feels like cheating. I cannot go back to regular LED TVs anymore.`,
+      pros: [
+        'Perfect blacks with OLED technology',
+        'Stunning color accuracy',
+        '120Hz gaming with minimal input lag',
+        'Thin elegant design',
+        'Excellent smart TV interface',
+      ],
+      cons: [
+        'Risk of burn-in with static images',
+        'Not as bright as QLED in sunny rooms',
+        'Premium price vs LED options',
+      ],
+      verdict: `If picture quality matters to you - for movies, gaming, or sports - the LG C3 OLED is in a class of its own. The perfect blacks and infinite contrast create an experience that LED and QLED simply cannot match. This is the TV I recommend to everyone.`,
+      faq: [
+        { q: 'Is burn-in still a concern?', a: 'LG has significantly reduced burn-in risk with pixel refreshing tech. Normal use is completely fine.' },
+        { q: 'Is it good for bright rooms?', a: 'OLED is better in dim rooms. For very bright spaces with lots of windows, QLED might be better.' },
+        { q: 'Is 55" big enough?', a: 'Depends on room size and viewing distance. For most living rooms, 55" is perfect. They also make 65" and 77".' },
+      ],
+    },
+    socialCaptions: {
+      facebook: `Just upgraded to an LG OLED and I am genuinely upset.\n\nNot because it is bad. Because now every other TV looks terrible to me.\n\nThe blacks are actually BLACK. Like, pixels-completely-off black. The contrast is unreal.\n\nMovies look like I am watching through a window. Gaming at 120Hz is so smooth it feels illegal.\n\nI cannot unsee this. My friend came over, saw it, and ordered one the next day.\n\nFull review with comparison photos on my page!`,
+      instagram: `Once you go OLED, you never go back. 📺\n\nLG C3 highlights:\n→ Perfect blacks (pixels turn OFF)\n→ Infinite contrast ratio\n→ 120Hz gaming\n→ Zero input lag\n→ Colors that POP\n\nMovies hit different. Games feel like cheating.\n\nEvery other TV looks washed out now.\n\nI warned you. 😅\n\nLink in bio for full review 👆\n\n#lgc3 #oledtv #hometheater #gaming #4ktv #tvreview #techreview`,
+      twitter: `The LG C3 OLED ruined all other TVs for me.\n\nPerfect blacks. Infinite contrast. 120Hz gaming.\n\nNow every LED TV looks washed out and I cannot unsee it.\n\nThis is a warning: once you go OLED, you cannot go back. Review 👇`,
+      tiktok: `POV: You get an OLED TV and now everything else looks bad 😭📺\n\nLG C3 OLED:\n- Perfect blacks (pixels turn OFF)\n- Colors that actually pop\n- 120Hz gaming\n- Movies look INSANE\n\nI warned you. There is no going back.\n\n#oledtv #lgc3 #hometheater #techtok #tvupgrade`,
+    },
   },
   {
     id: 'ht-7',
@@ -3027,6 +3225,36 @@ export const highTicketProducts: HighTicketProduct[] = [
       '60 min runtime',
       'HEPA filtration system',
     ],
+    imageUrl: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?w=800',
+    profitPage: {
+      headline: 'The Dyson V15 Showed Me How Dirty My "Clean" Floors Were',
+      subheadline: 'The vacuum with a laser that reveals dust you cannot see',
+      overview: `I thought my floors were clean. Then I got the Dyson V15 with its green laser that illuminates every particle of dust. I was horrified. And then I was obsessed. This vacuum does not just clean - it shows you exactly what it is picking up on a real-time LCD display. You can see dust counts drop as you vacuum. It turns cleaning from a chore into a satisfying game. The suction power is incredible, battery lasts forever, and the cordless convenience means I actually vacuum more often. My allergies have improved significantly since switching to this.`,
+      pros: [
+        'Laser reveals hidden dust particles',
+        'Real-time particle count display',
+        'Incredible suction power',
+        '60 minute runtime on low',
+        'HEPA filtration traps allergens',
+      ],
+      cons: [
+        'Premium price point',
+        'Dustbin needs frequent emptying',
+        'Heavy compared to basic models',
+      ],
+      verdict: `The Dyson V15 Detect turned me into someone who actually enjoys vacuuming. The laser and real-time display make it weirdly satisfying. If you have allergies or just want genuinely clean floors, this is worth every penny.`,
+      faq: [
+        { q: 'Is the laser gimmick or actually useful?', a: 'Genuinely useful. You will find dust in places you never noticed. It changes how you clean.' },
+        { q: 'How long does battery really last?', a: '60 min on eco mode, 40 min on medium, 8-10 min on boost. Plenty for most homes.' },
+        { q: 'Is it good on carpet?', a: 'Excellent. Automatically adjusts suction based on surface. Deep cleans carpet incredibly well.' },
+      ],
+    },
+    socialCaptions: {
+      facebook: `The Dyson V15 has a green laser that shows you every particle of dust on your floor.\n\nI turned it on for the first time thinking my floors were clean.\n\nThey were not. I was horrified. 😱\n\nNow I am obsessed. The LCD screen shows you exactly what it is picking up in real-time. Dust counts dropping as you vacuum. It turns cleaning into a game.\n\nMy allergies have legit improved since I started using this daily.\n\nFull review + video on my page!`,
+      instagram: `I thought my floors were clean. The Dyson laser said otherwise. 😳\n\nDyson V15 Detect:\n→ Green laser reveals ALL dust\n→ LCD shows particle counts\n→ 60 min battery life\n→ HEPA filtration\n→ Stupidly satisfying to use\n\nTurned me into someone who ENJOYS vacuuming.\n\nMy allergies thank me daily.\n\nLink in bio for full review 👆\n\n#dyson #v15detect #cleaningtok #homecleaning #allergies #satisfying #vacuum`,
+      twitter: `The Dyson V15 has a laser that shows dust you cannot see with your eyes.\n\nI thought my floors were clean. The laser said "lol no."\n\nNow I vacuum daily because watching the dust count drop is weirdly satisfying.\n\nAllergies have improved significantly. Review 👇`,
+      tiktok: `Wait until you see what this vacuum laser reveals 😳🔦\n\nDyson V15 Detect:\n- Green laser shows ALL dust\n- Real-time particle counter\n- Stupidly satisfying\n\nI thought my floors were clean.\n\nThe laser disagreed. Hard.\n\n#dyson #cleaningtok #satisfying #vacuum #laservacuum`,
+    },
   },
   {
     id: 'ht-8',
@@ -3044,5 +3272,35 @@ export const highTicketProducts: HighTicketProduct[] = [
       'Micro-foam milk texturing',
       'Stainless steel construction',
     ],
+    imageUrl: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800',
+    profitPage: {
+      headline: 'How the Breville Barista Express Saved Me $3,000 Per Year on Coffee',
+      subheadline: 'Cafe-quality espresso at home for pennies per cup',
+      overview: `I was spending $6-8 on lattes every single day. That is roughly $2,500 per year. The Breville Barista Express cost $750 and makes coffee that is genuinely BETTER than my local cafe. The built-in grinder means beans are freshly ground for each shot. The steam wand creates microfoam that rivals professional baristas. My morning latte now costs me about $0.50 in beans and milk. The machine paid for itself in 4 months. Now every month after is pure savings. 2 years in, I have saved over $4,000 and drink better coffee than I ever did.`,
+      pros: [
+        'Built-in burr grinder for fresh grounds',
+        'Professional quality milk texturing',
+        'Consistent 15 bar extraction',
+        'Easy to learn and use',
+        'Built to last - heavy stainless steel',
+      ],
+      cons: [
+        'Learning curve for beginners',
+        'Counter space required',
+        'Daily cleaning maintenance',
+      ],
+      verdict: `If you buy coffee shop espresso drinks regularly, the Breville Barista Express is a no-brainer investment. The coffee quality matches or exceeds most cafes, and it pays for itself within months. Best kitchen purchase I have made.`,
+      faq: [
+        { q: 'Is it hard to learn?', a: 'Slight learning curve, but tons of YouTube tutorials. Most people make great coffee within a week.' },
+        { q: 'How long does it take to make a latte?', a: 'About 5 minutes from start to finish once you get the routine down.' },
+        { q: 'Do I need to buy expensive beans?', a: 'Fresh beans matter more than price. Local roaster beans ($12-15/lb) work perfectly.' },
+      ],
+    },
+    socialCaptions: {
+      facebook: `I used to spend $7/day on lattes. $2,500/year.\n\nNow I spend $0.50 per drink and the coffee is BETTER.\n\nThe Breville Barista Express paid for itself in 4 months.\n\nBuilt-in grinder means fresh coffee every time. Steam wand makes actual microfoam. My home lattes are now better than my old coffee shop.\n\n2 years in: Over $4,000 saved.\n\nIf you are still buying $6 coffees daily, this is the math that will change your morning. Full review on my page!`,
+      instagram: `$2,500/year on coffee → $150/year ☕💰\n\nBreville Barista Express breakdown:\n→ Built-in grinder (fresh every time)\n→ Professional steam wand\n→ Cafe-quality at home\n→ $0.50 per latte vs $7\n\nPaid for itself in 4 months.\n2 years later: $4,000+ saved.\n\nAnd my coffee is BETTER than the shop.\n\nLink in bio for full review + latte art tutorial 👆\n\n#breville #baristaexpress #homecoffee #latteart #espresso #coffeelover #savemoney`,
+      twitter: `$7/day on coffee = $2,500/year\n\nBreville Barista Express = $750 once\n\nNow I pay $0.50/drink and it tastes BETTER.\n\n4 months to pay itself off. 2 years in: $4,000 saved.\n\nThe math is not complicated. Review 👇`,
+      tiktok: `POV: You realize how much money you've wasted on coffee shops 😭☕\n\n$7/day = $2,500/year\n\nBreville Barista Express:\n- $750 one time\n- $0.50 per drink after\n- Tastes BETTER than shops\n\n4 months to pay off. $4,000 saved in 2 years.\n\nThe math is literally insane.\n\n#breville #espresso #coffeetok #savemoney #latteart`,
+    },
   },
 ];
