@@ -2183,86 +2183,304 @@ What did YOU eat today? Drop it below - no judgment, just curious! 🍽️`,
   },
   {
     day: 13,
-    caption: `Kitchen upgrade on a budget:
+    caption: `How to upgrade your kitchen when you are on a budget (my exact strategy):
 
-You don't need to spend $1000s.
+I see people drop $2,000+ on kitchen stuff and then never cook. Meanwhile I built a fully functional cooking setup for under $300.
 
-Start with ONE quality item that you'll use daily.
+Here is my exact strategy:
 
-Build from there.
+PHASE 1: The Foundation ($100-150)
 
-My first investment was [product] and I still use it 2 years later!`,
-    hashtags: '#budgetkitchen #qualityoverquantity #kitchenupgrade #startsmall #smartshopping #kitchentips #budgetfriendly #onethingatatime #kitcheninvesting #worthit',
-    imageDescription: 'Budget-friendly kitchen upgrade tips',
+Buy ONE quality multi-purpose tool.
+Not five cheap gadgets. ONE good one.
+
+I started with the appliance in my bio. It does the job of 5 other tools. Used it every single day for 2 years now. Still works perfectly.
+
+Cost per use at this point? Probably $0.05.
+
+PHASE 2: The Basics ($50-75)
+
+→ One good knife (not a set - just ONE)
+→ Cutting board
+→ Basic pots/pans (one of each is fine)
+
+That is literally it. You can cook 95% of meals with this.
+
+PHASE 3: Add as Needed ($0 initially)
+
+Only buy new stuff when you hit a specific limitation.
+
+Need to bake? THEN get baking supplies.
+Making soups? THEN get an immersion blender.
+Found a recipe you love that needs something? THEN buy it.
+
+Do NOT buy stuff "just in case." That is how drawers fill with unused gadgets.
+
+THE PHILOSOPHY:
+
+Build slowly.
+Buy quality.
+Only add what you actually use.
+
+My kitchen 2 years ago: Chaotic, cluttered, never used
+My kitchen now: Minimal, organized, used daily
+
+The difference was not money. It was STRATEGY.
+
+Comment "BUDGET" if you want my exact shopping list for a complete kitchen under $300!`,
+    hashtags: '#budgetkitchen #qualityoverquantity #kitchenupgrade #startsmall #smartshopping #kitchentips #budgetfriendly #minimalistkitchen #kitcheninvesting #worthit #moneysmart #kitchenessentials #buyoncebuygood #kitchenorganization #cookingsetup',
+    imageUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=1080',
+    imageDescription: 'Minimal organized budget-friendly kitchen',
   },
   {
     day: 14,
-    caption: `2 weeks of cooking at home! 🎉
+    caption: `2 WEEKS of cooking at home complete. Time for honest results.
 
-Results so far:
-💰 Saved: $200
-⏰ Time cooking: Less than expected
-🥗 Health: Feeling great
-😊 Mood: Much better
+14 days ago I committed to cooking at home instead of ordering out. Here is exactly what happened:
 
-Anyone else noticing changes?`,
-    hashtags: '#2weeks #cookingchallenge #results #moneysaved #healthimprovement #moodboost #cookathome #progressupdate #2weeksin #positivechange',
-    imageDescription: 'Two week milestone celebration',
+THE NUMBERS:
+
+Money saved: $217
+→ Calculated by tracking what I would have ordered
+
+Time spent cooking: 45 min/day average
+→ Less than I expected honestly
+
+Meals cooked: 42 (breakfast, lunch, dinner x 14)
+→ Not all were perfect but all were edible
+
+THE PHYSICAL CHANGES:
+
+→ Down 4 lbs (without trying)
+→ Less bloated after meals
+→ More energy in afternoons
+→ Sleeping better
+
+THE MENTAL CHANGES:
+
+→ Actually proud of myself
+→ Less decision fatigue (meal prep handles that)
+→ Cooking feels like self-care now not a chore
+→ Anxiety around the kitchen: gone
+
+THE SURPRISES:
+
+1. Cooking is actually RELAXING now
+Put on music or a podcast, zone out, create something. It is therapeutic.
+
+2. My food tastes BETTER than restaurants
+Fresh ingredients, cooked how I like it, seasoned to my taste.
+
+3. The time investment is way smaller than I thought
+Most meals: 15-20 minutes. Faster than delivery.
+
+THE HARDEST DAYS:
+
+Day 4: Almost ordered pizza. Made simple pasta instead.
+Day 9: Super tired. Made eggs and toast - still counts!
+
+If you have been thinking about cooking more, just try 2 weeks. That is enough to see real changes.
+
+Who else is on this journey? Share your week 2 update below! 👇`,
+    hashtags: '#2weeks #cookingchallenge #results #moneysaved #healthimprovement #moodboost #cookathome #progressupdate #2weeksin #positivechange #homecooking #transformation #healthylifestyle #accountability #honestresults',
+    imageUrl: 'https://images.unsplash.com/photo-1495521821757-a1efb6729352?w=1080',
+    imageDescription: 'Two week cooking challenge results celebration',
   },
   {
     day: 15,
-    caption: `The ONE kitchen rule I live by:
+    caption: `The ONE kitchen rule that eliminated my post-cooking chaos:
 
-Clean as you go.
+CLEAN AS YOU GO.
 
-Sounds simple but it's a game changer.
+I know. Sounds obvious. But let me tell you how this actually changed everything.
 
-No more mountain of dishes after cooking.
+OLD ME:
 
-What's YOUR kitchen rule?`,
-    hashtags: '#kitchenrule #cleanasyougo #tidykitchen #cookingtips #kitchenhack #nomoredishes #easycleanup #cookingsecret #kitchenlife #cleaningTip',
-    imageDescription: 'Clean kitchen while cooking concept',
+→ Cook dinner
+→ Use every dish in the kitchen
+→ Pans everywhere, cutting boards stacked, sauce splattered
+→ Finish cooking, look at the destruction
+→ "I will clean this later"
+→ Later never comes
+→ Eat dinner staring at the mess
+→ Eventually hate cooking because of the cleanup
+
+SOUND FAMILIAR?
+
+NEW ME:
+
+→ Fill sink with hot soapy water before starting
+→ Toss things in as I finish with them
+→ Wipe counter while things simmer
+→ Quick wash between steps when waiting
+→ Finish cooking: Kitchen is 80% clean already
+→ 5 minute final wipe down after eating
+→ Done. Clean kitchen.
+
+The mental shift is huge.
+
+Cooking used to mean: Make food + 30 min cleanup nightmare
+Cooking now means: Make food + 5 min easy finish
+
+When cleanup is not daunting, you cook more.
+When you cook more, you get better.
+When you get better, you enjoy it more.
+
+It all starts with: Clean as you go.
+
+One rule. Life changing.
+
+What is YOUR kitchen rule that you live by? Share below - maybe I will steal it! 👇`,
+    hashtags: '#kitchenrule #cleanasyougo #tidykitchen #cookingtips #kitchenhack #nomoredishes #easycleanup #cookingsecret #kitchenlife #cleaningtip #organizationhacks #cookinghack #cleaninghacks #kitchenwisdom #lifehack',
+    imageUrl: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1080',
+    imageDescription: 'Clean organized kitchen during cooking',
   },
   {
     day: 16,
-    caption: `Made restaurant-quality pasta at home 🍝
+    caption: `Last night I made restaurant-quality pasta at home. My family thought I ordered it.
 
-Total cost: $8
-Restaurant price: $25+
+Total cost: $8 for 4 servings
+Restaurant equivalent: $25+ per plate = $100+
 
-Same taste. Quarter of the price.
+Let me break down exactly what I made:
 
-The secret is having good quality cookware.
+THE DISH: Creamy garlic parmesan pasta with sautéed shrimp
 
-Would you try making it at home?`,
-    hashtags: '#homemadepasta #restaurantquality #savemoney #cookathome #pastanight #italianfood #cheapdinner #homechef #cookingwin #pastaLover',
-    imageDescription: 'Restaurant quality pasta made at home',
+THE COST BREAKDOWN:
+→ Pasta: $1.50
+→ Heavy cream: $2
+→ Parmesan: $2 (used about 1/4 block)
+→ Shrimp: $5 (frozen, on sale)
+→ Garlic, butter, herbs: Cents (pantry staples)
+
+THE TIME: 25 minutes start to finish
+
+THE REACTION: "Wait, you MADE this?!"
+
+Here is the secret nobody tells you about restaurant food:
+
+Most of it is not complicated. It is just:
+→ Good quality ingredients
+→ Proper technique (which is learnable)
+→ The right tools to execute
+
+That is it. No culinary degree required.
+
+Restaurants charge $25+ for pasta because of:
+→ Rent
+→ Staff
+→ Ambiance
+→ Profit margins
+
+The actual FOOD cost? Maybe $5-6.
+
+You can replicate it at home for the same price. You just need to learn how.
+
+The game changer for me was having tools that made restaurant techniques accessible at home. No more guessing. No more ruined sauces.
+
+Would you want the exact recipe for this dish? Comment "PASTA" and I will share everything - ingredients, steps, the works.
+
+Your kitchen can be a restaurant. You just need the right setup. 🍝`,
+    hashtags: '#homemadepasta #restaurantquality #savemoney #cookathome #pastanight #italianfood #cheapdinner #homechef #cookingwin #pastalovers #datenightin #homecooking #easypasta #creamypasta #gourmetathome',
+    imageUrl: 'https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=1080',
+    imageDescription: 'Restaurant quality creamy pasta dish',
   },
   {
     day: 17,
-    caption: `Question: What's the ONE kitchen item you can't live without?
+    caption: `If I could only keep ONE item in my kitchen, it would be this. No question.
 
-For me, it's definitely [product].
+I have been asked this question a lot: "What is your most-used kitchen item?"
 
-Use it literally every single day.
+Not my nice knives.
+Not my fancy pots.
+Not my spice collection.
 
-Drop yours below! 👇`,
-    hashtags: '#kitchenfavorite #cantlivewithout #kitchenessential #dailyuse #kitchenquestion #letschat #kitchenlove #favoriteItem #musthave #kitchentalk',
-    imageDescription: 'Favorite kitchen item showcase',
+It is the tool I use literally every single day. Sometimes multiple times a day.
+
+Here is why it wins:
+
+VERSATILITY:
+→ Breakfast: Use it for eggs, smoothies, oatmeal
+→ Lunch: Heats leftovers, cooks quick meals
+→ Dinner: Handles 80% of my recipes
+→ Snacks: Makes everything from dips to desserts
+
+EASE:
+→ Set it and forget it
+→ No babysitting required
+→ Consistent results every time
+→ Cleanup takes 2 minutes
+
+VALUE:
+→ Replaced 4-5 other appliances
+→ Paid for itself in saved food costs
+→ Still works perfectly after 2 years
+→ Cost per use is now pennies
+
+TIME SAVED:
+→ Cuts cooking time in half minimum
+→ No active watching required
+→ Prep and walk away
+
+If my kitchen burned down and I could only replace ONE thing, this is it.
+
+Everything else is nice to have. This is NEED to have.
+
+What is YOUR can't-live-without kitchen item? Drop it below - I am curious what everyone else relies on! 👇
+
+Maybe I will discover something new!`,
+    hashtags: '#kitchenfavorite #cantlivewithout #kitchenessential #dailyuse #kitchenquestion #letschat #kitchenlove #favoriteitem #musthave #kitchentalk #bestpurchase #worthit #kitchentools #cookingtips #homecooking',
+    imageUrl: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1080',
+    imageDescription: 'Essential kitchen tool or appliance',
   },
   {
     day: 18,
-    caption: `Meal prep hack nobody talks about:
+    caption: `The meal prep hack that lets me eat homemade food even when I am "too tired to cook."
 
-FREEZE YOUR PORTIONS.
+Secret: MY FREEZER IS A RESTAURANT.
 
-Make once. Eat for weeks.
+Let me explain.
 
-My freezer is basically a restaurant 😂
+Every time I cook, I make extra. Not just leftovers - I make DOUBLE batches on purpose.
 
-Saves so much time and money!`,
-    hashtags: '#freezermeals #mealprephack #freezercooking #batchcooking #timesaver #mealpreptips #freezerlife #moneysaver #cookingHack #mealprepideas',
-    imageDescription: 'Organized freezer with prepped meals',
+Half goes in the fridge for this week.
+Half goes in the freezer for "emergency" days.
+
+Now my freezer contains:
+
+→ 6 portions of homemade chili
+→ 4 portions of chicken curry
+→ 8 portions of bolognese sauce
+→ 5 portions of soup
+→ Individual portions of cooked rice
+→ Marinated proteins ready to cook
+
+When I get home exhausted and want to order DoorDash:
+
+1. Open freezer
+2. Grab a container
+3. Microwave or reheat on stove
+4. Eat restaurant-quality food in 10 minutes
+
+This has saved me probably $200+ per month in "too tired to cook" orders.
+
+THE KEYS TO FREEZER MEAL SUCCESS:
+
+1. Use quality freezer containers (not random tupperware)
+2. Label EVERYTHING with contents and date
+3. Freeze in single-serve portions
+4. Use within 3 months for best quality
+5. Thaw overnight in fridge when possible
+
+The initial investment? Maybe $30 in containers.
+The return? Thousands saved. Healthy eating even on bad days.
+
+My freezer is not where food goes to die. It is my personal meal delivery service.
+
+Comment "FREEZER" if you want my full system for building your frozen meal inventory!`,
+    hashtags: '#freezermeals #mealprephack #freezercooking #batchcooking #timesaver #mealpreptips #freezerlife #moneysaver #cookinghack #mealprepideas #emergencymeals #freezermealprep #lazydinner #homecooking #smartcooking',
+    imageUrl: 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=1080',
+    imageDescription: 'Organized freezer with labeled meal prep containers',
   },
   {
     day: 19,
