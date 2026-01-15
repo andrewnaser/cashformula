@@ -1582,147 +1582,505 @@ We're just getting started. 🚀`,
 const kitchenPosts: DayContent[] = [
   {
     day: 1,
-    caption: `Kitchen upgrade that changed my life 🍳
+    caption: `I need to tell you about the kitchen gadget that completely transformed how I cook.
 
-Went from burnt toast to gourmet meals.
+For years, I was the person who could burn water. Literally. I once set off the smoke alarm making toast.
 
-All because of ONE gadget.
+Cooking felt like this impossible skill that other people had and I just... did not.
 
-If you struggle with cooking, you NEED to see this!
+So I did what most people do: I ordered takeout. A LOT of takeout.
 
-Link in bio 👆`,
-    hashtags: '#kitchenhack #cookingmadeeasy #kitchenupgrade #homecooking #kitchengadget #easycooking #foodie #cookathome #kitchenessentials #gamechanger',
-    imageDescription: 'Beautiful kitchen setup with highlighted gadget',
-  },
-  {
-    day: 2,
-    caption: `Meal prep Sunday! 🥗
+$15 here. $20 there. "I deserve this after a long day."
 
-Just prepped the entire week's meals in 2 hours.
+Sound familiar?
 
-The secret? Having the right kitchen tools.
+Then my friend showed me this one kitchen gadget that changed EVERYTHING.
 
-Who else is a meal prep person? 
+I was skeptical. I had bought "life-changing" kitchen stuff before that now collects dust in my cabinet.
 
-Share your favorite prep tip below! 👇`,
-    hashtags: '#mealprep #mealprepSunday #healthyeating #foodprep #kitchentools #weeklymealprep #eatclean #preplife #mealplanning #healthylifestyle',
-    imageDescription: 'Organized meal prep containers and kitchen setup',
-  },
-  {
-    day: 3,
-    caption: `Why I stopped eating out:
+But this was different.
 
-💸 Saved $400/month
-🥗 Eating healthier
-⏰ Actually faster than delivery
-🏠 Quality family time
-
-All it took was investing in my kitchen.
-
-Best decision of 2024!`,
-    hashtags: '#stopeatingout #savemoney #homecooking #healthyeating #familytime #kitcheninvestment #cookaThome #moneysaving #smartspending #lifehack',
-    imageDescription: 'Money saving and home cooking comparison',
-  },
-  {
-    day: 4,
-    caption: `3 kitchen gadgets under $50 that I use DAILY:
-
-1. [Product 1] - Life changing
-2. [Product 2] - Total game changer  
-3. [Product 3] - Can't live without
-
-Which one do you want to know more about?
-
-Comment below! 👇`,
-    hashtags: '#kitchengadgets #under50 #dailyuse #kitchenfinds #musthave #kitchentools #affordablekitchen #cookingessentials #kitchenhaul #homechef',
-    imageDescription: 'Three kitchen gadgets displayed attractively',
-  },
-  {
-    day: 5,
-    caption: `"I'm not a good cook"
-
-I used to say that too.
-
-Then I realized: It's not about skill. It's about having the RIGHT TOOLS.
-
-The right tools make anyone look like a chef! 👨‍🍳
-
-What's holding you back from cooking more?`,
-    hashtags: '#learntocook #kitchenconfidence #cookingtools #anyonecancook #chefathome #cookingjourney #kitchenhelp #easycooking #homechef #cookingmadeeasy',
-    imageDescription: 'Confidence in cooking transformation image',
-  },
-  {
-    day: 6,
-    caption: `Friday night = homemade pizza night 🍕
-
-Made from scratch in 30 minutes.
-
-Better than delivery. Cheaper too.
-
-Who else does pizza Friday?`,
-    hashtags: '#pizzanight #homemadepizza #fridaynight #pizzafriday #familydinner #cookingtogether #pizzalove #fridayvibes #homemade #pizzatime',
-    imageDescription: 'Delicious homemade pizza scene',
-  },
-  {
-    day: 7,
-    caption: `One week of cooking at home! ✅
+First meal I made: Actually delicious.
+Second meal: Even better.
+One month later: I was cooking dinner for my family and they thought I took a class.
 
 Here's what changed:
 
-→ More energy
-→ Better sleep
-→ Saved $100 already
-→ Actually enjoying meals
+The right tool removes the guesswork. It removes the anxiety of "am I doing this right?" It removes the fear of failure.
 
-Small changes, BIG results.
+When cooking becomes EASY, you actually DO it.
 
-Try it for one week and see!`,
-    hashtags: '#oneweek #cookathomechallenge #healthychanges #savemoney #mealplanning #weekonedone #healthbenefits #kitchenlife #cookingjourney #positivechanges',
-    imageDescription: 'One week progress cooking at home',
+Now I cook 5-6 nights a week. I save hundreds of dollars monthly. My meals are healthier than any restaurant.
+
+And the best part? I actually ENJOY it now.
+
+If you have ever felt like cooking just is not "for you" - I was you. I get it.
+
+But trust me: You are not bad at cooking. You just have not found the right tools yet.
+
+Comment "COOK" if you want to know what gadget finally made it click for me. I will share everything.
+
+Link in bio for the full details 👆`,
+    hashtags: '#kitchenhack #cookingmadeeasy #kitchenupgrade #homecooking #kitchengadget #learntocook #foodie #cookathome #kitchenessentials #gamechanger #cantcook #easycooking #homechef #cookingtips #kitchentools',
+    imageUrl: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1080',
+    imageDescription: 'Beautiful modern kitchen with cooking gadget highlighted',
+  },
+  {
+    day: 2,
+    caption: `Sunday. 2 hours. Entire week of meals: DONE. 🥗
+
+Let me break down exactly what I prepped today:
+
+BREAKFAST (7 portions):
+→ Overnight oats with berries
+→ Pre-portioned in mason jars
+→ Grab and go each morning
+→ Total time: 15 minutes
+
+LUNCH (5 portions):
+→ Grilled chicken + roasted veggies
+→ Different seasonings so it does not get boring
+→ Ready to heat in 2 minutes
+→ Total time: 45 minutes
+
+DINNER (5 portions):
+→ Slow cooker beef stew (it cooked while I did other prep)
+→ Healthy, hearty, satisfying
+→ Total time: 20 min active
+
+SNACKS:
+→ Cut up fruits and veggies
+→ Portioned nuts and cheese
+→ Total time: 15 minutes
+
+TOTAL ACTIVE TIME: About 2 hours
+TOTAL COST: Around $60
+MEALS PREPARED: 17+ portions
+
+Now compare that to eating out:
+17 meals x $12 average = $204
+
+I just saved $144 AND I know exactly what is in my food.
+
+The game changer? Having the right containers, a good knife, and ONE kitchen tool that cuts my prep time in half.
+
+Meal prep used to feel overwhelming. Like this massive project that took all day.
+
+Now it is a relaxing Sunday ritual. I put on a podcast, prep my food, and set myself up for a successful week.
+
+Here is the truth: The people who eat healthy are not more disciplined than you. They are just more PREPARED.
+
+Who else is team meal prep? Drop your favorite prep tip below! 👇
+
+Or comment "PREP" if you want to know my exact system and tools!`,
+    hashtags: '#mealprep #mealprepSunday #healthyeating #foodprep #mealplanning #weeklymealprep #eatclean #preplife #sundaymealprep #healthylifestyle #budgetmeals #mealprepping #kitchentools #savemoney #healthyfood',
+    imageUrl: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=1080',
+    imageDescription: 'Organized meal prep containers with colorful healthy food',
+  },
+  {
+    day: 3,
+    caption: `I tracked every dollar I spent on food for one month. The results made me feel physically ill.
+
+DoorDash: $287
+Uber Eats: $156
+Restaurant dinners: $340
+Coffee shops: $124
+Groceries: $180
+
+TOTAL: $1,087 on food. For ONE person. In ONE month.
+
+And the groceries? Half of them went bad because I was too tired to cook.
+
+That was my wake up call.
+
+I made a decision: I was going to learn to cook at home. ACTUALLY learn. Not just say I would.
+
+Month 1: Rough. A lot of mistakes. But I started.
+Month 2: Found my groove. Got the right tools.
+Month 3: Actually enjoying cooking??
+Month 6: Cannot imagine going back.
+
+Here is my food spending now:
+
+Groceries: $350/month
+Eating out: Maybe $50/month (for special occasions)
+
+TOTAL: $400/month
+
+That is $687 in MONTHLY SAVINGS. $8,244 per year.
+
+But money is just part of it.
+
+Other things that changed:
+🥗 Lost 12 lbs without trying (home food is just healthier)
+⏰ Dinner is often faster than delivery (no 45 min wait)
+🏠 Family dinners are now a thing
+💪 More energy (not eating processed food every day)
+😊 Pride in actually being able to cook
+
+The secret was not discipline or willpower. It was having the right tools that made cooking EASY.
+
+When cooking is easy, you do it.
+When you do it, you save money.
+When you save money, you change your life.
+
+Comment "SAVE" if you want to know exactly what tools I invested in to make this transformation.
+
+Best decision I ever made. Seriously.`,
+    hashtags: '#stopeatingout #savemoney #homecooking #foodbudget #moneysaving #healthyeating #familytime #kitcheninvestment #cookathome #budgeting #financialfreedom #healthylifestyle #smartspending #lifehack #transformation',
+    imageUrl: 'https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=1080',
+    imageDescription: 'Home cooked meal vs takeout delivery comparison',
+  },
+  {
+    day: 4,
+    caption: `3 kitchen gadgets under $50 that I use literally every single day:
+
+I have wasted SO much money on kitchen gadgets that now live in the back of my drawer.
+
+The avocado slicer? Used once.
+The banana holder? Why did I buy that?
+The garlic zoom? Collecting dust.
+
+But these three? These are the real ones. The ones that actually stuck.
+
+#1: A GOOD digital kitchen scale ($25)
+
+Before: "A pinch of this, a dash of that" = inconsistent results
+After: Exact measurements = perfect results every time
+
+Baking especially transformed. Recipes actually work now.
+
+#2: Instant-read thermometer ($18)
+
+Before: Cut open chicken to check if it is done, lose all the juices
+After: Perfect temp every time, juicy meat always
+
+No more dry chicken. No more undercooked pork. No more guessing.
+
+#3: The kitchen tool I cannot name here but link in bio ($45)
+
+This one does the work of 5 other gadgets.
+Takes up minimal space.
+Use it for literally every meal.
+Paid for itself in the first week.
+
+Here is what I have learned about kitchen gadgets:
+
+The expensive ones are not always better.
+The trendy ones are usually gimmicks.
+The ones you ACTUALLY USE are the ones that solve real problems.
+
+Under $100 total and these three have transformed my cooking more than any $300 appliance ever could.
+
+Which one are you most curious about? Comment 1, 2, or 3 and I will share more details!
+
+Or comment "ALL" if you want links to everything 👇`,
+    hashtags: '#kitchengadgets #under50 #budgetkitchen #dailyuse #kitchenfinds #kitchenessentials #musthave #kitchentools #affordablekitchen #cookingessentials #kitchenhaul #homechef #cookingtips #kitchenhacks #smartshopping',
+    imageUrl: 'https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?w=1080',
+    imageDescription: 'Three essential kitchen gadgets on clean counter',
+  },
+  {
+    day: 5,
+    caption: `"I am just not a good cook."
+
+I said this for 15 years. FIFTEEN YEARS.
+
+Every time someone suggested I cook more, I had the same response: "You do not understand. I literally cannot cook. It is not my thing."
+
+I believed this was just who I was. Some people are cooks. I am not.
+
+Then something clicked.
+
+I watched a friend cook dinner. She was not doing anything magical. She was just... following a recipe with the right tools.
+
+The difference between her and me was not talent. It was SETUP.
+
+She had:
+→ Sharp knives (mine were dull for years)
+→ Proper measuring tools (I was eyeballing everything)
+→ One key gadget that did half the work
+→ Simple recipes she trusted
+
+I had:
+→ Dull knives that made everything frustrating
+→ No measuring cups
+→ Complicated recipes I found randomly online
+→ No system
+
+So I copied her setup. Exactly. Got the same tools. Used the same recipes.
+
+First attempt: Not perfect, but edible!
+Second attempt: Actually pretty good
+One month later: My family asked if I took a cooking class
+
+I did not magically become talented. I just stopped handicapping myself with a bad setup.
+
+Here is the truth that changed everything:
+
+Cooking is not about natural ability.
+Cooking is about having the right tools and following simple systems.
+
+If you think you "cannot cook," I challenge you to try again - but this time, with the right setup.
+
+What is holding YOU back from cooking more? Be honest in the comments 👇
+
+I bet I felt the same way.`,
+    hashtags: '#learntocook #cookingconfidence #anyonecancook #kitchentools #notacook #cookingjourney #homechef #easycooking #cookingmadeeasy #youcancook #kitchenhelp #cookingforbeginners #kitchenconfidence #chefathome #cookingmyth',
+    imageUrl: 'https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?w=1080',
+    imageDescription: 'Person confidently cooking in home kitchen',
+  },
+  {
+    day: 6,
+    caption: `Friday night tradition: Homemade pizza that puts delivery to SHAME 🍕
+
+This used to be takeout night. $35 for a large pizza and wings. Every single Friday.
+
+Then I learned to make pizza at home and... wow. Just wow.
+
+Tonight's menu:
+→ Fresh dough (takes 10 min with the right tools)
+→ San Marzano tomato sauce
+→ Fresh mozzarella
+→ Whatever toppings we want
+
+Total time: 30 minutes
+Total cost: About $8
+Taste: INFINITELY better than delivery
+
+Here is what most people get wrong about homemade pizza:
+
+They think it has to be complicated.
+They think the dough is hard.
+They think they need a fancy oven.
+
+Wrong, wrong, wrong.
+
+With the right tools and a simple system:
+→ Dough comes together in minutes
+→ Sauce takes 5 minutes
+→ Assembly takes 5 minutes
+→ Cooking takes 10-12 minutes
+
+And the taste? There is something about fresh-from-the-oven pizza with ingredients YOU chose that delivery simply cannot match.
+
+My kids now ask for "Dad's pizza" over delivery. That is when I knew I had won.
+
+Bonus: It has become a family activity. Everyone picks their toppings. We make it together. It is actually FUN.
+
+$35/week in delivery x 52 weeks = $1,820/year
+Homemade: Maybe $400/year total
+
+Plus memories. Plus better food. Plus a skill I will have forever.
+
+Who else does pizza Friday? Drop a 🍕 below!
+
+Or comment "RECIPE" if you want my exact system for 30-minute homemade pizza!`,
+    hashtags: '#pizzanight #homemadepizza #fridaynight #pizzafriday #familydinner #cookingwithkids #pizzalove #fridayvibes #homemade #pizzatime #familytradition #savemoney #cookingtogether #weekendcooking #pizzarecipe',
+    imageUrl: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1080',
+    imageDescription: 'Fresh homemade pizza coming out of oven',
+  },
+  {
+    day: 7,
+    caption: `ONE WEEK of cooking at home instead of ordering out. Here is my honest report:
+
+7 days ago I challenged myself: No takeout. No delivery. Cook everything at home.
+
+I thought it would be hard. I thought I would be exhausted. I thought the food would be boring.
+
+I was wrong about everything.
+
+THE NUMBERS:
+
+Money saved: $127 (I tracked every meal I would have ordered)
+Time spent cooking: About 45 min/day average
+Meals made: 21 (breakfast, lunch, dinner)
+
+THE SURPRISES:
+
+1. I have MORE energy, not less
+Home cooked food does not give you that heavy, sluggish feeling. I did not need my afternoon coffee once this week.
+
+2. Cooking is actually FASTER than delivery
+By the time I would have ordered, waited, and picked up food... I already had dinner on the table.
+
+3. I slept better
+Less sodium, less processed food, less sugar = better sleep. Science is real.
+
+4. I actually enjoyed the meals MORE
+There is something about eating food YOU made. It just tastes better.
+
+THE HARDEST PART:
+
+Day 3. I was tired. I almost ordered pizza. But I made a simple pasta instead and was done in 15 minutes.
+
+THE EASIEST PART:
+
+Having the right tools. I cannot stress this enough. Good tools = fast cooking = actually doing it.
+
+If you have been thinking about cooking more... just try ONE WEEK. That is it.
+
+You will be shocked at how much better you feel.
+
+Comment "WEEK1" if you want to try this challenge with me! Let us hold each other accountable 💪`,
+    hashtags: '#oneweek #cookathomechallenge #homecooking #healthychanges #savemoney #mealplanning #weekonedone #healthbenefits #kitchenlife #cookingjourney #positivechanges #healthyeating #transformation #nodaysoff #accountability',
+    imageUrl: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1080',
+    imageDescription: 'Week one cooking progress and healthy meals',
   },
   {
     day: 8,
-    caption: `The appliance that paid for itself in one month:
+    caption: `The kitchen appliance that paid for itself in exactly 27 days.
 
-→ Use it every single day
-→ Cuts cooking time in half
-→ Makes cleanup easy
-→ Replaced 3 other gadgets
+I kept track. 27 days. That is how long it took for this purchase to save me more than it cost.
 
-If you only buy ONE thing for your kitchen, make it this!
+Here is the math:
 
-Link in bio 👆`,
-    hashtags: '#worthit #kitchenappliance #paidfortitself #dailyuse #timesaver #easycleanup #multitasker #kitcheninvestment #bestpurchase #smartbuy',
-    imageDescription: 'Featured kitchen appliance showcase',
+THE APPLIANCE COST: $150
+
+WHAT IT REPLACED:
+→ Daily breakfast out: $8 x 27 days = $216
+→ But I was also cooking faster dinners
+→ And making lunches I would have bought
+
+TOTAL SAVED IN 27 DAYS: $163
+
+From day 28 on? Pure profit. Every dollar saved is bonus.
+
+WHY THIS APPLIANCE SPECIFICALLY?
+
+I use it EVERY. SINGLE. DAY. That is the key.
+
+It is not like that bread maker collecting dust.
+It is not like that juicer you used twice.
+It is not like that spiralizer you forgot you owned.
+
+This gets used because:
+1. It is fast (5-15 minutes most meals)
+2. It is easy (minimal prep, minimal cleanup)
+3. It is versatile (breakfast, lunch, dinner, snacks)
+4. It makes food taste BETTER than my old methods
+
+The secret to kitchen purchases that actually pay off:
+
+Ask yourself: "Will I use this at least 5 times per week?"
+
+If the answer is yes, it is probably worth it.
+If you are not sure, wait.
+
+This appliance? I use it 7 days a week. Sometimes twice a day.
+
+Best $150 I have ever spent on my kitchen. Not even close.
+
+Comment "27" if you want to know exactly what it is!
+
+Link in bio for the full breakdown 👆`,
+    hashtags: '#worthit #kitchenappliance #smartpurchase #paidforItself #dailyuse #timesaver #easycleanup #multitasker #kitcheninvestment #bestpurchase #smartbuy #moneysaving #kitchenwin #cookinghack #musthave',
+    imageUrl: 'https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=1080',
+    imageDescription: 'Versatile kitchen appliance in modern kitchen',
   },
   {
     day: 9,
-    caption: `Sunday meal prep complete! 
+    caption: `Another Sunday, another week of meals HANDLED. 🙌
 
-This week's menu:
-🥗 5 healthy lunches
-🍝 3 easy dinners
-🍳 7 breakfasts ready to go
+Just finished my meal prep and I have to share this breakdown because people keep asking how I do it.
 
-Total time: 2 hours
-Total cost: About $50
+THIS WEEK'S PREP:
 
-Who wants the recipes? 🙋‍♀️`,
-    hashtags: '#mealprepsunday #weeklyprep #healthymeals #budgetmeals #easyrecipes #mealplanning #preplife #sundayfunday #healthyeating #foodprep',
-    imageDescription: 'Complete weekly meal prep display',
+BREAKFASTS (7 servings):
+→ Egg muffins with veggies - made a batch of 12
+→ Grab one or two each morning, microwave 30 seconds
+→ Total prep: 25 minutes
+
+LUNCHES (5 servings):
+→ Mediterranean chicken bowls
+→ Grilled chicken, quinoa, cucumber, tomato, feta, tzatziki
+→ Different enough each day with varied portions
+→ Total prep: 40 minutes
+
+DINNERS (5 servings):
+→ Slow cooker Korean beef - started this morning, ready now
+→ Serves over rice, took 15 min active time
+→ Will eat 3 days, freeze 2 portions for later
+
+SNACKS:
+→ Cut veggies + hummus portions
+→ Portioned nuts and fruit
+→ Total prep: 15 minutes
+
+THE NUMBERS:
+
+Total time: 2 hours (with coffee and a podcast - actually enjoyable)
+Total cost: About $55 for 17 meals
+Cost per meal: $3.23
+
+If I bought these meals? Easy $12-15 each = $200+ per week.
+
+THE KEY TO FAST MEAL PREP:
+
+1. Use the right containers (game changer)
+2. Have ONE appliance that does heavy lifting
+3. Keep recipes simple - fancy is for restaurants
+4. Prep components, not just finished meals
+
+That last one is important. I am not making 17 complete meals. I am prepping COMPONENTS that I assemble.
+
+Want my exact recipes and system? Comment "PREP" and I will share everything!
+
+What is YOUR meal prep this week? Share below 👇`,
+    hashtags: '#mealprepsunday #sundaymealprep #weeklyprep #healthymeals #budgetmeals #mealplanning #preplife #mealpreptips #healthyeating #foodprep #easyrecipes #mealprepping #healthylifestyle #savemoney #mealprepideas',
+    imageUrl: 'https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=1080',
+    imageDescription: 'Complete weekly meal prep in containers',
   },
   {
     day: 10,
-    caption: `Kitchen organization hack that changed everything:
+    caption: `The kitchen organization hack that FINALLY made me want to cook.
 
-Before: Couldn't find anything
-After: Everything has a place
+Hear me out: For years I avoided cooking because my kitchen was chaotic.
 
-The secret? [Organization product]
+Could not find the right pan.
+Spices were a mess.
+Counter was always cluttered.
+Opening cabinets felt like a game of Tetris.
 
-Clean kitchen = clean mind 🧘‍♀️`,
-    hashtags: '#kitchenorganization #organizationhack #cleankitchen #tidykitchen #kitchenhacks #organized #homeorganization #kitchentips #cleanspace #declutter',
-    imageDescription: 'Before and after kitchen organization',
+So I would just... order food. It was easier than dealing with the chaos.
+
+Then I spent one Saturday reorganizing everything. ONE DAY.
+
+THE CHANGES I MADE:
+
+1. Purged everything I had not used in 6+ months
+Result: Suddenly had SPACE
+
+2. Got clear containers for dry goods
+Result: Can actually SEE what I have
+
+3. Organized by frequency of use
+Result: Daily items at eye level, rarely used stuff up high
+
+4. Created a "cooking station" - everything I need for 90% of meals within arm's reach
+Result: No more running around the kitchen
+
+THE UNEXPECTED RESULT:
+
+I started cooking MORE.
+
+Why? Because the friction was gone.
+
+Before: "Where is the olive oil? Where is the salt? Ugh forget it, ordering Thai."
+
+After: "Everything is right here. Might as well cook."
+
+Clean kitchen = clear mind = motivation to cook.
+
+It sounds simple but it changed everything.
+
+My ONE essential organization tool? Link in bio. It solved 80% of my cabinet chaos in one purchase.
+
+How organized is YOUR kitchen? Be honest - scale of 1-10 in the comments 👇
+
+(No judgment - mine was a 2 before this)`,
+    hashtags: '#kitchenorganization #organizationhacks #cleankitchen #tidykitchen #kitchenhacks #organized #homeorganization #cleanspace #declutter #kitchentips #organizedkitchen #kitcheninspo #cleaningtips #organizationtips #minimalistkitchen',
+    imageUrl: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1080',
+    imageDescription: 'Beautifully organized kitchen with clear containers',
   },
   {
     day: 11,
