@@ -17,7 +17,7 @@ export interface DayContent {
   day: number;
   caption: string;
   hashtags: string;
-  imageUrl: string;
+  imageUrl?: string; // Optional - not all packs have images yet
   imageDescription: string;
 }
 
