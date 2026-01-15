@@ -2084,34 +2084,102 @@ How organized is YOUR kitchen? Be honest - scale of 1-10 in the comments 👇
   },
   {
     day: 11,
-    caption: `Real talk: I used to spend $15/day on lunch.
+    caption: `Let me show you the math that changed my financial life.
 
-$15 x 5 days = $75/week
-$75 x 4 weeks = $300/month
+Old me - buying lunch every day:
 
-Now I meal prep and spend about $50/month.
+Monday: $14 (salad from that place I like)
+Tuesday: $12 (burrito bowl)
+Wednesday: $16 (sushi)
+Thursday: $13 (sandwich and coffee)
+Friday: $18 (treat myself Friday)
 
-That's $250 SAVED every month!
+Weekly total: $73
+Monthly total: $292
+YEARLY TOTAL: $3,504
 
-What would YOU do with extra $250?`,
-    hashtags: '#moneysaved #lunchprep #budgetfood #mealprepping #smartmoney #savingmoney #financialfreedom #foodbudget #cheapmeals #lifehack',
-    imageDescription: 'Money saving calculation visual',
+On LUNCH ALONE.
+
+Now add breakfast coffees, random snacks, dinners out... I was spending $800+ monthly on food I could make at home.
+
+New me - meal prepping:
+
+Sunday: 2 hours of prep
+Weekly grocery cost: About $40 for all my lunches
+Monthly total: $160
+
+YEARLY SAVINGS: $1,584 on lunches alone
+
+What could YOU do with an extra $1,584 per year?
+
+→ Pay off debt faster
+→ Build emergency fund
+→ Take a vacation
+→ Invest in yourself
+
+And here is the thing: My meal prepped lunches are BETTER than what I was buying.
+
+Fresher ingredients.
+Portion sizes I control.
+Exactly what I like.
+No waiting in lines.
+
+The math is not complicated. It just took me embarrassingly long to actually do it.
+
+The key was having the right containers and one kitchen tool that made prep fast.
+
+What would YOU do with an extra $1,584? Be specific in the comments 👇
+
+Sometimes making it real helps you actually take action.`,
+    hashtags: '#moneysaved #lunchprep #budgetfood #mealprepping #smartmoney #savingmoney #financialfreedom #foodbudget #lunchmath #moneymindset #budgeting #cheapmeals #lifehack #financialgoals #mealprepsavings',
+    imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1080',
+    imageDescription: 'Money saving calculation and meal prep comparison',
   },
   {
     day: 12,
-    caption: `What I eat in a day (all home cooked!):
+    caption: `What I eat in a day - all home cooked, minimal effort edition:
 
-🌅 Breakfast: Overnight oats
-🌞 Lunch: Prepped chicken salad
-🌙 Dinner: 15-min stir fry
+I get a lot of questions about what I actually eat since switching to home cooking. Today was a pretty typical day, so let me break it down.
 
-Total cooking time today: 15 minutes
+BREAKFAST (Prep time: 0 minutes)
+→ Overnight oats I made Sunday
+→ Just grabbed it from the fridge
+→ Added fresh berries
+→ Actual cooking today: Nothing. It was ready.
 
-Because I have the right tools! 
+LUNCH (Prep time: 2 minutes)
+→ Chicken salad from meal prep
+→ Heated the chicken, assembled the bowl
+→ Fresh greens, cherry tomatoes, feta, homemade dressing
+→ Better than any $15 salad I used to buy
 
-What did YOU eat today?`,
-    hashtags: '#whatieatinaday #homecookedmeals #easymeals #quickcooking #healthyday #fooddiary #mealideas #15minutemeals #simpEmeals #realfood',
-    imageDescription: 'Full day of meals photo collage',
+SNACK (Prep time: 1 minute)
+→ Apple slices with almond butter
+→ Pre-portioned from Sunday
+
+DINNER (Prep time: 15 minutes)
+→ Garlic shrimp stir fry
+→ Used pre-cut veggies I prepped Sunday
+→ Made fresh rice in my gadget (hands-off)
+→ Restaurant quality in my kitchen
+
+TOTAL ACTIVE COOKING TODAY: About 15 minutes
+
+That is it. 15 minutes of actual cooking for three delicious, healthy meals.
+
+The secret is not spending hours in the kitchen daily. It is FRONT-LOADING the work on prep day.
+
+Sunday: 2 hours of prep
+Mon-Fri: 10-20 minutes max per day
+
+When people say they do not have time to cook, I used to agree. Now I know the real issue is not time - it is SYSTEM.
+
+Get the right tools. Build the right system. Eating healthy becomes automatic.
+
+What did YOU eat today? Drop it below - no judgment, just curious! 🍽️`,
+    hashtags: '#whatieatinaday #homecookedmeals #easymeals #quickcooking #healthyday #fooddiary #mealideas #15minutemeals #realfood #fullday #healthyeating #mealprep #simplelife #easydinner #cookingtips',
+    imageUrl: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1080',
+    imageDescription: 'Full day of healthy home cooked meals',
   },
   {
     day: 13,
