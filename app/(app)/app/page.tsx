@@ -544,6 +544,36 @@ export default function DashboardPage() {
         )}
       </motion.div>
 
+      {/* Support Card */}
+      <motion.div variants={item} className="glass-card rounded-2xl p-6">
+        <div className="flex items-start gap-5">
+          <div className="w-14 h-14 bg-gold-500/20 rounded-xl flex items-center justify-center text-gold-400 shrink-0">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+          </div>
+          <div className="flex-1">
+            <h3 className="text-xl font-bold text-white mb-1">Need More Help?</h3>
+            <p className="text-navy-300 mb-4">
+              Our support team is here to help you succeed. We typically respond within 24 hours.
+            </p>
+            <a
+              href="https://cashformula.zendesk.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold-500 hover:bg-gold-400 text-navy-950 rounded-lg font-bold transition-colors"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+              Contact Support
+            </a>
+          </div>
+        </div>
+      </motion.div>
+
       {/* Bottom Ticker - Enhanced */}
       <motion.div variants={item} className="glass-card rounded-2xl overflow-hidden">
         <div className="bg-cash-green/10 px-5 py-3 border-b border-cash-green/20">
