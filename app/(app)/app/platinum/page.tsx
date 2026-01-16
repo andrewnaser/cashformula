@@ -379,41 +379,63 @@ export default function PlatinumPage() {
                           </div>
 
                           {/* Posts Grid */}
-                          <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
+                          <div className="space-y-4 max-h-[800px] overflow-y-auto pr-2">
                             {pack.posts.slice(0, visiblePosts).map((post) => (
                               <div
                                 key={post.day}
-                                className="bg-navy-800/50 rounded-xl p-4 border border-navy-700 hover:border-purple-500/30 transition-all"
+                                className="bg-navy-800/50 rounded-xl overflow-hidden border border-navy-700 hover:border-purple-500/30 transition-all"
                               >
-                                <div className="flex items-center justify-between mb-3">
-                                  <span className={`px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r ${pack.color} text-white`}>
-                                    Day {post.day}
-                                  </span>
-                                  <button
-                                    onClick={() => copyPostWithHashtags(post, pack.id)}
-                                    className="text-purple-400 hover:text-purple-300 flex items-center gap-1 text-sm font-medium"
-                                  >
-                                    {copiedId === `${pack.id}-${post.day}` ? (
-                                      <>
-                                        <CheckIcon />
-                                        <span>Copied!</span>
-                                      </>
-                                    ) : (
-                                      <>
-                                        <CopyIcon />
-                                        <span>Copy</span>
-                                      </>
-                                    )}
-                                  </button>
+                                {/* Post Image */}
+                                {post.imageUrl && (
+                                  <div className="aspect-video relative overflow-hidden">
+                                    <img
+                                      src={post.imageUrl}
+                                      alt={post.imageDescription || `Day ${post.day} post`}
+                                      className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute top-3 left-3">
+                                      <span className={`px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r ${pack.color} text-white shadow-lg`}>
+                                        Day {post.day}
+                                      </span>
+                                    </div>
+                                  </div>
+                                )}
+                                
+                                <div className="p-4">
+                                  {!post.imageUrl && (
+                                    <div className="flex items-center justify-between mb-3">
+                                      <span className={`px-3 py-1 rounded-full text-xs font-bold bg-gradient-to-r ${pack.color} text-white`}>
+                                        Day {post.day}
+                                      </span>
+                                    </div>
+                                  )}
+
+                                  <div className="flex items-start justify-between gap-2 mb-3">
+                                    <p className="text-white text-sm whitespace-pre-wrap leading-relaxed flex-1" style={{ maxHeight: '200px', overflow: 'hidden' }}>
+                                      {post.caption.length > 500 ? post.caption.substring(0, 500) + '...' : post.caption}
+                                    </p>
+                                    <button
+                                      onClick={() => copyPostWithHashtags(post, pack.id)}
+                                      className="text-purple-400 hover:text-purple-300 flex items-center gap-1 text-sm font-medium shrink-0"
+                                    >
+                                      {copiedId === `${pack.id}-${post.day}` ? (
+                                        <>
+                                          <CheckIcon />
+                                          <span>Copied!</span>
+                                        </>
+                                      ) : (
+                                        <>
+                                          <CopyIcon />
+                                          <span>Copy</span>
+                                        </>
+                                      )}
+                                    </button>
+                                  </div>
+
+                                  <p className="text-purple-400/70 text-xs break-words">
+                                    {post.hashtags}
+                                  </p>
                                 </div>
-
-                                <p className="text-white text-sm whitespace-pre-wrap leading-relaxed mb-3 line-clamp-4">
-                                  {post.caption}
-                                </p>
-
-                                <p className="text-purple-400/70 text-xs break-words">
-                                  {post.hashtags}
-                                </p>
                               </div>
                             ))}
                           </div>
