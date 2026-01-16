@@ -4620,104 +4620,368 @@ Tag someone who needs to upgrade their setup! 👇`,
 const beautyPosts: DayContent[] = [
   {
     day: 1,
-    caption: `Found THE product everyone's been talking about 💄
+    caption: `I finally found it. The skincare product everyone has been talking about.
 
-And yes... the hype is REAL.
+You know those products that pop up everywhere? Every influencer has it. Every dermatologist recommends it. Your friends are texting you about it.
 
-My skin has never looked better!
+I was skeptical. I am ALWAYS skeptical. I have been burned too many times by overhyped products that do nothing.
 
-Link in bio to see what it is 👆`,
-    hashtags: '#skincare #beautyfind #hypenReal #glowingskin #beautytips #skincareRoutine #beautysecret #musthave #beautyreview #skincareLove',
-    imageDescription: 'Glowing skin beauty product showcase',
+But this time? The hype is real.
+
+HERE IS WHAT HAPPENED:
+
+Week 1: My skin felt different. Softer. More hydrated. I thought it might be placebo.
+
+Week 2: The texture improved. Those little bumps I had been ignoring? Starting to smooth out.
+
+Week 3: My morning makeup went on differently. Smoother. Like my skin finally had a good base.
+
+Week 4: People started asking what I was doing differently. PEOPLE NOTICED.
+
+WHAT I NOTICED SPECIFICALLY:
+
+→ Hydration that actually lasts all day (not just the first hour)
+→ That "glow from within" that I thought only existed in marketing
+→ My problematic areas calming down
+→ Makeup looking better, lasting longer
+→ Confidence going UP
+
+WHY I THINK IT WORKS:
+
+It is not trying to do 47 things. It does ONE thing exceptionally well.
+
+Simple ingredients. Proper formulation. No gimmicks.
+
+Sometimes the best products are not the most complicated ones.
+
+THE HONEST TRUTH:
+
+It is not the cheapest option out there. But when something actually works, it is worth every penny. I have spent way more on products that did nothing.
+
+Comment "GLOW" if you want to know exactly what product changed my skin! 💄`,
+    hashtags: '#skincare #beautyfind #glowingskin #beautytips #skincareRoutine #beautysecret #musthave #beautyreview #skincarelove #skincarehype #realresults #skincareobsessed #beautycommunity #skincarejunkie #glowup',
+    imageUrl: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=1080',
+    imageDescription: 'Glowing healthy skin closeup',
   },
   {
     day: 2,
-    caption: `Morning skincare routine! ☀️
+    caption: `My complete morning skincare routine. Step by step, product by product.
 
-Step 1: Cleanse
-Step 2: Tone
-Step 3: [Product]
-Step 4: Moisturize
-Step 5: SPF
+I get asked about this constantly. So here is exactly what I do every single morning.
 
-Takes 5 minutes, changes everything!
+THE PHILOSOPHY:
 
-What's YOUR morning routine?`,
-    hashtags: '#morningRoutine #skincareRoutine #skincare101 #dailySkincare #routineShare #skincareSteps #morningskincare #5minuteRoutine #glowUp #skincareTips',
-    imageDescription: 'Morning skincare routine steps',
+Morning skincare is about PROTECTION. You are preparing your skin to face the day - sun, pollution, stress.
+
+Evening is about REPAIR. Morning is about DEFENSE.
+
+THE ROUTINE (5 steps, 5 minutes):
+
+STEP 1: GENTLE CLEANSE (30 seconds)
+
+I use a gentle cleanser - nothing stripping. Just removing overnight oil and product residue.
+
+Hot water? No. Lukewarm. Hot water is too harsh in the morning.
+
+STEP 2: TONE (15 seconds)
+
+Light toner on a cotton pad. This rebalances pH and preps skin to absorb everything else.
+
+Skip this if your skin is dry - go straight to serum.
+
+STEP 3: THE KEY PRODUCT (30 seconds)
+
+This is where the magic happens. The serum or treatment that addresses YOUR specific concerns.
+
+For me: Vitamin C in the morning. Brightening, antioxidant protection, glow-boosting.
+
+STEP 4: MOISTURIZE (30 seconds)
+
+Lock everything in. I use a lighter moisturizer in the morning than at night.
+
+Your skin needs hydration, not heaviness, during the day.
+
+STEP 5: SPF (30 seconds)
+
+Non-negotiable. Every. Single. Day.
+
+Even cloudy days. Even if you are staying inside. SPF is the #1 anti-aging product that exists.
+
+TOTAL TIME: Under 5 minutes
+TOTAL IMPACT: Everything
+
+Consistency beats complexity. Do this every morning and your skin WILL change.
+
+What is YOUR morning routine? Drop it below! ☀️`,
+    hashtags: '#morningroutine #skincareRoutine #skincare101 #dailyskincare #routineshare #skincaresteps #morningskincare #5minuteroutine #glowup #skincaretips #skincarebasics #amroutine #spf #vitaminc #healthyskin',
+    imageUrl: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1080',
+    imageDescription: 'Morning skincare routine flatlay',
   },
   {
     day: 3,
-    caption: `Can we talk about HOW GOOD my skin looks after using [product]? 😍
+    caption: `Can we talk about HOW GOOD my skin looks after one month of consistency?
 
-Before: Dull, tired
-After: Glowing, healthy
+I am not saying this to brag. I am saying this because I am genuinely shocked.
 
-I'm officially obsessed.
+THE BEFORE (One month ago):
 
-Has a product ever completely changed your skin?`,
-    hashtags: '#beforeAfter #skinTransformation #glowingSkin #obsessed #skincareResults #beautyWin #skincareLove #realResults #beautyJourney #skinChange',
-    imageDescription: 'Before and after skin transformation',
+→ Dull, tired-looking skin
+→ Uneven texture
+→ Dark spots that would not fade
+→ That "blah" look no matter what I did
+→ Makeup never sat right
+
+THE AFTER (Now):
+
+→ Actual glow (not filter, not lighting, GLOW)
+→ Smoother texture
+→ Dark spots fading noticeably
+→ People asking what I am doing differently
+→ Going out with less makeup and feeling confident
+
+WHAT CHANGED:
+
+I found ONE product that actually works for my skin. And I used it consistently.
+
+That is it. Not a 15-step routine. Not $500 in new products.
+
+One thing. Every day. For 30 days.
+
+THE TRUTH ABOUT SKINCARE:
+
+Most products do not fail because they are bad. They fail because we do not give them time.
+
+We use something for a week, do not see results, and move on.
+
+Skin turnover takes 28 days minimum. You need to give products AT LEAST a month.
+
+I almost gave up on this product at week 2. Nothing was happening. I stuck with it.
+
+Week 3 is when things shifted. Week 4 is when everyone noticed.
+
+IF YOU ARE STRUGGLING:
+
+Pick one thing. Use it every day. Give it 30 days minimum.
+
+Document with photos so you can actually see the change.
+
+Has a product ever completely transformed your skin? What was it? 👇`,
+    hashtags: '#beforeafter #skintransformation #glowingskin #obsessed #skincareresults #beautywin #skincarelove #realresults #beautyjourney #skinchange #consistency #30daychallenge #skincarejourney #skincareprogress #honestReview',
+    imageUrl: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=1080',
+    imageDescription: 'Glowing skin transformation results',
   },
   {
     day: 4,
-    caption: `Budget beauty secret 💰
+    caption: `The budget beauty secret nobody talks about.
 
-You don't need a 20-step routine.
-You don't need $500 products.
+I spent YEARS thinking I needed expensive products to have good skin.
 
-You need the RIGHT products for YOUR skin.
+Fancy serums. Luxury moisturizers. That $200 eye cream.
 
-Quality over quantity, always!
+Here is what I learned:
 
-What's your budget beauty secret?`,
-    hashtags: '#budgetBeauty #skincareonabudget #qualityOverQuantity #beautysecrets #affordableBeauty #smartSkincare #beautyTips #skincarewisdom #lessIsMore #righProducts',
-    imageDescription: 'Budget friendly beauty tips',
+YOU DO NOT NEED A 20-STEP ROUTINE.
+
+More steps = more chances for irritation. More chances for products to conflict. More time. More money. More confusion.
+
+The people with the best skin often have the simplest routines.
+
+YOU DO NOT NEED $500 PRODUCTS.
+
+Expensive does not mean effective. Some of the best ingredients are in affordable products.
+
+The $15 cleanser might work better than the $80 one. I have tested this personally.
+
+WHAT YOU ACTUALLY NEED:
+
+The RIGHT products for YOUR skin.
+
+Not what works for influencers. Not what is trending. Not what is most expensive.
+
+YOUR skin. YOUR concerns. YOUR lifestyle.
+
+THE BUDGET BEAUTY FRAMEWORK:
+
+1. Identify your #1 skin concern (just one)
+2. Find ONE product that addresses it (research ingredients, not brands)
+3. Invest in quality SPF (this is where money matters)
+4. Keep everything else simple and affordable
+
+MY BUDGET BREAKDOWN:
+
+Cleanser: $12
+Serum: $25 (the one product I invest in)
+Moisturizer: $18
+SPF: $30 (this is my splurge)
+
+Total: Under $100 for entire routine that WORKS.
+
+Quality over quantity. Always.
+
+What is YOUR budget beauty secret? Share below! 💰`,
+    hashtags: '#budgetbeauty #skincareonabudget #qualityoverquantity #beautysecrets #affordablebeauty #smartskincare #beautytips #skincarewisdom #lessismore #rightproducts #drugstorefind #affordableskincare #skincarebudget #moneysaving #skincaretips',
+    imageUrl: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=1080',
+    imageDescription: 'Affordable skincare products flatlay',
   },
   {
     day: 5,
-    caption: `Friday night self-care! 🛁
+    caption: `Friday night self-care ritual. Here is exactly what I am doing tonight.
 
-Tonight's menu:
-🧖‍♀️ Face mask
-💆‍♀️ Hair treatment
-🧴 Full body moisturize
-🕯️ Candles
+The week was long. Work was stressful. Life was life-ing.
 
-Because you deserve it!
+Tonight is for ME. And I am not apologizing for it.
 
-What's your self-care Friday look like?`,
-    hashtags: '#selfCareFriday #fridayNight #selfCareSunday #pamperTime #treatYourself #selfLove #selfCareRoutine #relaxation #beautyNight #youDeserveIt',
-    imageDescription: 'Cozy self care Friday night',
+THE FULL MENU:
+
+6:00 PM - Phone on do not disturb
+
+This is the first and most important step. No scrolling. No emails. No "just checking one thing."
+
+Tonight is offline.
+
+6:30 PM - Bath or shower prep
+
+Running a warm bath with epsom salts. If no bath, a long hot shower with eucalyptus essential oil.
+
+7:00 PM - Face mask time
+
+Sheet mask or clay mask, depending on what my skin needs this week.
+
+Tonight: Hydrating sheet mask because my skin has been thirsty.
+
+7:30 PM - Hair treatment
+
+Deep conditioning mask. Clipping hair up. Letting it soak while I relax.
+
+8:00 PM - Full body moisturize
+
+Fresh out of bath, while skin is still damp. Body oil first, then rich moisturizer.
+
+Paying extra attention to elbows, knees, feet.
+
+8:30 PM - Candles, music, and something mindless
+
+Lighting my favorite candle. Putting on lo-fi or a comfort show. Brain OFF.
+
+9:00 PM - Evening skincare (the full routine)
+
+Taking my time. Massaging everything in. No rushing.
+
+THE PHILOSOPHY:
+
+This is not indulgent. This is maintenance.
+
+You cannot pour from an empty cup. Self-care is not selfish. It is necessary.
+
+You work hard. You show up for everyone else. Friday night is when you show up for YOU.
+
+What does YOUR self-care Friday look like? Share your rituals! 🛁`,
+    hashtags: '#selfcarefriday #fridaynight #selfcaresunday #pampertime #treatyourself #selflove #selfcareroutine #relaxation #beautynight #youdeserveit #selfcarerituals #metime #weekendselfcare #selfcareroutine #winddown',
+    imageUrl: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1080',
+    imageDescription: 'Self care bath with candles and products',
   },
   {
     day: 6,
-    caption: `The product that replaced 3 others in my routine:
+    caption: `The one product that replaced THREE others in my routine.
 
-[Product name]
+I used to have 12 products in my skincare routine. Twelve. It took forever, cost a fortune, and honestly? Results were meh.
 
-Simplify your skincare!
+Then I found a product that did the work of three.
 
-Less products = less confusion = better results
+WHAT IT REPLACED:
 
-Anyone else team minimal skincare?`,
-    hashtags: '#minimalskincare #simplify #oneProductWonder #lessIsMore #skincareSimplified #multiTasker #beautyHack #simpleRoutine #skincareMinimalist #effective',
-    imageDescription: 'Minimalist skincare product feature',
+OLD ROUTINE:
+→ Separate hydrating toner
+→ Separate brightening serum  
+→ Separate antioxidant treatment
+→ Three products, three steps, three price tags
+
+NEW ROUTINE:
+→ One multi-functional serum
+→ Does hydrating, brightening, AND antioxidant
+→ One product, one step, one price tag
+
+THE RESULT:
+
+Same results (actually better). Less time. Less money. Less bathroom clutter.
+
+WHY SIMPLIFYING WORKS:
+
+Less products = less potential irritation
+Less steps = more consistent routine
+Less confusion = actually knowing what is working
+
+THE TRUTH ABOUT "LAYERING":
+
+The beauty industry wants you to buy more products. That is their business model.
+
+But your skin does not need 10 layers of stuff. In fact, too many products can cancel each other out or cause irritation.
+
+Sometimes the best thing you can do is SUBTRACT.
+
+HOW TO SIMPLIFY YOUR ROUTINE:
+
+1. List all your products
+2. Write down what each one does
+3. Look for overlap (multiple products doing same thing)
+4. Find multi-taskers that can replace duplicates
+5. Start removing
+
+My routine went from 12 products to 5. My skin got better. My wallet got happier.
+
+Anyone else team minimal skincare? Who has simplified recently? 👇`,
+    hashtags: '#minimalskincare #simplify #oneproductwonder #lessismore #skincaresimplified #multitasker #beautyhack #simpleroutine #skincareminimalist #effective #skincarebasics #fewerproducts #skincaretips #routineoverhaul #declutter',
+    imageUrl: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=1080',
+    imageDescription: 'Minimal skincare routine products',
   },
   {
     day: 7,
-    caption: `One week skincare check-in! ✨
+    caption: `One week skincare check-in. How is your skin doing?
 
-How's your skin feeling?
+I love doing weekly check-ins because it keeps me accountable and helps me notice patterns.
 
-Mine is:
-→ More hydrated
-→ Less breakouts
-→ Actually glowing??
+MY ONE WEEK UPDATE:
 
-Consistency is everything!`,
-    hashtags: '#oneWeek #skincareCheckin #consistency #hydration #glowingSkin #skinProgress #weeklyUpdate #skincareJourney #skincareDiary #results',
-    imageDescription: 'Week one skincare progress',
+HYDRATION: 📈 Way up
+
+My skin feels plump and bouncy. That "well-moisturized" feeling that is hard to describe but you know when you have it.
+
+BREAKOUTS: 📉 Way down
+
+I had one small one starting to form Monday. It never fully developed. My skin is calmer.
+
+TEXTURE: ✨ Improving
+
+Those little bumps on my forehead? Smoother. Not gone, but noticeably better.
+
+GLOW: 💫 Actually visible??
+
+I looked in the mirror yesterday and thought "huh, my skin looks... good?" That does not happen often.
+
+WHAT I ATTRIBUTE IT TO:
+
+1. Consistency - using the same routine morning and night, no skipping
+2. Hydration - drinking more water, using hydrating products
+3. Sleep - actually getting 7+ hours
+4. The new product I started - giving it credit where due
+
+THE BIGGER LESSON:
+
+Skincare is not just products. It is:
+→ Water intake
+→ Sleep quality
+→ Stress management
+→ Diet (somewhat)
+→ NOT touching your face
+
+Products can only do so much if everything else is working against them.
+
+HOW ARE YOU DOING?
+
+If you have been on a skincare journey this week, check in below! What is working? What is not? Let us troubleshoot together! ✨`,
+    hashtags: '#oneweek #skincarecheckin #consistency #hydration #glowingskin #skinprogress #weeklyupdate #skincarejourney #skincarediary #results #skincareaccountability #skincarecommunity #skincareprogress #honestupdate #progress',
+    imageUrl: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=1080',
+    imageDescription: 'Healthy glowing skin one week progress',
   },
   {
     day: 8,
