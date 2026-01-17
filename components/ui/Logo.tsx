@@ -23,6 +23,7 @@ export default function Logo({ className = '', size = 'md', showText = true }: L
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      style={{ filter: 'drop-shadow(0 0 20px rgba(168, 85, 247, 0.6))' }}
     >
       {/* CASH text */}
       <text
@@ -33,18 +34,18 @@ export default function Logo({ className = '', size = 'md', showText = true }: L
         fontWeight="800"
         letterSpacing="-1"
       >
-        <tspan fill="url(#elegantGradient)">CASH</tspan>
+        <tspan fill="url(#premiumGradient)">CASH</tspan>
       </text>
       
       {/* Arrow pointing right and up */}
       <polygon
         points="155,5 240,5 240,45 200,45 200,25 175,25 175,45 155,45"
-        fill="url(#elegantGradient)"
+        fill="url(#premiumGradient)"
       />
       {/* Arrow head */}
       <polygon
         points="200,0 240,0 240,5 205,5"
-        fill="url(#elegantGradient)"
+        fill="url(#premiumGradient)"
       />
       
       {showText && (
@@ -56,18 +57,18 @@ export default function Logo({ className = '', size = 'md', showText = true }: L
           fontSize="32"
           fontWeight="800"
           letterSpacing="8"
-          fill="url(#elegantGradient)"
+          fill="url(#premiumGradient)"
         >
           FORMULA
         </text>
       )}
       
-      {/* Elegant gradient definitions */}
+      {/* Premium gradient definitions */}
       <defs>
-        <linearGradient id="elegantGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#a78bfa" />
-          <stop offset="50%" stopColor="#818cf8" />
-          <stop offset="100%" stopColor="#2dd4bf" />
+        <linearGradient id="premiumGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#a855f7" />
+          <stop offset="50%" stopColor="#ec4899" />
+          <stop offset="100%" stopColor="#8b5cf6" />
         </linearGradient>
       </defs>
     </svg>
@@ -84,29 +85,30 @@ export function LogoIcon({ className = '', size = 32 }: { className?: string; si
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      style={{ filter: 'drop-shadow(0 0 12px rgba(168, 85, 247, 0.7))' }}
     >
       {/* Stylized CF with arrow */}
-      <rect x="0" y="0" width="40" height="40" rx="10" fill="url(#iconElegantGradient)" />
+      <rect x="0" y="0" width="40" height="40" rx="10" fill="url(#iconPremiumGradient)" />
       <text
         x="6"
         y="28"
         fontFamily="system-ui, -apple-system, sans-serif"
         fontSize="20"
         fontWeight="800"
-        fill="#0c0a1d"
+        fill="#050510"
       >
         C
       </text>
       {/* Arrow */}
       <polygon
         points="20,10 36,10 36,18 28,18 28,14 24,14 24,30 20,30"
-        fill="#0c0a1d"
+        fill="#050510"
       />
       
       <defs>
-        <linearGradient id="iconElegantGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#a78bfa" />
-          <stop offset="100%" stopColor="#818cf8" />
+        <linearGradient id="iconPremiumGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#a855f7" />
+          <stop offset="100%" stopColor="#ec4899" />
         </linearGradient>
       </defs>
     </svg>
