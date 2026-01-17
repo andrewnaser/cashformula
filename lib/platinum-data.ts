@@ -6598,3 +6598,521 @@ export const highTicketProducts: HighTicketProduct[] = [
     },
   },
 ];
+
+// NEW FEATURE: Comparison Battle Pages
+export interface ComparisonPage {
+  id: string;
+  title: string;
+  category: string;
+  product1: {
+    name: string;
+    asin: string;
+    price: string;
+    image: string;
+    rating: number;
+    pros: string[];
+  };
+  product2: {
+    name: string;
+    asin: string;
+    price: string;
+    image: string;
+    rating: number;
+    pros: string[];
+  };
+  winner: 1 | 2;
+  verdict: string;
+  whenToChoose1: string;
+  whenToChoose2: string;
+}
+
+// NEW FEATURE: Best Of List Pages
+export interface BestOfList {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: string;
+  intro: string;
+  products: {
+    rank: number;
+    title: string;
+    asin: string;
+    price: string;
+    rating: number;
+    image: string;
+    badge?: string; // "Best Overall", "Best Budget", "Best Premium"
+    why: string;
+    pros: string[];
+  }[];
+}
+
+// NEW FEATURE: Conversion Boosters
+export interface ConversionBooster {
+  id: string;
+  name: string;
+  description: string;
+  type: 'countdown' | 'visitors' | 'recent-sales' | 'urgency' | 'exit-popup';
+  enabled: boolean;
+  settings: Record<string, unknown>;
+}
+
+// NEW FEATURE: Seasonal Calendar
+export interface SeasonalPromotion {
+  month: string;
+  season: string;
+  emoji: string;
+  theme: string;
+  topProducts: string[];
+  postIdeas: string[];
+  tips: string[];
+}
+
+// COMPARISON PAGES DATA
+export const comparisonPages: ComparisonPage[] = [
+  {
+    id: 'comp-1',
+    title: 'Ninja vs Instant Pot Air Fryer: Which One Should You Buy?',
+    category: 'Kitchen',
+    product1: {
+      name: 'Ninja Foodi Air Fryer',
+      asin: 'B07VM28XTR',
+      price: '$149',
+      image: 'https://images.unsplash.com/photo-1585515320310-259814833e62?w=800',
+      rating: 4.8,
+      pros: [
+        'Larger capacity (8 quarts)',
+        'More cooking functions',
+        'Better air frying results',
+        'Dishwasher-safe basket',
+      ],
+    },
+    product2: {
+      name: 'Instant Pot Vortex Air Fryer',
+      asin: 'B07VHFMZHJ',
+      price: '$119',
+      image: 'https://images.unsplash.com/photo-1585515320310-259814833e62?w=800',
+      rating: 4.6,
+      pros: [
+        'Lower price point',
+        'Trusted Instant Pot brand',
+        'Easier to clean',
+        'More compact design',
+      ],
+    },
+    winner: 1,
+    verdict: 'If you cook for a family and want the absolute best air frying results, the Ninja Foodi is worth the extra $30. However, if you are on a budget or have limited counter space, the Instant Pot Vortex is still an excellent choice.',
+    whenToChoose1: 'Choose Ninja if you have a family of 4+, want maximum capacity, and prioritize cooking performance over price.',
+    whenToChoose2: 'Choose Instant Pot if you are on a budget, have limited space, or already love the Instant Pot brand.',
+  },
+  {
+    id: 'comp-2',
+    title: 'Apple Watch vs Fitbit: The Ultimate Smart Watch Showdown',
+    category: 'Fitness',
+    product1: {
+      name: 'Apple Watch Series 9',
+      asin: 'B0CHX1W37Y',
+      price: '$399',
+      image: 'https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=800',
+      rating: 4.8,
+      pros: [
+        'Best app ecosystem',
+        'Seamless iPhone integration',
+        'Most accurate health tracking',
+        'Premium build quality',
+      ],
+    },
+    product2: {
+      name: 'Fitbit Charge 6',
+      asin: 'B0CC634C4Q',
+      price: '$159',
+      image: 'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=800',
+      rating: 4.5,
+      pros: [
+        'Much more affordable',
+        '7-day battery life',
+        'Excellent fitness tracking',
+        'Works with Android & iPhone',
+      ],
+    },
+    winner: 1,
+    verdict: 'For iPhone users who want the best overall experience, Apple Watch is unbeatable. But if you just want fitness tracking and do not need all the smart features, Fitbit Charge 6 offers incredible value.',
+    whenToChoose1: 'Choose Apple Watch if you have an iPhone, want smart features (calls, apps, payments), and can afford the premium.',
+    whenToChoose2: 'Choose Fitbit if you mainly care about fitness tracking, want longer battery life, or are on a budget.',
+  },
+];
+
+// BEST OF LISTS DATA  
+export const bestOfLists: BestOfList[] = [
+  {
+    id: 'best-1',
+    title: 'Top 5 Air Fryers for Busy Families in 2024',
+    subtitle: 'Tested and ranked by cooking performance, capacity, and value',
+    category: 'Kitchen',
+    intro: 'After testing 15+ air fryers over 3 months, these are the clear winners. Whether you are feeding a family of 6 or just cooking for one, there is a perfect option here.',
+    products: [
+      {
+        rank: 1,
+        title: 'Ninja Foodi 2-Basket Air Fryer',
+        asin: 'B0B BJMVSST',
+        price: '$179',
+        rating: 4.8,
+        image: 'https://images.unsplash.com/photo-1585515320310-259814833e62?w=800',
+        badge: 'Best Overall',
+        why: 'Two independent baskets mean you can cook chicken and fries at different temperatures simultaneously. Game-changer for families.',
+        pros: [
+          'Cook two foods at once with DualZone technology',
+          'Massive 10-quart capacity',
+          'Consistently crispy results',
+          'Dishwasher-safe baskets',
+        ],
+      },
+      {
+        rank: 2,
+        title: 'Cosori Pro LE Air Fryer',
+        asin: 'B0B56ZGVLW',
+        price: '$119',
+        rating: 4.7,
+        image: 'https://images.unsplash.com/photo-1585515320310-259814833e62?w=800',
+        badge: 'Best Value',
+        why: 'Incredible performance at a budget price. My most-recommended air fryer for beginners.',
+        pros: [
+          'Under $120 with premium features',
+          'Easy to use with preset buttons',
+          'Perfect size for 3-4 people',
+          'Quieter than most air fryers',
+        ],
+      },
+      {
+        rank: 3,
+        title: 'Instant Pot Vortex Plus',
+        asin: 'B07VHFMZHJ',
+        price: '$139',
+        rating: 4.6,
+        image: 'https://images.unsplash.com/photo-1585515320310-259814833e62?w=800',
+        badge: 'Best for Small Kitchens',
+        why: 'Compact footprint without sacrificing cooking power. Perfect for apartments or small counter spaces.',
+        pros: [
+          'Slim design saves counter space',
+          'Trusted Instant Pot brand',
+          '6-in-1 functionality',
+          'Easy to clean and store',
+        ],
+      },
+      {
+        rank: 4,
+        title: 'Gourmia Digital Air Fryer',
+        asin: 'B088HS37RH',
+        price: '$79',
+        rating: 4.5,
+        image: 'https://images.unsplash.com/photo-1585515320310-259814833e62?w=800',
+        badge: 'Best Budget',
+        why: 'Under $80 and still delivers crispy results. Perfect first air fryer if you are testing the waters.',
+        pros: [
+          'Incredibly affordable',
+          'Simple, straightforward operation',
+          'Solid build quality for the price',
+          'Great for singles or couples',
+        ],
+      },
+      {
+        rank: 5,
+        title: 'Breville Smart Oven Air Fryer',
+        asin: 'B01N5UPTZS',
+        price: '$399',
+        rating: 4.7,
+        image: 'https://images.unsplash.com/photo-1585515320310-259814833e62?w=800',
+        badge: 'Best Premium',
+        why: 'Yes it is expensive. But this replaces your toaster oven, air fryer, and more. Best countertop appliance I own.',
+        pros: [
+          'Replaces 4+ appliances',
+          'Massive capacity fits whole chicken',
+          'Convection oven + air fryer combo',
+          'Premium Breville quality',
+        ],
+      },
+    ],
+  },
+];
+
+// SEASONAL CALENDAR DATA
+export const seasonalCalendar: SeasonalPromotion[] = [
+  {
+    month: 'January',
+    season: 'New Year / Winter',
+    emoji: '🎯',
+    theme: 'New Year, New You - Health & Organization',
+    topProducts: [
+      'Fitness equipment (resistance bands, yoga mats, dumbbells)',
+      'Planners and organizers',
+      'Air fryers and healthy cooking tools',
+      'Water bottles and meal prep containers',
+    ],
+    postIdeas: [
+      'New Year fitness goals content',
+      '"What I am using to stay consistent this year"',
+      'Home organization before/afters',
+      'Healthy meal prep routines',
+    ],
+    tips: [
+      'People are motivated in January - capitalize on resolution energy',
+      'Focus on "sustainable" and "easy to stick with" messaging',
+      'Bundle products together (complete home gym setup)',
+    ],
+  },
+  {
+    month: 'February',
+    season: 'Valentine\'s Day / Winter',
+    emoji: '💝',
+    theme: 'Gifts & Self-Care',
+    topProducts: [
+      'Massage guns and spa tools',
+      'Coffee makers and tea sets',
+      'Cozy blankets and home comfort',
+      'Smart home devices',
+    ],
+    postIdeas: [
+      '"Treat yourself" self-care routines',
+      'Gift guides for partners',
+      'Cozy night-in product recommendations',
+      'Home date night setups',
+    ],
+    tips: [
+      'Valentine\'s Day is big for self-purchase too',
+      'Focus on comfort and relaxation',
+      'Bundle "couples gifts" or "gifts for yourself"',
+    ],
+  },
+  {
+    month: 'March',
+    season: 'Spring Cleaning',
+    emoji: '🌸',
+    theme: 'Clean, Organize, Refresh',
+    topProducts: [
+      'Vacuum cleaners and robot vacuums',
+      'Steam mops and cleaning tools',
+      'Storage and organization solutions',
+      'Air purifiers',
+    ],
+    postIdeas: [
+      'Spring cleaning routines',
+      '"Products that make cleaning easier"',
+      'Before/after home transformations',
+      'Decluttering tips with product recommendations',
+    ],
+    tips: [
+      'Spring cleaning is a huge buying trigger',
+      'Focus on "makes life easier" messaging',
+      'Show dramatic before/afters',
+    ],
+  },
+  {
+    month: 'April',
+    season: 'Spring / Easter',
+    emoji: '🐰',
+    theme: 'Outdoor Living & Gardening',
+    topProducts: [
+      'Gardening tools and planters',
+      'Outdoor furniture and grills',
+      'Lawn care equipment',
+      'Outdoor security cameras',
+    ],
+    postIdeas: [
+      'Backyard makeover content',
+      'Gardening for beginners',
+      '"Best tools for your lawn"',
+      'Outdoor entertaining setups',
+    ],
+    tips: [
+      'People start thinking about outdoor spaces',
+      'Focus on "enjoy your backyard" messaging',
+      'Show outdoor transformation content',
+    ],
+  },
+  {
+    month: 'May',
+    season: 'Mother\'s Day / Late Spring',
+    emoji: '👩',
+    theme: 'Gifts for Mom & Home Improvement',
+    topProducts: [
+      'Kitchen appliances (Instant Pot, stand mixers)',
+      'Smart home devices',
+      'Wellness products (massagers, aromatherapy)',
+      'Coffee and tea makers',
+    ],
+    postIdeas: [
+      'Mother\'s Day gift guides',
+      '"What moms actually want"',
+      'Home chef tools and gadgets',
+      'Self-care product recommendations',
+    ],
+    tips: [
+      'Mother\'s Day is massive for gift purchases',
+      'Focus on practical but thoughtful gifts',
+      'Use "my mom loved this" messaging',
+    ],
+  },
+  {
+    month: 'June',
+    season: 'Father\'s Day / Summer',
+    emoji: '👔',
+    theme: 'Gifts for Dad & Outdoor Fun',
+    topProducts: [
+      'Grills and smokers',
+      'Power tools',
+      'Tech gadgets and smart home',
+      'Outdoor gear (camping, fishing)',
+    ],
+    postIdeas: [
+      'Father\'s Day gift guides',
+      '"Gifts dad will actually use"',
+      'Grilling and BBQ content',
+      'Tech reviews and comparisons',
+    ],
+    tips: [
+      'Focus on practical, high-value items',
+      'Dads love tools and tech',
+      'Use "upgraded his setup" messaging',
+    ],
+  },
+  {
+    month: 'July',
+    season: 'Summer / Amazon Prime Day',
+    emoji: '☀️',
+    theme: 'Prime Day Deals & Summer Essentials',
+    topProducts: [
+      'Fans and portable AC units',
+      'Outdoor entertainment (speakers, projectors)',
+      'Pool and beach gear',
+      'Travel accessories',
+    ],
+    postIdeas: [
+      'Prime Day deal breakdowns',
+      '"What I am buying during Prime Day"',
+      'Summer essentials roundups',
+      'Beat the heat product recommendations',
+    ],
+    tips: [
+      'HUGE sales month - capitalize on deal hunters',
+      'Focus on "limited time" urgency',
+      'Create "deal alert" style content',
+    ],
+  },
+  {
+    month: 'August',
+    season: 'Back to School',
+    emoji: '🎒',
+    theme: 'Back to School & End of Summer',
+    topProducts: [
+      'Laptops and tablets',
+      'Desk accessories and organizers',
+      'Backpacks and lunch boxes',
+      'Smart home for students',
+    ],
+    postIdeas: [
+      'Back to school essentials',
+      'Dorm room setups',
+      'Study productivity tools',
+      'Parent survival products',
+    ],
+    tips: [
+      'Parents are shopping heavily',
+      'Focus on productivity and organization',
+      'Bundle "complete setups"',
+    ],
+  },
+  {
+    month: 'September',
+    season: 'Fall / Labor Day',
+    emoji: '🍂',
+    theme: 'Fall Transitions & Home Comfort',
+    topProducts: [
+      'Coffee makers and cozy kitchen items',
+      'Heaters and thermostats',
+      'Fall decor',
+      'Indoor fitness equipment',
+    ],
+    postIdeas: [
+      'Fall home refresh content',
+      'Cozy morning routines',
+      'Indoor workout setups',
+      '"Getting ready for fall" hauls',
+    ],
+    tips: [
+      'People nest in fall - home comfort products shine',
+      'Focus on cozy, warm, comforting messaging',
+      'Show seasonal transitions',
+    ],
+  },
+  {
+    month: 'October',
+    season: 'Halloween / Fall',
+    emoji: '🎃',
+    theme: 'Halloween & Fall Entertaining',
+    topProducts: [
+      'Decor and lighting',
+      'Party supplies',
+      'Security cameras',
+      'Baking tools',
+    ],
+    postIdeas: [
+      'Halloween decorating tips',
+      'Party hosting essentials',
+      'Fall baking content',
+      'Home security for trick-or-treaters',
+    ],
+    tips: [
+      'Fun, seasonal content performs well',
+      'Focus on entertaining and decorating',
+      'Show creative uses of products',
+    ],
+  },
+  {
+    month: 'November',
+    season: 'Black Friday / Thanksgiving',
+    emoji: '🦃',
+    theme: 'BLACK FRIDAY - Biggest Month!',
+    topProducts: [
+      'EVERYTHING - all categories',
+      'Big-ticket items (TVs, appliances)',
+      'Holiday gift ideas',
+      'Kitchen tools for Thanksgiving',
+    ],
+    postIdeas: [
+      'Black Friday deal alerts',
+      '"Top 10 deals you cannot miss"',
+      'Gift guides for everyone',
+      'Thanksgiving cooking tool roundups',
+    ],
+    tips: [
+      'This is THE month - go all in',
+      'Post multiple times per day',
+      'Focus heavily on urgency and deals',
+      'Create comparison and "best of" content',
+    ],
+  },
+  {
+    month: 'December',
+    season: 'Christmas / Holidays',
+    emoji: '🎄',
+    theme: 'Holiday Gifts & Last-Minute Shopping',
+    topProducts: [
+      'Gift-worthy tech gadgets',
+      'Kitchen appliances',
+      'Smart home devices',
+      'Toys and games',
+    ],
+    postIdeas: [
+      'Last-minute gift guides',
+      '"What I am gifting this year"',
+      'Holiday hosting essentials',
+      'New Year prep products',
+    ],
+    tips: [
+      'First 3 weeks are gift-focused',
+      'Last week is self-purchase and gift cards',
+      'Focus on "arrives before Christmas" messaging',
+      'Start teasing January products end of month',
+    ],
+  },
+];
+
