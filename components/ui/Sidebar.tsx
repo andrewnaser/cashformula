@@ -149,24 +149,26 @@ export default function Sidebar() {
       <Link
         href={item.href}
         onClick={() => setIsMobileOpen(false)}
-        className={`relative flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
+        className={`relative flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group ${
           active
-            ? 'bg-gold-500/10 text-gold-400'
+            ? 'bg-neon-cyan/10 text-neon-cyan'
             : item.highlight
-            ? 'text-gold-400/80 hover:bg-navy-800 hover:text-gold-400'
+            ? 'text-pink-neon/80 hover:bg-navy-800 hover:text-pink-neon'
             : 'text-navy-400 hover:bg-navy-800 hover:text-white'
         }`}
+        style={active ? { boxShadow: '0 0 20px rgba(0, 245, 255, 0.15)' } : {}}
       >
         {active && (
           <motion.div
             layoutId="nav-active"
-            className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-gold-400 rounded-r-full"
+            className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-gradient-to-b from-neon-cyan to-purple-neon rounded-r-full"
+            style={{ boxShadow: '0 0 10px rgba(0, 245, 255, 0.8)' }}
           />
         )}
         <Icon />
         <span className="flex-1 text-sm font-medium leading-tight">{item.name}</span>
         {item.badge && (
-          <span className="px-2 py-0.5 text-[10px] font-bold bg-gradient-to-r from-gold-400 to-gold-500 text-navy-950 rounded-full uppercase">
+          <span className="px-2 py-0.5 text-[10px] font-bold bg-gradient-to-r from-neon-cyan to-purple-neon text-navy-950 rounded-full uppercase">
             {item.badge}
           </span>
         )}
@@ -179,7 +181,8 @@ export default function Sidebar() {
       {/* Mobile menu button */}
       <button
         onClick={() => setIsMobileOpen(!isMobileOpen)}
-        className="fixed top-4 left-4 z-50 lg:hidden p-2 rounded-xl bg-navy-800 border border-navy-700"
+        className="fixed top-4 left-4 z-50 lg:hidden p-2 rounded-xl bg-navy-800/80 border border-neon-cyan/30 backdrop-blur-sm"
+        style={{ boxShadow: '0 0 15px rgba(0, 245, 255, 0.2)' }}
       >
         {isMobileOpen ? <CloseIcon /> : <MenuIcon />}
       </button>
@@ -187,7 +190,7 @@ export default function Sidebar() {
       {/* Overlay */}
       {isMobileOpen && (
         <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+          className="fixed inset-0 bg-black/70 backdrop-blur-md z-40 lg:hidden"
           onClick={() => setIsMobileOpen(false)}
         />
       )}
@@ -198,7 +201,7 @@ export default function Sidebar() {
           isMobileOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="h-full flex flex-col glass-panel border-r border-navy-800/50">
+        <div className="h-full flex flex-col glass-panel border-r border-neon-cyan/10">
           {/* Logo */}
           <div className="p-5">
             <Link href="/app">
@@ -208,7 +211,7 @@ export default function Sidebar() {
 
           {/* Menu label */}
           <div className="px-6 py-2">
-            <span className="text-[10px] font-semibold text-navy-600 uppercase tracking-wider">Menu</span>
+            <span className="text-[10px] font-semibold text-neon-cyan/60 uppercase tracking-wider">Menu</span>
           </div>
 
           {/* Navigation */}
@@ -224,7 +227,7 @@ export default function Sidebar() {
 
             {/* Premium Features */}
             <div className="px-4 py-3 mt-6">
-              <span className="text-[10px] font-semibold text-gold-500 uppercase tracking-wider flex items-center gap-2">
+              <span className="text-[10px] font-semibold text-purple-neon uppercase tracking-wider flex items-center gap-2">
                 <GoldIcon />
                 Premium Features
               </span>
@@ -239,7 +242,7 @@ export default function Sidebar() {
             </ul>
 
             {/* Resources */}
-            <div className="my-4 border-t border-navy-800" />
+            <div className="my-4 border-t border-neon-cyan/10" />
             <ul className="space-y-1">
               {navItems.slice(5).map((item) => (
                 <li key={item.href}>
@@ -250,10 +253,10 @@ export default function Sidebar() {
           </nav>
 
           {/* Sign out */}
-          <div className="p-4 border-t border-navy-800">
+          <div className="p-4 border-t border-neon-cyan/10">
             <button
               onClick={handleSignOut}
-              className="flex items-center gap-3 w-full px-4 py-3 rounded-xl text-navy-500 hover:bg-navy-800 hover:text-white transition-all duration-200"
+              className="flex items-center gap-3 w-full px-4 py-3 rounded-xl text-navy-500 hover:bg-pink-neon/10 hover:text-pink-neon transition-all duration-300"
             >
               <LogoutIcon />
               <span className="text-sm font-medium">Sign Out</span>

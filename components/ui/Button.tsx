@@ -1,24 +1,36 @@
 'use client';
 
 import { forwardRef, ButtonHTMLAttributes } from 'react';
-import { motion, HTMLMotionProps } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'danger';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'danger' | 'neon-pink' | 'neon-purple';
   size?: 'sm' | 'md' | 'lg';
   isLoading?: boolean;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className = '', variant = 'primary', size = 'md', isLoading, children, disabled, ...props }, ref) => {
-    const baseStyles = 'inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed';
+  ({ className = '', variant = 'primary', size = 'md', isLoading, children, disabled, style, ...props }, ref) => {
+    const baseStyles = 'inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed';
 
     const variants = {
-      primary: 'bg-gradient-to-r from-gold-400 to-gold-500 text-navy-950 hover:shadow-gold-lg hover:scale-[1.02] active:scale-[0.98]',
-      secondary: 'bg-cash-green text-navy-950 hover:bg-cash-emerald hover:shadow-lg',
+      primary: 'bg-gradient-to-r from-neon-cyan to-purple-neon text-navy-950 hover:scale-[1.02] active:scale-[0.98]',
+      secondary: 'bg-cash-green text-navy-950 hover:bg-cash-emerald',
       ghost: 'bg-transparent text-navy-300 hover:bg-navy-800 hover:text-white',
-      outline: 'bg-transparent border border-navy-600 text-white hover:bg-navy-800 hover:border-navy-500',
+      outline: 'bg-transparent border border-neon-cyan/40 text-white hover:bg-neon-cyan/10 hover:border-neon-cyan',
       danger: 'bg-red-500/10 text-red-400 border border-red-500/30 hover:bg-red-500/20',
+      'neon-pink': 'bg-gradient-to-r from-pink-neon to-purple-neon text-navy-950 hover:scale-[1.02] active:scale-[0.98]',
+      'neon-purple': 'bg-gradient-to-r from-purple-neon to-neon-cyan text-navy-950 hover:scale-[1.02] active:scale-[0.98]',
+    };
+
+    const shadows = {
+      primary: '0 0 20px rgba(0, 245, 255, 0.3), 0 0 40px rgba(0, 245, 255, 0.1)',
+      secondary: '0 0 20px rgba(0, 255, 136, 0.3)',
+      ghost: 'none',
+      outline: 'none',
+      danger: '0 0 20px rgba(239, 68, 68, 0.2)',
+      'neon-pink': '0 0 20px rgba(255, 0, 229, 0.3), 0 0 40px rgba(255, 0, 229, 0.1)',
+      'neon-purple': '0 0 20px rgba(191, 0, 255, 0.3), 0 0 40px rgba(191, 0, 255, 0.1)',
     };
 
     const sizes = {
@@ -32,6 +44,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
         disabled={disabled || isLoading}
+        style={{ boxShadow: shadows[variant], ...style }}
         {...props}
       >
         {isLoading && (
