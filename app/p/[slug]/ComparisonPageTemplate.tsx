@@ -32,15 +32,17 @@ export default function ComparisonPageTemplate({ page }: ComparisonPageTemplateP
   const { product_data, generated_content, affiliate_link, hero_image } = page;
 
   // Extract comparison-specific data
-  const product1 = product_data?.product1;
-  const product2 = product_data?.product2;
-  const winner = product_data?.winner || 1;
-  const comparisonTable = generated_content?.comparisonTable || [];
-  const sections = generated_content?.sections || [];
-  const product1Details = generated_content?.product1Details;
-  const product2Details = generated_content?.product2Details;
-  const finalVerdict = generated_content?.finalVerdict || '';
-  const faq = generated_content?.faq || [];
+  // For comparison pages, product_data has a different structure
+  const comparisonData = product_data as any;
+  const product1 = comparisonData?.product1;
+  const product2 = comparisonData?.product2;
+  const winner = comparisonData?.winner || 1;
+  const comparisonTable = (generated_content as any)?.comparisonTable || [];
+  const sections = (generated_content as any)?.sections || [];
+  const product1Details = (generated_content as any)?.product1Details;
+  const product2Details = (generated_content as any)?.product2Details;
+  const finalVerdict = (generated_content as any)?.finalVerdict || '';
+  const faq = (generated_content as any)?.faq || [];
 
   // Viewer count fluctuation
   useEffect(() => {

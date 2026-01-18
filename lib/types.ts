@@ -17,11 +17,13 @@ export interface Page {
   affiliate_link: string;
   public_slug: string;
   status: 'draft' | 'published';
-  product_data: ProductData;
+  page_type?: string; // 'single_product' or 'comparison'
+  product_data: ProductData | any; // Can be extended for comparison pages
   amazon_reviews: AmazonReview[];
-  generated_content: GeneratedContent;
+  generated_content: GeneratedContent | any; // Can be extended for comparison pages
   title: string;
   hero_image: string | null;
+  conversion_boosters?: string[];
 }
 
 export interface DfyPage {

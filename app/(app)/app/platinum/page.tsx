@@ -757,7 +757,7 @@ export default function PlatinumPage() {
                         ))}
                       </div>
                       <span className="text-xs text-purple-primary/60">
-                        {product.rating} ({product.reviews.toLocaleString()})
+                        {product.rating} ({(product.reviews || 0).toLocaleString()})
                       </span>
                     </div>
 
@@ -883,7 +883,7 @@ export default function PlatinumPage() {
                         <span>{comparison.product1.rating}</span>
                       </div>
                     </div>
-                    <p className="text-xs text-center text-purple-primary/60">{comparison.product1.reviews.toLocaleString()} reviews</p>
+                    <p className="text-xs text-center text-purple-primary/60">{(comparison.product1.reviews || 0).toLocaleString()} reviews</p>
                   </div>
 
                   {/* Product 2 */}
@@ -906,7 +906,7 @@ export default function PlatinumPage() {
                         <span>{comparison.product2.rating}</span>
                       </div>
                     </div>
-                    <p className="text-xs text-center text-purple-primary/60">{comparison.product2.reviews.toLocaleString()} reviews</p>
+                    <p className="text-xs text-center text-purple-primary/60">{(comparison.product2.reviews || 0).toLocaleString()} reviews</p>
                   </div>
                 </div>
 
@@ -1529,7 +1529,10 @@ export default function PlatinumPage() {
         onClose={() => setShowSuccessModal(false)}
         title="Comparison Page Generated!"
         message="Your comparison page is ready and published. Share it to start earning commissions on BOTH products!"
-        pageUrl={createdPageUrl}
+        primaryAction={{
+          label: 'View Page',
+          onClick: () => router.push(createdPageUrl),
+        }}
       />
     </motion.div>
   );

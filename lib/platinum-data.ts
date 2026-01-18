@@ -6606,7 +6606,8 @@ export interface ComparisonPageProduct {
   price: string;
   image: string;
   rating: number;
-  reviews: number;
+  reviews?: number;
+  pros?: string[];
 }
 
 export interface ComparisonPage {
@@ -7040,44 +7041,15 @@ Full comparison link in bio!
     },
   },
 ];
-    product1: {
-      name: 'Ninja Foodi Air Fryer',
-      asin: 'B07VM28XTR',
-      price: '$149',
-      image: 'https://images.unsplash.com/photo-1585515320310-259814833e62?w=800',
-      rating: 4.8,
-      pros: [
-        'Larger capacity (8 quarts)',
-        'More cooking functions',
-        'Better air frying results',
-        'Dishwasher-safe basket',
-      ],
-    },
-    product2: {
-      name: 'Instant Pot Vortex Air Fryer',
-      asin: 'B07VHFMZHJ',
-      price: '$119',
-      image: 'https://images.unsplash.com/photo-1585515320310-259814833e62?w=800',
-      rating: 4.6,
-      pros: [
-        'Lower price point',
-        'Trusted Instant Pot brand',
-        'Easier to clean',
-        'More compact design',
-      ],
-    },
-    winner: 1,
-    verdict: 'If you cook for a family and want the absolute best air frying results, the Ninja Foodi is worth the extra $30. However, if you are on a budget or have limited counter space, the Instant Pot Vortex is still an excellent choice.',
-    whenToChoose1: 'Choose Ninja if you have a family of 4+, want maximum capacity, and prioritize cooking performance over price.',
-    whenToChoose2: 'Choose Instant Pot if you are on a budget, have limited space, or already love the Instant Pot brand.',
-  },
+
+// BEST OF LISTS DATA  
+export const bestOfLists: BestOfList[] = [
   {
-    id: 'comp-2',
-    title: 'Apple Watch vs Fitbit: The Ultimate Smart Watch Showdown',
-    category: 'Fitness',
-    product1: {
-      name: 'Apple Watch Series 9',
-      asin: 'B0CHX1W37Y',
+    id: 'best-1',
+    title: 'Top 5 Air Fryers for Busy Families in 2024',
+    subtitle: 'Tested and ranked by cooking performance, capacity, and value',
+    category: 'Kitchen',
+    intro: 'After testing 15+ air fryers over 3 months, these are the clear winners. Whether you are feeding a family of 6 or just cooking for one, there is a perfect option here.',
       price: '$399',
       image: 'https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=800',
       rating: 4.8,

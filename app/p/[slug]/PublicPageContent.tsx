@@ -32,36 +32,10 @@ interface PublicPageContentProps {
 }
 
 export default function PublicPageContent({ page }: PublicPageContentProps) {
-  // Check page type and render appropriate template
-  if (page.page_type === 'comparison') {
-    return <ComparisonPageTemplate page={page} />;
-  }
-
-  // Default: Single product template
+  // Always call hooks at the top level (before any returns)
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 47, seconds: 33 });
   const [viewerCount, setViewerCount] = useState(127);
-
-  const { product_data, generated_content, amazon_reviews, affiliate_link, hero_image } = page;
-  const reviews = amazon_reviews as AmazonReview[];
-
-  // Extract product data with proper types
-  const productTitle = String(product_data?.title || '');
-  const productPrice = String(product_data?.price || '');
-  const productRating = Number(product_data?.rating) || 4.8;
-  const productReviewsCount = Number(product_data?.reviews_count) || 10000;
-
-  // Extract generated content with proper types
-  const rawContentTitle = String(generated_content?.title || productTitle);
-  // Create a shorter headline for display - use a cleaner version
-  const contentTitle = rawContentTitle.length > 80 
-    ? rawContentTitle.substring(0, 80).trim() + '...'
-    : rawContentTitle;
-  const contentOverview = String(generated_content?.overview || '');
-  const pros = (generated_content?.pros as string[]) || [];
-  const cons = (generated_content?.cons as string[]) || [];
-  const sections = (generated_content?.sections as Array<{ heading: string; content: string }>) || [];
-  const faq = (generated_content?.faq as Array<{ question: string; answer: string }>) || [];
 
   // Countdown timer
   useEffect(() => {
@@ -87,6 +61,34 @@ export default function PublicPageContent({ page }: PublicPageContentProps) {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  // Check page type and render appropriate template
+  if (page.page_type === 'comparison') {
+    return <ComparisonPageTemplate page={page} />;
+  }
+
+  // Default: Single product template
+
+  const { product_data, generated_content, amazon_reviews, affiliate_link, hero_image } = page;
+  const reviews = amazon_reviews as AmazonReview[];
+
+  // Extract product data with proper types
+  const productTitle = String(product_data?.title || '');
+  const productPrice = String(product_data?.price || '');
+  const productRating = Number(product_data?.rating) || 4.8;
+  const productReviewsCount = Number(product_data?.reviews_count) || 10000;
+
+  // Extract generated content with proper types
+  const rawContentTitle = String(generated_content?.title || productTitle);
+  // Create a shorter headline for display - use a cleaner version
+  const contentTitle = rawContentTitle.length > 80 
+    ? rawContentTitle.substring(0, 80).trim() + '...'
+    : rawContentTitle;
+  const contentOverview = String(generated_content?.overview || '');
+  const pros = (generated_content?.pros as string[]) || [];
+  const cons = (generated_content?.cons as string[]) || [];
+  const sections = (generated_content?.sections as Array<{ heading: string; content: string }>) || [];
+  const faq = (generated_content?.faq as Array<{ question: string; answer: string }>) || [];
 
   const CTAButton = ({ large = false, className = '' }: { large?: boolean; className?: string }) => (
     <a
