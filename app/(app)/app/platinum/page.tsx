@@ -17,6 +17,7 @@ import Button from '@/components/ui/Button';
 import Confetti from '@/components/ui/Confetti';
 import VideoPlaceholder from '@/components/ui/VideoPlaceholder';
 import AffiliateModal from '@/components/ui/AffiliateModal';
+import MultiProductModal from '@/components/ui/MultiProductModal';
 import SuccessModal from '@/components/ui/SuccessModal';
 
 // Icons
@@ -135,10 +136,14 @@ export default function PlatinumPage() {
   
   // Modal states
   const [showAffiliateModal, setShowAffiliateModal] = useState(false);
+  const [showMultiProductModal, setShowMultiProductModal] = useState(false);
   const [selectedComparison, setSelectedComparison] = useState<ComparisonPage | null>(null);
+  const [selectedBestOf, setSelectedBestOf] = useState<any | null>(null);
+  const [selectedSeasonal, setSelectedSeasonal] = useState<{month: string; productIndex: number; productName: string} | null>(null);
   const [generating, setGenerating] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [createdPageUrl, setCreatedPageUrl] = useState('');
+  const [modalType, setModalType] = useState<'comparison' | 'bestof' | 'seasonal'>('comparison');
 
   useEffect(() => {
     const visited = localStorage.getItem('platinum_visited');
@@ -169,43 +174,108 @@ export default function PlatinumPage() {
 
   const handleOpenComparisonModal = (comparison: ComparisonPage) => {
     setSelectedComparison(comparison);
+    setModalType('comparison');
     setShowAffiliateModal(true);
   };
 
-  const handleGenerateComparison = async (data: {
-    affiliateLink1: string;
+  const handleOpenBestOfModal = (list: any) => {
+    setSelectedBestOf(list);
+    setModalType('bestof');
+    setShowMultiProductModal(true);
+  };
+
+  const handleOpenSeasonalModal = (month: string, productIndex: number) => {
+    const seasonal = seasonalCalendar.find(s => s.month === month);
+    if (seasonal) {
+      setSelectedSeasonal({ 
+        month, 
+        productIndex,
+        productName: seasonal.topProducts[productIndex]
+      });
+      setModalType('seasonal');
+      setShowMultiProductModal(true);
+    }
+  };
+
+  const handleGenerate = async (data: {
+    affiliateLink1?: string;
     affiliateLink2?: string;
     boosters: string[];
+    affiliateLinks?: string[]; // For best-of lists
+    asin?: string; // For seasonal products
   }) => {
-    if (!selectedComparison) return;
-
     setGenerating(true);
 
     try {
-      const response = await fetch('/api/generate/comparison', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          comparisonId: selectedComparison.id,
-          affiliateLink1: data.affiliateLink1,
-          affiliateLink2: data.affiliateLink2,
-          boosters: data.boosters,
-        }),
-      });
+      if (modalType === 'comparison' && selectedComparison) {
+        const response = await fetch('/api/generate/comparison', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            comparisonId: selectedComparison.id,
+            affiliateLink1: data.affiliateLink1,
+            affiliateLink2: data.affiliateLink2,
+            boosters: data.boosters,
+          }),
+        });
 
-      const result = await response.json();
+        const result = await response.json();
 
-      if (!response.ok) {
-        throw new Error(result.error || 'Failed to generate page');
+        if (!response.ok) {
+          throw new Error(result.error || 'Failed to generate page');
+        }
+
+        setCreatedPageUrl(result.page.url);
+        setShowAffiliateModal(false);
+        setShowSuccessModal(true);
+        setShowConfetti(true);
+      } else if (modalType === 'bestof' && selectedBestOf) {
+        const response = await fetch('/api/generate/bestof', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            listId: selectedBestOf.id,
+            affiliateLinks: data.affiliateLinks,
+            boosters: data.boosters,
+          }),
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.error || 'Failed to generate page');
+        }
+
+        setCreatedPageUrl(result.page.url);
+        setShowMultiProductModal(false);
+        setShowSuccessModal(true);
+        setShowConfetti(true);
+      } else if (modalType === 'seasonal' && selectedSeasonal) {
+        const response = await fetch('/api/generate/seasonal', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            month: selectedSeasonal.month,
+            productIndex: selectedSeasonal.productIndex,
+            asin: data.asin,
+            affiliateLink: data.affiliateLink1,
+            boosters: data.boosters,
+          }),
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.error || 'Failed to generate page');
+        }
+
+        setCreatedPageUrl(result.page.url);
+        setShowMultiProductModal(false);
+        setShowSuccessModal(true);
+        setShowConfetti(true);
       }
-
-      // Success!
-      setCreatedPageUrl(result.page.url);
-      setShowAffiliateModal(false);
-      setShowSuccessModal(true);
-      setShowConfetti(true);
     } catch (error) {
-      console.error('Generate comparison error:', error);
+      console.error('Generate page error:', error);
       alert(error instanceof Error ? error.message : 'Failed to generate page');
     } finally {
       setGenerating(false);
@@ -971,16 +1041,16 @@ export default function PlatinumPage() {
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-white mb-2">Best Of Lists - Ranked Product Pages</h3>
                   <p className="text-purple-primary/80 leading-relaxed mb-4">
-                    These are curated &quot;Top 5&quot; style lists that rank the best products in each category. List posts get MASSIVE engagement because they provide quick value and satisfy people&apos;s desire for the &quot;best&quot; option. Each product is ranked with clear reasoning.
+                    Generate complete &quot;Top 5&quot; style ranked product pages. These lists get MASSIVE engagement because they provide quick value and help people find the &quot;best&quot; option fast. Each product is ranked with clear reasoning and you earn commissions on ALL products!
                   </p>
                   <div className="bg-emerald-primary/10 p-4 rounded-lg border border-emerald-primary/20">
                     <p className="text-sm text-emerald-primary/90 font-bold mb-2">💡 HOW TO USE:</p>
                     <ol className="text-sm text-purple-primary/70 space-y-1 list-decimal list-inside">
-                      <li>Review the full list below - each product has a rank and reasoning</li>
-                      <li>Copy the entire list content with one click</li>
-                      <li>Create a page and add your affiliate links for each product</li>
-                      <li>Share with: &quot;I tested 15 air fryers - here are the top 5 →&quot;</li>
-                      <li>Tip: People love clicking on #1 ranked items!</li>
+                      <li>Choose a list below (Air Fryers or Fitness Trackers)</li>
+                      <li>Click &quot;Generate Best-Of Page&quot;</li>
+                      <li>Add your affiliate links for ALL 5 products</li>
+                      <li>Select conversion boosters (optional)</li>
+                      <li>Share with: &quot;I tested 15 products - here are the top 5 →&quot;</li>
                     </ol>
                   </div>
                 </div>
@@ -1054,23 +1124,11 @@ export default function PlatinumPage() {
 
                 <Button
                   variant="primary"
-                  onClick={() => {
-                    const content = `${list.title}\n${list.subtitle}\n\n${list.intro}\n\n${list.products.map(p => `#${p.rank} - ${p.title}${p.badge ? ` [${p.badge}]` : ''}\nPrice: ${p.price} | Rating: ${p.rating}★\n\nWhy: ${p.why}\n\nKey Features:\n${p.pros.map(pr => `✓ ${pr}`).join('\n')}`).join('\n\n---\n\n')}`;
-                    navigator.clipboard.writeText(content);
-                    setCopiedId(list.id);
-                    setTimeout(() => setCopiedId(null), 2000);
-                  }}
+                  onClick={() => handleOpenBestOfModal(list)}
                   className="w-full"
                 >
-                  {copiedId === list.id ? (
-                    <>
-                      <CheckIcon /> Copied!
-                    </>
-                  ) : (
-                    <>
-                      <CopyIcon /> Copy Complete List
-                    </>
-                  )}
+                  <span className="text-xl">🚀</span>
+                  Generate Best-Of Page
                 </Button>
               </div>
             ))}
@@ -1093,16 +1151,16 @@ export default function PlatinumPage() {
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-white mb-2">12-Month Seasonal Promotion Calendar</h3>
                   <p className="text-purple-primary/80 leading-relaxed mb-4">
-                    This is your year-round roadmap for what to promote and when. Each month has specific products that sell better due to seasons, holidays, and shopping patterns. Follow this calendar and you&apos;ll always know exactly what to focus on.
+                    Generate profit pages for seasonal products that sell best each month. Each month has specific products that perform better due to seasons, holidays, and shopping patterns. Create timely pages and you&apos;ll always know exactly what to promote!
                   </p>
                   <div className="bg-rose-primary/10 p-4 rounded-lg border border-rose-primary/20">
                     <p className="text-sm text-rose-primary/90 font-bold mb-2">💡 HOW TO USE:</p>
                     <ol className="text-sm text-purple-primary/70 space-y-1 list-decimal list-inside">
-                      <li>Check what month it is and read that month&apos;s strategy</li>
-                      <li>See which products sell best during that time</li>
-                      <li>Use the post ideas to create timely, relevant content</li>
-                      <li>Follow the pro tips to maximize your earnings</li>
-                      <li>Plan ahead - start promoting 2-3 weeks BEFORE each season</li>
+                      <li>Check what month it is and see that month&apos;s top products</li>
+                      <li>Click &quot;Generate Page&quot; on any product</li>
+                      <li>Add the product ASIN and your affiliate link</li>
+                      <li>Select conversion boosters (optional)</li>
+                      <li>Share with seasonal angle: &quot;Perfect for [season]!&quot;</li>
                     </ol>
                   </div>
                 </div>
@@ -1133,14 +1191,19 @@ export default function PlatinumPage() {
                         <PackageIcon />
                         Top Products to Promote:
                       </p>
-                      <ul className="space-y-1">
+                      <div className="space-y-2">
                         {month.topProducts.map((product, idx) => (
-                          <li key={idx} className="text-sm text-purple-primary/70 flex items-start gap-2">
-                            <span className="text-emerald-primary mt-0.5">→</span>
-                            <span>{product}</span>
-                          </li>
+                          <div key={idx} className="flex items-center justify-between bg-purple-primary/5 p-3 rounded-lg border border-purple-primary/10">
+                            <span className="text-sm text-white">{product}</span>
+                            <button
+                              onClick={() => handleOpenSeasonalModal(month.month, idx)}
+                              className="px-3 py-1 bg-gradient-to-r from-rose-primary to-pink-primary text-white text-xs font-bold rounded-lg hover:scale-105 transition-transform"
+                            >
+                              Generate Page
+                            </button>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
 
                     {/* Post Ideas */}
@@ -1517,11 +1580,26 @@ export default function PlatinumPage() {
           setShowAffiliateModal(false);
           setSelectedComparison(null);
         }}
-        onGenerate={handleGenerateComparison}
+        onGenerate={handleGenerate}
         title={selectedComparison?.title || ''}
         productName1={selectedComparison?.product1.name || ''}
         productName2={selectedComparison?.product2.name}
         type="comparison"
+        loading={generating}
+      />
+
+      <MultiProductModal
+        isOpen={showMultiProductModal}
+        onClose={() => {
+          setShowMultiProductModal(false);
+          setSelectedBestOf(null);
+          setSelectedSeasonal(null);
+        }}
+        onGenerate={handleGenerate}
+        title={modalType === 'bestof' ? selectedBestOf?.title || '' : selectedSeasonal?.productName || ''}
+        type={modalType as 'bestof' | 'seasonal'}
+        productNames={modalType === 'bestof' ? selectedBestOf?.products.map((p: any) => p.title) || [] : []}
+        productName={modalType === 'seasonal' ? selectedSeasonal?.productName || '' : ''}
         loading={generating}
       />
 
