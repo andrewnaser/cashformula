@@ -248,8 +248,11 @@ export default function PlatinumPage() {
                 </span>
               </motion.div>
               
-              <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-4 leading-tight">
-                Your Complete <span className="bg-gradient-to-r from-purple-primary to-pink-primary bg-clip-text text-transparent">6-Figure Blueprint</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 leading-tight">
+                Your Complete{' '}
+                <span className="bg-gradient-to-r from-purple-primary to-pink-primary bg-clip-text text-transparent">
+                  Affiliate Profit System
+                </span>
               </h1>
               
               <p className="text-xl text-purple-primary/80 mb-6 max-w-2xl mx-auto">

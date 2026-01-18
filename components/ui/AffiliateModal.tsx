@@ -149,20 +149,21 @@ export default function AffiliateModal({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
-            className="fixed inset-0 bg-deep-space-black/80 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-deep-space-black/90 backdrop-blur-md z-[9999]"
           />
 
           {/* Modal */}
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
+          <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 overflow-y-auto">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="glass-card rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto pointer-events-auto border border-purple-primary/30"
+              onClick={(e) => e.stopPropagation()}
+              className="glass-card rounded-2xl w-full max-w-3xl my-8 border-2 border-purple-primary/30 shadow-2xl shadow-purple-primary/20"
             >
               {/* Header */}
-              <div className="sticky top-0 glass-card border-b border-purple-primary/20 p-6 flex items-start justify-between">
-                <div>
+              <div className="glass-card border-b border-purple-primary/20 p-6 flex items-start justify-between">
+                <div className="flex-1">
                   <h2 className="text-2xl font-bold text-white mb-1">
                     Generate Profit Page
                   </h2>
@@ -171,14 +172,15 @@ export default function AffiliateModal({
                 <button
                   onClick={handleClose}
                   disabled={loading}
-                  className="p-2 hover:bg-purple-primary/10 rounded-lg transition-colors disabled:opacity-50"
+                  className="flex-shrink-0 p-2 hover:bg-purple-primary/10 rounded-lg transition-colors disabled:opacity-50 text-purple-primary hover:text-white"
+                  aria-label="Close"
                 >
                   <CloseIcon />
                 </button>
               </div>
 
               {/* Content */}
-              <div className="p-6 space-y-6">
+              <div className="p-6 space-y-6 max-h-[calc(90vh-200px)] overflow-y-auto">
                 {/* Affiliate Links Section */}
                 <div className="space-y-4">
                   <div>
@@ -223,7 +225,7 @@ export default function AffiliateModal({
 
                   {/* Helper Text */}
                   <div className="bg-teal-primary/10 border border-teal-primary/30 rounded-lg p-4">
-                    <p className="text-xs text-teal-primary/90 font-bold mb-1">
+                    <p className="text-xs text-teal-primary font-bold mb-2">
                       💡 HOW TO GET YOUR AFFILIATE LINK:
                     </p>
                     <ol className="text-xs text-purple-primary/70 space-y-1 list-decimal list-inside">
@@ -251,18 +253,19 @@ export default function AffiliateModal({
                     {CONVERSION_BOOSTERS.map((booster) => (
                       <button
                         key={booster.id}
+                        type="button"
                         onClick={() => toggleBooster(booster.id)}
                         disabled={loading}
-                        className={`text-left p-4 rounded-lg border-2 transition-all ${
+                        className={`text-left p-4 rounded-lg border-2 transition-all cursor-pointer ${
                           selectedBoosters.includes(booster.id)
-                            ? 'border-purple-primary bg-purple-primary/10'
-                            : 'border-purple-primary/20 bg-purple-primary/5 hover:border-purple-primary/40'
-                        } disabled:opacity-50`}
+                            ? 'border-purple-primary bg-purple-primary/20 shadow-lg shadow-purple-primary/10'
+                            : 'border-purple-primary/20 bg-purple-primary/5 hover:border-purple-primary/40 hover:bg-purple-primary/10'
+                        } disabled:opacity-50 disabled:cursor-not-allowed`}
                       >
                         <div className="flex items-start gap-3">
                           {/* Checkbox */}
                           <div
-                            className={`flex-shrink-0 w-5 h-5 rounded border-2 flex items-center justify-center transition-all ${
+                            className={`flex-shrink-0 w-6 h-6 rounded border-2 flex items-center justify-center transition-all ${
                               selectedBoosters.includes(booster.id)
                                 ? 'border-purple-primary bg-purple-primary'
                                 : 'border-purple-primary/40'
@@ -270,8 +273,8 @@ export default function AffiliateModal({
                           >
                             {selectedBoosters.includes(booster.id) && (
                               <svg
-                                width="14"
-                                height="14"
+                                width="16"
+                                height="16"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="white"
@@ -296,8 +299,8 @@ export default function AffiliateModal({
                     ))}
                   </div>
 
-                  <div className="bg-purple-primary/10 border border-purple-primary/30 rounded-lg p-4">
-                    <p className="text-xs text-purple-primary/90">
+                  <div className="bg-purple-primary/10 border border-purple-primary/30 rounded-lg p-3">
+                    <p className="text-xs text-purple-primary">
                       <span className="font-bold">Selected: {selectedBoosters.length}/6 boosters.</span>
                       {' '}These will be automatically added to your profit page to help increase conversions.
                     </p>
