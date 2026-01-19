@@ -21,8 +21,22 @@ function getSupabaseAdmin() {
 }
 
 async function getPageData(slug: string) {
+  console.log('=== FETCHING PAGE ===');
+  console.log('Slug:', slug);
+  console.log('SUPABASE_URL:', process.env.NEXT_PUBLIC_SUPABASE_URL ? 'SET' : 'NOT SET');
+  console.log('SERVICE_KEY:', process.env.SUPABASE_SERVICE_ROLE_KEY ? 'SET (length: ' + process.env.SUPABASE_SERVICE_ROLE_KEY.length + ')' : 'NOT SET');
+  
   try {
     const supabase = getSupabaseAdmin();
+
+    // First, let's see ALL pages in the database
+    const { data: allPages, error: allError } = await supabase
+      .from('pages')
+      .select('public_slug, status, title')
+      .limit(10);
+    
+    console.log('All pages in DB:', allPages);
+    if (allError) console.log('Error fetching all pages:', allError);
 
     const { data: page, error } = await supabase
       .from('pages')
@@ -30,6 +44,9 @@ async function getPageData(slug: string) {
       .eq('public_slug', slug)
       .eq('status', 'published')
       .single();
+
+    console.log('Query result - Page:', page ? 'FOUND' : 'NOT FOUND');
+    console.log('Query result - Error:', error);
 
     if (error || !page) {
       console.error('Page fetch error:', error);
@@ -51,7 +68,7 @@ async function getPageData(slug: string) {
       conversion_boosters: page.conversion_boosters || [],
     };
   } catch (error) {
-    console.error('Get page error:', error);
+    console.error('Get page CATCH error:', error);
     return null;
   }
 }
