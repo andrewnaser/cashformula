@@ -820,17 +820,16 @@ export default function PlatinumPage() {
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-white mb-2">High-Ticket Product Pages</h3>
                   <p className="text-purple-primary/80 leading-relaxed mb-4">
-                    8 pre-researched Amazon products priced $300-$1,500. Higher prices = higher commissions! Each product includes pre-written profit page content and social media captions for 4 platforms.
+                    8 pre-researched Amazon products priced $300-$2,500+. Higher prices = higher commissions ($30-$125 per sale)! Click &quot;Generate Profit Page&quot; to create your own shareable page.
                   </p>
                   <div className="bg-pink-primary/10 p-4 rounded-lg border border-pink-primary/20">
                     <p className="text-sm text-pink-primary/90 font-bold mb-2">💡 HOW TO USE:</p>
                     <ol className="text-sm text-purple-primary/70 space-y-1 list-decimal list-inside">
-                      <li>Browse the 8 high-ticket products below</li>
-                      <li>Click &quot;View Details&quot; to see profit page content</li>
-                      <li>Copy the overview, pros, cons, and FAQ</li>
-                      <li>Go to &quot;Build Page&quot; and create a new page</li>
-                      <li>Add your Amazon affiliate link</li>
-                      <li>Use the social captions to promote it</li>
+                      <li>Click &quot;Generate Profit Page&quot; on any product</li>
+                      <li>Add your Amazon affiliate link in the popup</li>
+                      <li>Select conversion boosters (optional)</li>
+                      <li>Click generate and get your shareable page!</li>
+                      <li>Share on social media to earn commissions</li>
                     </ol>
                   </div>
                 </div>
@@ -839,81 +838,91 @@ export default function PlatinumPage() {
 
             {/* Product Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {highTicketProducts.map((product, idx) => (
-                <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.05 }}
-                  className="glass-card rounded-2xl overflow-hidden border-2 border-pink-primary/30 hover:border-pink-primary transition-all hover:shadow-glow-pink group"
-                >
-                  {/* Product Image */}
-                  <div className="relative bg-gradient-to-br from-purple-primary/20 to-pink-primary/10 p-6 flex items-center justify-center">
-                    {product.isHot && (
-                      <div className="absolute top-4 left-4 px-3 py-1.5 bg-gradient-to-r from-pink-primary to-rose-primary rounded-full text-white text-xs font-bold shadow-lg flex items-center gap-1.5">
-                        🔥 HOT SELLER
-                      </div>
-                    )}
-                    <img
-                      src={product.imageUrl}
-                      alt={product.title}
-                      className="w-48 h-48 object-contain group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-
-                  {/* Product Info */}
-                  <div className="p-6">
-                    {/* Category & Rating */}
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="px-3 py-1 bg-pink-primary/20 text-pink-primary rounded-full text-xs font-bold border border-pink-primary/30">
-                        {product.category}
-                      </span>
-                      <div className="flex items-center gap-1.5 text-emerald-primary">
-                        <StarIcon />
-                        <span className="font-bold">{product.rating}</span>
-                        <span className="text-purple-primary/60 text-sm">({(product.reviews || 0).toLocaleString()})</span>
-                      </div>
-                    </div>
-                    
-                    {/* Title */}
-                    <h3 className="font-bold text-white text-xl mb-4 line-clamp-2 group-hover:text-pink-primary transition-colors">
-                      {product.title}
-                    </h3>
-
-                    {/* Price & Commission Box */}
-                    <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-primary/10 to-teal-primary/5 rounded-xl border border-emerald-primary/30 mb-5">
-                      <div>
-                        <p className="text-xs text-purple-primary/60 mb-1">Price</p>
-                        <p className="text-2xl font-bold text-white">{product.price}</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-xs text-emerald-primary mb-1">Your Commission</p>
-                        <p className="text-2xl font-bold text-emerald-primary">{product.commission}</p>
-                      </div>
+              {highTicketProducts.map((product) => {
+                const amazonUrl = `https://www.amazon.com/dp/${product.asin}`;
+                
+                return (
+                  <div
+                    key={product.id}
+                    className="glass-card rounded-2xl overflow-hidden border-2 border-pink-primary/30 hover:border-pink-primary transition-all hover:shadow-glow-pink"
+                  >
+                    {/* Product Image */}
+                    <div className="relative bg-gradient-to-br from-purple-primary/20 to-pink-primary/10 p-6 flex items-center justify-center">
+                      {product.isHot && (
+                        <div className="absolute top-4 left-4 px-3 py-1.5 bg-gradient-to-r from-pink-primary to-rose-primary rounded-full text-white text-xs font-bold shadow-lg flex items-center gap-1.5">
+                          🔥 HOT SELLER
+                        </div>
+                      )}
+                      <img
+                        src={product.imageUrl}
+                        alt={product.title}
+                        className="w-48 h-48 object-contain"
+                      />
                     </div>
 
-                    {/* CTA Button - GENERATE PAGE */}
-                    <button
-                      onClick={() => handleOpenHighTicketModal(product)}
-                      className="w-full py-4 px-6 bg-gradient-to-r from-pink-primary to-purple-primary text-white font-bold text-lg rounded-xl hover:shadow-glow-pink hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3"
-                    >
-                      <span className="text-2xl">🚀</span>
-                      Generate Profit Page
-                    </button>
+                    {/* Product Info */}
+                    <div className="p-6">
+                      {/* Category & Rating */}
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="px-3 py-1 bg-pink-primary/20 text-pink-primary rounded-full text-xs font-bold border border-pink-primary/30">
+                          {product.category}
+                        </span>
+                        <div className="flex items-center gap-1.5 text-emerald-primary">
+                          <StarIcon />
+                          <span className="font-bold">{product.rating}</span>
+                          <span className="text-purple-primary/60 text-sm">({(product.reviews || 0).toLocaleString()})</span>
+                        </div>
+                      </div>
+                      
+                      {/* Title */}
+                      <h3 className="font-bold text-white text-xl mb-4 line-clamp-2">
+                        {product.title}
+                      </h3>
 
-                    {/* Secondary Link */}
-                    <a
-                      href={`https://www.amazon.com/dp/${product.asin}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full mt-3 py-3 px-6 border-2 border-purple-primary/30 text-purple-primary font-medium rounded-xl hover:bg-purple-primary/10 transition-all flex items-center justify-center gap-2"
-                    >
-                      <ExternalLinkIcon />
-                      Preview on Amazon
-                    </a>
+                      {/* Price & Commission Box */}
+                      <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-primary/10 to-teal-primary/5 rounded-xl border border-emerald-primary/30 mb-5">
+                        <div>
+                          <p className="text-xs text-purple-primary/60 mb-1">Price</p>
+                          <p className="text-2xl font-bold text-white">{product.price}</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-xs text-emerald-primary mb-1">Your Commission</p>
+                          <p className="text-2xl font-bold text-emerald-primary">{product.commission}</p>
+                        </div>
+                      </div>
+
+                      {/* CTA Button - GENERATE PAGE */}
+                      <Button
+                        variant="primary"
+                        size="lg"
+                        onClick={() => {
+                          console.log('Generate clicked for:', product.title);
+                          setSelectedHighTicket(product);
+                          setShowHighTicketModal(true);
+                        }}
+                        className="w-full mb-3"
+                      >
+                        <span className="text-xl mr-2">🚀</span>
+                        Generate Profit Page
+                      </Button>
+
+                      {/* Secondary Link - View on Amazon */}
+                      <a
+                        href={amazonUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => console.log('Opening Amazon:', amazonUrl)}
+                        className="block w-full py-3 px-6 border-2 border-purple-primary/40 text-purple-primary font-medium rounded-xl hover:bg-purple-primary/10 hover:border-purple-primary transition-all text-center"
+                      >
+                        <span className="inline-flex items-center justify-center gap-2">
+                          <ExternalLinkIcon />
+                          View on Amazon
+                        </span>
+                      </a>
+                    </div>
                   </div>
-                </motion.div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Commission Calculator */}
