@@ -110,6 +110,7 @@ body::after {
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask-composite: exclude;
     -webkit-mask-composite: xor;
+    pointer-events: none; /* Allow clicks to pass through */
     opacity: 0;
     transition: opacity 0.3s;
   }
@@ -192,6 +193,7 @@ body::after {
     background: linear-gradient(135deg, #c084fc 0%, #f472b6 100%);
     opacity: 0;
     transition: opacity 0.3s;
+    pointer-events: none; /* Allow clicks to pass through */
   }
 
   .btn-gold:hover::before {
