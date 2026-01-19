@@ -8,9 +8,9 @@ interface LogoProps {
 
 export default function Logo({ className = '', size = 'md', showText = true }: LogoProps) {
   const sizes = {
-    sm: { width: 120, height: 40 },
-    md: { width: 160, height: 53 },
-    lg: { width: 240, height: 80 },
+    sm: { width: 140, height: 50 },
+    md: { width: 180, height: 65 },
+    lg: { width: 280, height: 100 },
   };
 
   const { width, height } = sizes[size];
@@ -19,58 +19,46 @@ export default function Logo({ className = '', size = 'md', showText = true }: L
     <svg
       width={width}
       height={height}
-      viewBox="0 0 240 80"
+      viewBox="0 0 280 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      style={{ filter: 'drop-shadow(0 0 20px rgba(16, 185, 129, 0.5))' }}
     >
       {/* CASH text */}
       <text
         x="0"
-        y="38"
-        fontFamily="system-ui, -apple-system, sans-serif"
-        fontSize="42"
+        y="42"
+        fontFamily="system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+        fontSize="48"
         fontWeight="800"
-        letterSpacing="-1"
+        letterSpacing="-2"
+        fill="white"
       >
-        <tspan fill="url(#premiumGradient)">CASH</tspan>
+        CASH
       </text>
       
-      {/* Arrow pointing right and up */}
-      <polygon
-        points="155,5 240,5 240,45 200,45 200,25 175,25 175,45 155,45"
-        fill="url(#premiumGradient)"
-      />
-      {/* Arrow head */}
-      <polygon
-        points="200,0 240,0 240,5 205,5"
-        fill="url(#premiumGradient)"
-      />
+      {/* Arrow pointing up-right */}
+      <g fill="white">
+        {/* Main arrow body - triangular shape */}
+        <polygon points="155,0 280,0 280,55 220,55 220,20 175,20 175,55 155,55" />
+        {/* Arrow tip at top */}
+        <polygon points="245,0 280,0 280,8 250,8" />
+      </g>
       
       {showText && (
         /* FORMULA text */
         <text
           x="0"
-          y="72"
-          fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="32"
+          y="88"
+          fontFamily="system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+          fontSize="38"
           fontWeight="800"
-          letterSpacing="8"
-          fill="url(#premiumGradient)"
+          letterSpacing="12"
+          fill="white"
         >
           FORMULA
         </text>
       )}
-      
-      {/* Teal gradient definitions */}
-      <defs>
-        <linearGradient id="premiumGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#10b981" />
-          <stop offset="50%" stopColor="#06b6d4" />
-          <stop offset="100%" stopColor="#10b981" />
-        </linearGradient>
-      </defs>
     </svg>
   );
 }
@@ -85,32 +73,25 @@ export function LogoIcon({ className = '', size = 32 }: { className?: string; si
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      style={{ filter: 'drop-shadow(0 0 12px rgba(16, 185, 129, 0.6))' }}
     >
-      {/* Stylized CF with background */}
-      <rect x="0" y="0" width="40" height="40" rx="10" fill="url(#iconPremiumGradient)" />
+      {/* Background */}
+      <rect x="0" y="0" width="40" height="40" rx="8" fill="#10b981" />
+      {/* C letter */}
       <text
-        x="6"
+        x="4"
         y="28"
         fontFamily="system-ui, -apple-system, sans-serif"
-        fontSize="20"
+        fontSize="22"
         fontWeight="800"
-        fill="#050510"
+        fill="white"
       >
         C
       </text>
       {/* Arrow */}
       <polygon
-        points="20,10 36,10 36,18 28,18 28,14 24,14 24,30 20,30"
-        fill="#050510"
+        points="18,8 36,8 36,20 28,20 28,12 22,12 22,32 18,32"
+        fill="white"
       />
-      
-      <defs>
-        <linearGradient id="iconPremiumGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#10b981" />
-          <stop offset="100%" stopColor="#06b6d4" />
-        </linearGradient>
-      </defs>
     </svg>
   );
 }
