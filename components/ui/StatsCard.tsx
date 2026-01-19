@@ -16,29 +16,29 @@ interface StatsCardProps {
 
 const colorClasses = {
   cyan: {
-    bg: 'bg-cyan-DEFAULT/20',
-    text: 'text-cyan-DEFAULT',
-    border: 'border-cyan-DEFAULT/30',
+    bg: 'bg-cyan-500/20',
+    text: 'text-cyan-500',
+    border: 'border-cyan-500/30',
   },
   purple: {
-    bg: 'bg-teal-DEFAULT/20',
-    text: 'text-teal-DEFAULT',
-    border: 'border-teal-DEFAULT/30',
+    bg: 'bg-teal-500/20',
+    text: 'text-teal-500',
+    border: 'border-teal-500/30',
   },
   gold: {
-    bg: 'bg-gold-DEFAULT/20',
-    text: 'text-gold-DEFAULT',
-    border: 'border-gold-DEFAULT/30',
+    bg: 'bg-gold-500/20',
+    text: 'text-gold-500',
+    border: 'border-gold-500/30',
   },
   green: {
-    bg: 'bg-teal-DEFAULT/20',
-    text: 'text-teal-DEFAULT',
-    border: 'border-teal-DEFAULT/30',
+    bg: 'bg-teal-500/20',
+    text: 'text-teal-500',
+    border: 'border-teal-500/30',
   },
   teal: {
-    bg: 'bg-teal-DEFAULT/20',
-    text: 'text-teal-DEFAULT',
-    border: 'border-teal-DEFAULT/30',
+    bg: 'bg-teal-500/20',
+    text: 'text-teal-500',
+    border: 'border-teal-500/30',
   },
 };
 
@@ -64,15 +64,15 @@ export default function StatsCard({
           <span
             className={`text-xs font-semibold px-2 py-1 rounded-full ${
               trend.positive
-                ? 'bg-teal-DEFAULT/20 text-teal-DEFAULT'
-                : 'bg-rose-DEFAULT/20 text-rose-DEFAULT'
+                ? 'bg-teal-500/20 text-teal-500'
+                : 'bg-rose-500/20 text-rose-500'
             }`}
           >
             {trend.positive ? '+' : ''}{trend.value}
           </span>
         )}
       </div>
-      <p className="text-3xl font-display font-bold text-teal-DEFAULT mb-1">{value}</p>
+      <p className="text-3xl font-display font-bold text-teal-500 mb-1">{value}</p>
       <p className="text-sm text-gray-400">{title}</p>
     </motion.div>
   );

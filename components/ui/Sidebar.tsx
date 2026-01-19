@@ -141,31 +141,31 @@ export default function Sidebar() {
         onClick={() => setIsMobileOpen(false)}
         className={`group relative flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-200 overflow-hidden ${
           active
-            ? 'text-teal-DEFAULT'
+            ? 'text-teal-500'
             : item.highlight
-            ? 'text-teal-DEFAULT/70 hover:text-teal-DEFAULT'
+            ? 'text-teal-500/70 hover:text-teal-500'
             : 'text-gray-400 hover:text-white'
         }`}
       >
         {/* Background - subtle on active */}
         <div className={`absolute inset-0 transition-all duration-200 rounded-xl ${
           active 
-            ? 'bg-teal-DEFAULT/10' 
+            ? 'bg-teal-500/10' 
             : 'bg-transparent group-hover:bg-white/5'
         }`} />
         
         {/* Left accent bar - teal on active */}
         <div className={`absolute left-0 top-2 bottom-2 w-[3px] rounded-full transition-all duration-200 ${
           active 
-            ? 'bg-teal-DEFAULT opacity-100' 
-            : 'bg-teal-DEFAULT opacity-0 group-hover:opacity-30'
+            ? 'bg-teal-500 opacity-100' 
+            : 'bg-teal-500 opacity-0 group-hover:opacity-30'
         }`} />
         
         {/* Icon with color */}
         <div className={`relative z-10 transition-colors duration-200 ${
           active 
-            ? 'text-teal-DEFAULT' 
-            : 'group-hover:text-teal-DEFAULT/70'
+            ? 'text-teal-500' 
+            : 'group-hover:text-teal-500/70'
         }`}>
           <Icon />
         </div>
@@ -175,7 +175,7 @@ export default function Sidebar() {
         
         {/* Badge */}
         {item.badge && (
-          <span className="relative z-10 px-2.5 py-1 text-xs font-bold bg-teal-DEFAULT/20 text-teal-DEFAULT rounded-full uppercase">
+          <span className="relative z-10 px-2.5 py-1 text-xs font-bold bg-teal-500/20 text-teal-500 rounded-full uppercase">
             {item.badge}
           </span>
         )}
@@ -233,7 +233,7 @@ export default function Sidebar() {
 
             {/* Premium Features */}
             <div className="px-4 py-3 mt-6">
-              <span className="text-xs font-semibold text-teal-DEFAULT uppercase tracking-wider flex items-center gap-2">
+              <span className="text-xs font-semibold text-teal-500 uppercase tracking-wider flex items-center gap-2">
                 <GoldIcon />
                 Premium Features
               </span>
@@ -262,10 +262,10 @@ export default function Sidebar() {
           <div className="p-4 border-t border-white/5">
             <button
               onClick={handleSignOut}
-              className="group relative flex items-center gap-3 w-full px-4 py-3.5 rounded-xl text-gray-400 hover:text-rose-DEFAULT transition-colors duration-200 overflow-hidden"
+              className="group relative flex items-center gap-3 w-full px-4 py-3.5 rounded-xl text-gray-400 hover:text-rose-500 transition-colors duration-200 overflow-hidden"
             >
-              <div className="absolute inset-0 bg-transparent group-hover:bg-rose-DEFAULT/10 rounded-xl transition-all duration-200" />
-              <div className="relative z-10 group-hover:text-rose-DEFAULT transition-colors duration-200">
+              <div className="absolute inset-0 bg-transparent group-hover:bg-rose-500/10 rounded-xl transition-all duration-200" />
+              <div className="relative z-10 group-hover:text-rose-500 transition-colors duration-200">
                 <LogoutIcon />
               </div>
               <span className="relative z-10 text-base font-medium">Sign Out</span>

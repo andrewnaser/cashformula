@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // P55-style dark palette
+        // Dark palette
         navy: {
           950: '#050508',
           900: '#0a0a0f',
@@ -20,37 +20,59 @@ const config: Config = {
           400: '#6b7280',
           300: '#9ca3af',
         },
-        // Primary - Teal/Cyan (P55 style)
+        // Primary - Teal/Cyan highlight
         teal: {
           DEFAULT: '#10b981',
+          50: '#ecfdf5',
+          100: '#d1fae5',
+          200: '#a7f3d0',
+          300: '#6ee7b7',
+          400: '#34d399',
+          500: '#10b981',
+          600: '#059669',
+          700: '#047857',
+          800: '#065f46',
+          900: '#064e3b',
           neon: '#00d4aa',
           bright: '#34d399',
           dark: '#059669',
           light: '#6ee7b7',
-          muted: '#0d9488',
         },
         // Accent - Yellow/Gold for CTAs
         gold: {
           DEFAULT: '#eab308',
+          50: '#fefce8',
+          100: '#fef9c3',
+          200: '#fef08a',
+          300: '#fde047',
+          400: '#facc15',
+          500: '#eab308',
+          600: '#ca8a04',
+          700: '#a16207',
           bright: '#facc15',
           dark: '#ca8a04',
           light: '#fde047',
-          400: '#eab308',
-          500: '#ca8a04',
         },
         // Support colors
         cyan: {
           DEFAULT: '#06b6d4',
+          400: '#22d3ee',
+          500: '#06b6d4',
+          600: '#0891b2',
           bright: '#22d3ee',
           dark: '#0891b2',
         },
         emerald: {
           DEFAULT: '#10b981',
+          400: '#34d399',
+          500: '#10b981',
+          600: '#059669',
           light: '#34d399',
           dark: '#059669',
         },
-        // For backwards compatibility
+        // Backwards compatibility - map purple/pink to teal
         purple: {
+          DEFAULT: '#10b981',
           neon: '#10b981',
           bright: '#34d399',
           dark: '#059669',
@@ -58,6 +80,7 @@ const config: Config = {
           primary: '#10b981',
         },
         pink: {
+          DEFAULT: '#10b981',
           neon: '#10b981',
           bright: '#34d399',
           dark: '#059669',
@@ -131,9 +154,8 @@ const config: Config = {
         'glow-teal': '0 0 20px rgba(16, 185, 129, 0.4), 0 4px 20px rgba(0, 0, 0, 0.3)',
         'glow-gold': '0 0 20px rgba(234, 179, 8, 0.4), 0 4px 20px rgba(0, 0, 0, 0.3)',
         'glow-green': '0 0 20px rgba(16, 185, 129, 0.4), 0 4px 20px rgba(0, 0, 0, 0.3)',
-        'inner-glow': 'inset 0 0 20px rgba(16, 185, 129, 0.1)',
         'glow-purple': '0 0 20px rgba(16, 185, 129, 0.4)',
-        // Legacy
+        'inner-glow': 'inset 0 0 20px rgba(16, 185, 129, 0.1)',
         'neon': '0 0 20px rgba(16, 185, 129, 0.4)',
         'neon-lg': '0 0 40px rgba(16, 185, 129, 0.5)',
         'gold': '0 0 20px rgba(234, 179, 8, 0.4)',

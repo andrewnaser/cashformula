@@ -186,27 +186,27 @@ export default function DashboardPage() {
       value: totalPages,
       subtext: totalPages > 0 ? '🎉 Great start!' : 'Create your first!',
       icon: LayersIcon,
-      color: 'from-teal-DEFAULT to-cyan-DEFAULT',
-      bg: 'bg-teal-DEFAULT/10',
-      border: 'border-teal-DEFAULT/15',
+      color: 'from-teal-500 to-cyan-500',
+      bg: 'bg-teal-500/10',
+      border: 'border-teal-500/15',
     },
     {
       label: 'Est. Clicks',
       value: mounted ? dynamicStats.clicks.toLocaleString() : '—',
       subtext: '+12% this week',
       icon: EyeIcon,
-      color: 'from-cyan-DEFAULT to-teal-bright',
-      bg: 'bg-cyan-DEFAULT/10',
-      border: 'border-cyan-DEFAULT/15',
+      color: 'from-cyan-500 to-teal-bright',
+      bg: 'bg-cyan-500/10',
+      border: 'border-cyan-500/15',
     },
     {
       label: 'Potential Earnings',
       value: mounted ? `$${dynamicStats.revenue}` : '—',
       subtext: 'Keep building! 💰',
       icon: MoneyIcon,
-      color: 'from-gold-DEFAULT to-gold-bright',
-      bg: 'bg-gold-DEFAULT/10',
-      border: 'border-gold-DEFAULT/15',
+      color: 'from-gold-500 to-gold-bright',
+      bg: 'bg-gold-500/10',
+      border: 'border-gold-500/15',
     },
   ];
 
@@ -215,23 +215,23 @@ export default function DashboardPage() {
       title: '🚀 Build New Page',
       description: 'Create a profit page in just 2 minutes',
       href: '/app/build',
-      color: 'from-teal-DEFAULT to-cyan-DEFAULT',
-      iconBg: 'bg-teal-DEFAULT/15',
+      color: 'from-teal-500 to-cyan-500',
+      iconBg: 'bg-teal-500/15',
       highlight: true,
     },
     {
       title: '📱 Share & Promote',
       description: 'Get traffic to your pages instantly',
       href: '/app/traffic',
-      color: 'from-cyan-DEFAULT to-teal-bright',
-      iconBg: 'bg-cyan-DEFAULT/15',
+      color: 'from-cyan-500 to-teal-bright',
+      iconBg: 'bg-cyan-500/15',
     },
     {
       title: '👑 Gold Package',
       description: 'Done-for-you premium pages',
       href: '/app/gold',
-      color: 'from-gold-DEFAULT to-gold-bright',
-      iconBg: 'bg-gold-DEFAULT/15',
+      color: 'from-gold-500 to-gold-bright',
+      iconBg: 'bg-gold-500/15',
       badge: 'VIP',
     },
   ];
@@ -266,23 +266,23 @@ export default function DashboardPage() {
       </motion.div>
 
       {/* Live Social Proof Banner - Above the Fold */}
-      <motion.div variants={item} className="glass-card rounded-2xl p-4 border border-teal-DEFAULT/20">
+      <motion.div variants={item} className="glass-card rounded-2xl p-4 border border-teal-500/20">
         <div className="flex items-center gap-4 overflow-hidden">
           <div className="flex items-center gap-2 shrink-0">
-            <span className="w-3 h-3 bg-teal-DEFAULT rounded-full animate-pulse" />
-            <span className="text-teal-DEFAULT font-bold text-base">LIVE</span>
+            <span className="w-3 h-3 bg-teal-500 rounded-full animate-pulse" />
+            <span className="text-teal-500 font-bold text-base">LIVE</span>
           </div>
           <div className="flex-1 overflow-hidden">
             <div className="flex gap-6 animate-marquee">
               {liveActivities.map((activity, i) => (
                 <div key={`banner-${activity.name}-${i}`} className="flex items-center gap-3 shrink-0">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-DEFAULT to-cyan-DEFAULT flex items-center justify-center text-white text-sm font-bold">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-white text-sm font-bold">
                     {activity.name[0]}
                   </div>
                   <span className="text-base">
                     <span className="font-semibold text-white">{activity.name}</span>
                     <span className="text-gray-500"> earned </span>
-                    <span className="text-teal-DEFAULT font-bold">{activity.amount}</span>
+                    <span className="text-teal-500 font-bold">{activity.amount}</span>
                     <span className="text-gray-600"> · {activity.location}</span>
                   </span>
                 </div>
@@ -290,20 +290,20 @@ export default function DashboardPage() {
               {/* Duplicate for seamless scroll */}
               {liveActivities.map((activity, i) => (
                 <div key={`banner2-${activity.name}-${i}`} className="flex items-center gap-3 shrink-0">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-DEFAULT to-cyan-DEFAULT flex items-center justify-center text-white text-sm font-bold">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center text-white text-sm font-bold">
                     {activity.name[0]}
                   </div>
                   <span className="text-base">
                     <span className="font-semibold text-white">{activity.name}</span>
                     <span className="text-gray-500"> earned </span>
-                    <span className="text-teal-DEFAULT font-bold">{activity.amount}</span>
+                    <span className="text-teal-500 font-bold">{activity.amount}</span>
                     <span className="text-gray-600"> · {activity.location}</span>
                   </span>
                 </div>
               ))}
             </div>
           </div>
-          <span className="shrink-0 px-3 py-1 bg-teal-DEFAULT/10 text-teal-DEFAULT text-sm font-bold rounded-full">
+          <span className="shrink-0 px-3 py-1 bg-teal-500/10 text-teal-500 text-sm font-bold rounded-full">
             🔥 847 earning today
           </span>
         </div>
@@ -334,7 +334,7 @@ export default function DashboardPage() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center gap-2 mt-4 text-teal-DEFAULT text-sm font-medium">
+              <div className="flex items-center gap-2 mt-4 text-teal-500 text-sm font-medium">
                 <TrendUpIcon />
                 <span>{stat.subtext}</span>
               </div>
@@ -352,7 +352,7 @@ export default function DashboardPage() {
             
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
-                <button className="w-28 h-28 rounded-full bg-gradient-to-r from-teal-DEFAULT to-cyan-DEFAULT flex items-center justify-center text-white hover:scale-105 transition-all duration-300 mb-4 mx-auto group animate-pulse-glow">
+                <button className="w-28 h-28 rounded-full bg-gradient-to-r from-teal-500 to-cyan-500 flex items-center justify-center text-white hover:scale-105 transition-all duration-300 mb-4 mx-auto group animate-pulse-glow">
                   <PlayIcon />
                 </button>
                 <p className="text-white/80 text-base font-medium">Click to play video</p>
@@ -372,14 +372,14 @@ export default function DashboardPage() {
           </div>
           
           {/* Video Info */}
-          <div className="lg:col-span-2 p-8 lg:p-10 flex flex-col justify-center bg-gradient-to-br from-transparent to-teal-DEFAULT/5">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-DEFAULT/15 border border-teal-DEFAULT/25 rounded-full text-teal-DEFAULT text-sm font-bold uppercase tracking-wider mb-4 w-fit">
-              <span className="w-2 h-2 bg-teal-DEFAULT rounded-full animate-pulse" />
+          <div className="lg:col-span-2 p-8 lg:p-10 flex flex-col justify-center bg-gradient-to-br from-transparent to-teal-500/5">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/15 border border-teal-500/25 rounded-full text-teal-500 text-sm font-bold uppercase tracking-wider mb-4 w-fit">
+              <span className="w-2 h-2 bg-teal-500 rounded-full animate-pulse" />
               Getting Started
             </div>
             
             <h3 className="text-2xl lg:text-3xl font-display font-bold text-white mb-4 leading-tight">
-              How to Make Your First <span className="text-teal-DEFAULT">$100</span> Today
+              How to Make Your First <span className="text-teal-500">$100</span> Today
             </h3>
             
             <p className="text-gray-400 mb-8 text-lg leading-relaxed">
@@ -413,7 +413,7 @@ export default function DashboardPage() {
         {/* Quick Actions */}
         <motion.div variants={item} className="lg:col-span-2 space-y-4">
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
-            <span className="w-3 h-3 bg-teal-DEFAULT rounded-full" />
+            <span className="w-3 h-3 bg-teal-500 rounded-full" />
             What Would You Like To Do?
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -422,22 +422,22 @@ export default function DashboardPage() {
                 key={action.title}
                 href={action.href}
                 className={`glass-card glass-card-hover rounded-2xl p-6 group transition-all duration-300 relative overflow-hidden ${
-                  action.highlight ? 'border border-teal-DEFAULT/25' : ''
+                  action.highlight ? 'border border-teal-500/25' : ''
                 }`}
               >
                 {action.badge && (
-                  <span className="absolute top-3 right-3 px-2 py-1 bg-gradient-to-r from-gold-DEFAULT to-gold-bright text-black text-xs font-bold rounded-full">
+                  <span className="absolute top-3 right-3 px-2 py-1 bg-gradient-to-r from-gold-500 to-gold-bright text-black text-xs font-bold rounded-full">
                     {action.badge}
                   </span>
                 )}
                 <div className={`w-14 h-14 ${action.iconBg} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                   <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${action.color}`} />
                 </div>
-                <h3 className="font-bold text-white mb-2 text-lg group-hover:text-teal-DEFAULT transition-colors">
+                <h3 className="font-bold text-white mb-2 text-lg group-hover:text-teal-500 transition-colors">
                   {action.title}
                 </h3>
                 <p className="text-gray-500 text-base">{action.description}</p>
-                <div className="mt-4 flex items-center gap-2 text-teal-DEFAULT text-base opacity-0 group-hover:opacity-100 transition-opacity font-medium">
+                <div className="mt-4 flex items-center gap-2 text-teal-500 text-base opacity-0 group-hover:opacity-100 transition-opacity font-medium">
                   <span>Get started</span>
                   <ArrowRightIcon />
                 </div>
@@ -456,27 +456,27 @@ export default function DashboardPage() {
             <div className="grid grid-cols-2 gap-3">
               <div className="bg-navy-800/30 rounded-xl p-4 text-center">
                 <p className="text-xs text-gray-500 mb-1">📄 Articles Today</p>
-                <p className="text-2xl font-bold text-teal-DEFAULT">1,291</p>
+                <p className="text-2xl font-bold text-teal-500">1,291</p>
               </div>
               <div className="bg-navy-800/30 rounded-xl p-4 text-center">
                 <p className="text-xs text-gray-500 mb-1">⚡ Avg Fast Cash</p>
-                <p className="text-2xl font-bold text-teal-DEFAULT">3.8</p>
+                <p className="text-2xl font-bold text-teal-500">3.8</p>
               </div>
               <div className="bg-navy-800/30 rounded-xl p-4 text-center">
                 <p className="text-xs text-gray-500 mb-1">🎯 Clicks Tracked</p>
-                <p className="text-2xl font-bold text-teal-DEFAULT">10,898</p>
+                <p className="text-2xl font-bold text-teal-500">10,898</p>
               </div>
               <div className="bg-navy-800/30 rounded-xl p-4 text-center">
                 <p className="text-xs text-gray-500 mb-1">👥 Active This Week</p>
-                <p className="text-2xl font-bold text-teal-DEFAULT">2,990</p>
+                <p className="text-2xl font-bold text-teal-500">2,990</p>
               </div>
             </div>
-            <div className="bg-gradient-to-r from-teal-DEFAULT/10 to-cyan-DEFAULT/10 rounded-xl p-4 text-center border border-teal-DEFAULT/20">
+            <div className="bg-gradient-to-r from-teal-500/10 to-cyan-500/10 rounded-xl p-4 text-center border border-teal-500/20">
               <p className="text-xs text-gray-500 mb-1">TOTAL MONEY GENERATED TODAY</p>
-              <p className="text-3xl font-bold text-teal-DEFAULT">$45,070 <span className="text-lg">📈</span></p>
+              <p className="text-3xl font-bold text-teal-500">$45,070 <span className="text-lg">📈</span></p>
             </div>
-            <div className="flex items-center justify-center gap-2 text-xs text-teal-DEFAULT">
-              <span className="w-2 h-2 bg-teal-DEFAULT rounded-full animate-pulse" />
+            <div className="flex items-center justify-center gap-2 text-xs text-teal-500">
+              <span className="w-2 h-2 bg-teal-500 rounded-full animate-pulse" />
               LIVE
             </div>
           </div>
@@ -487,22 +487,22 @@ export default function DashboardPage() {
       <motion.div variants={item} className="space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold text-white flex items-center gap-2">
-            <span className="w-3 h-3 bg-teal-DEFAULT rounded-full" />
+            <span className="w-3 h-3 bg-teal-500 rounded-full" />
             Your Pages
           </h2>
-          <Link href="/app/pages" className="text-base text-teal-DEFAULT hover:underline font-medium">
+          <Link href="/app/pages" className="text-base text-teal-500 hover:underline font-medium">
             View all →
           </Link>
         </div>
 
         {loading ? (
           <div className="glass-card rounded-2xl p-8 text-center">
-            <div className="w-10 h-10 border-3 border-teal-DEFAULT border-t-transparent rounded-full animate-spin mx-auto" />
+            <div className="w-10 h-10 border-3 border-teal-500 border-t-transparent rounded-full animate-spin mx-auto" />
             <p className="text-gray-500 mt-4 text-lg">Loading your pages...</p>
           </div>
         ) : pages.length === 0 ? (
-          <div className="glass-card rounded-2xl p-10 text-center border-2 border-dashed border-teal-DEFAULT/25">
-            <div className="w-20 h-20 bg-teal-DEFAULT/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <div className="glass-card rounded-2xl p-10 text-center border-2 border-dashed border-teal-500/25">
+            <div className="w-20 h-20 bg-teal-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <LayersIcon />
             </div>
             <h3 className="text-2xl font-bold text-white mb-3">No pages yet</h3>
@@ -525,18 +525,18 @@ export default function DashboardPage() {
                 className="glass-card glass-card-hover rounded-2xl p-6 group transition-all duration-300"
               >
                 <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 bg-teal-DEFAULT/10 rounded-xl flex items-center justify-center text-teal-DEFAULT">
+                  <div className="w-12 h-12 bg-teal-500/10 rounded-xl flex items-center justify-center text-teal-500">
                     <LayersIcon />
                   </div>
                   <span className={`px-3 py-1 text-sm rounded-full font-medium ${
                     page.status === 'published'
-                      ? 'bg-teal-DEFAULT/10 text-teal-DEFAULT border border-teal-DEFAULT/20'
+                      ? 'bg-teal-500/10 text-teal-500 border border-teal-500/20'
                       : 'bg-navy-700 text-gray-400'
                   }`}>
                     {page.status === 'published' ? '✓ Live' : page.status}
                   </span>
                 </div>
-                <h3 className="font-semibold text-white line-clamp-2 mb-3 text-lg group-hover:text-teal-DEFAULT transition-colors">
+                <h3 className="font-semibold text-white line-clamp-2 mb-3 text-lg group-hover:text-teal-500 transition-colors">
                   {page.title}
                 </h3>
                 <p className="text-base text-gray-600">
@@ -551,7 +551,7 @@ export default function DashboardPage() {
       {/* Support Card */}
       <motion.div variants={item} className="glass-card rounded-2xl p-6">
         <div className="flex items-start gap-5">
-          <div className="w-14 h-14 bg-teal-DEFAULT/15 rounded-xl flex items-center justify-center text-teal-DEFAULT shrink-0">
+          <div className="w-14 h-14 bg-teal-500/15 rounded-xl flex items-center justify-center text-teal-500 shrink-0">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <rect x="2" y="4" width="20" height="16" rx="2" />
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
@@ -566,7 +566,7 @@ export default function DashboardPage() {
               href="https://cashformula.zendesk.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-teal-DEFAULT to-cyan-DEFAULT hover:from-teal-dark hover:to-cyan-dark text-white rounded-lg font-bold transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-dark hover:to-cyan-dark text-white rounded-lg font-bold transition-all"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <rect x="2" y="4" width="20" height="16" rx="2" />

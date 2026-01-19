@@ -15,21 +15,21 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variants = {
       primary: `
-        bg-gradient-to-r from-gold-DEFAULT to-gold-bright text-black rounded-2xl
+        bg-gradient-to-r from-gold-500 to-gold-bright text-black rounded-2xl
         shadow-[0_4px_20px_rgba(234,179,8,0.4),0_0_40px_rgba(234,179,8,0.15),inset_0_1px_0_rgba(255,255,255,0.3)]
         hover:shadow-[0_8px_32px_rgba(234,179,8,0.5),0_0_60px_rgba(234,179,8,0.25),inset_0_1px_0_rgba(255,255,255,0.4)]
         hover:-translate-y-0.5
         active:scale-95
-        focus:ring-4 focus:ring-gold-DEFAULT/30
+        focus:ring-4 focus:ring-gold-500/30
         before:absolute before:inset-0 before:bg-gradient-to-r before:from-gold-bright before:to-gold-light before:opacity-0 before:transition-opacity hover:before:opacity-100
       `,
       secondary: `
-        bg-gradient-to-r from-teal-DEFAULT to-cyan-DEFAULT text-white rounded-2xl
+        bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-2xl
         shadow-[0_4px_20px_rgba(16,185,129,0.4),inset_0_1px_0_rgba(255,255,255,0.2)]
         hover:shadow-[0_8px_32px_rgba(16,185,129,0.5)]
         hover:-translate-y-0.5
         active:scale-95
-        focus:ring-4 focus:ring-teal-DEFAULT/30
+        focus:ring-4 focus:ring-teal-500/30
       `,
       ghost: `
         bg-white/5 text-white rounded-2xl border border-white/10
@@ -38,15 +38,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         focus:ring-4 focus:ring-white/20
       `,
       outline: `
-        bg-teal-DEFAULT/5 text-teal-DEFAULT rounded-2xl border-2 border-teal-DEFAULT/40
+        bg-teal-500/5 text-teal-500 rounded-2xl border-2 border-teal-500/40
         shadow-[0_0_20px_rgba(16,185,129,0.1)]
-        hover:bg-teal-DEFAULT/15 hover:border-teal-DEFAULT hover:shadow-[0_0_30px_rgba(16,185,129,0.3)]
+        hover:bg-teal-500/15 hover:border-teal-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)]
         hover:-translate-y-0.5
         active:scale-95
-        focus:ring-4 focus:ring-teal-DEFAULT/20
+        focus:ring-4 focus:ring-teal-500/20
       `,
       danger: `
-        bg-gradient-to-r from-red-500 to-rose-DEFAULT text-white rounded-2xl
+        bg-gradient-to-r from-red-500 to-rose-500 text-white rounded-2xl
         shadow-[0_4px_20px_rgba(220,38,38,0.4)]
         hover:shadow-[0_8px_32px_rgba(220,38,38,0.5)]
         hover:-translate-y-0.5

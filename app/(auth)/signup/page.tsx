@@ -92,7 +92,7 @@ export default function SignupPage() {
           <div className="grid grid-cols-2 gap-2 mb-6">
             {features.map((feature, i) => (
               <div key={i} className="flex items-center gap-2 text-sm text-gray-300">
-                <span className="text-teal-DEFAULT"><CheckIcon /></span>
+                <span className="text-teal-500"><CheckIcon /></span>
                 <span>{feature}</span>
               </div>
             ))}
@@ -139,7 +139,7 @@ export default function SignupPage() {
 
           <p className="mt-6 text-center text-gray-400 text-sm">
             Already have an account?{' '}
-            <Link href="/login" className="text-teal-DEFAULT hover:text-teal-bright hover:underline transition-colors">
+            <Link href="/login" className="text-teal-500 hover:text-teal-bright hover:underline transition-colors">
               Sign in
             </Link>
           </p>

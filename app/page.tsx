@@ -59,9 +59,9 @@ export default function LandingPage() {
   ];
 
   const stepColors = {
-    violet: { bg: 'bg-violet-DEFAULT/10', text: 'text-violet-DEFAULT' },
-    teal: { bg: 'bg-teal-DEFAULT/10', text: 'text-teal-DEFAULT' },
-    rose: { bg: 'bg-rose-DEFAULT/10', text: 'text-rose-DEFAULT' },
+    violet: { bg: 'bg-teal-500/10', text: 'text-teal-500' },
+    teal: { bg: 'bg-teal-500/10', text: 'text-teal-500' },
+    rose: { bg: 'bg-rose-500/10', text: 'text-rose-500' },
   };
 
   return (
@@ -69,18 +69,18 @@ export default function LandingPage() {
       <div className="absolute inset-0 bg-mesh-gradient" />
       
       {/* Nav */}
-      <nav className="relative z-10 border-b border-violet-DEFAULT/8">
+      <nav className="relative z-10 border-b border-teal-500/8">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/">
             <Logo size="sm" />
           </Link>
           <div className="flex items-center gap-4">
-            <Link href="/login" className="text-navy-300 hover:text-violet-DEFAULT transition-colors">
+            <Link href="/login" className="text-navy-300 hover:text-teal-500 transition-colors">
               Sign In
             </Link>
             <Link
               href="/signup"
-              className="bg-gradient-to-r from-violet-DEFAULT to-indigo-DEFAULT text-white font-semibold px-5 py-2.5 rounded-xl transition-all hover:shadow-glow hover:translate-y-[-1px]"
+              className="bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-semibold px-5 py-2.5 rounded-xl transition-all hover:shadow-glow hover:translate-y-[-1px]"
             >
               Get Started
             </Link>
@@ -94,7 +94,7 @@ export default function LandingPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-violet-DEFAULT/10 border border-violet-DEFAULT/20 rounded-full text-violet-DEFAULT text-sm font-medium mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/10 border border-teal-500/20 rounded-full text-teal-500 text-sm font-medium mb-8"
           >
             <span className="w-2 h-2 bg-cash-green rounded-full animate-pulse" />
             <span>Join 10,000+ affiliates earning daily</span>
@@ -128,14 +128,14 @@ export default function LandingPage() {
           >
             <Link
               href="/signup"
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-violet-DEFAULT to-indigo-DEFAULT text-white font-bold text-lg px-8 py-4 rounded-xl transition-all hover:shadow-glow-lg hover:translate-y-[-1px]"
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all hover:shadow-glow-lg hover:translate-y-[-1px]"
             >
               <span>Start Building Now</span>
               <ArrowRightIcon />
             </Link>
             <Link
               href="/login"
-              className="inline-flex items-center justify-center gap-2 bg-navy-800/50 border border-violet-DEFAULT/20 text-white font-semibold text-lg px-8 py-4 rounded-xl hover:bg-violet-DEFAULT/10 hover:border-violet-DEFAULT/30 transition-all"
+              className="inline-flex items-center justify-center gap-2 bg-navy-800/50 border border-teal-500/20 text-white font-semibold text-lg px-8 py-4 rounded-xl hover:bg-teal-500/10 hover:border-teal-500/30 transition-all"
             >
               Sign In
             </Link>
@@ -213,7 +213,7 @@ export default function LandingPage() {
               </div>
               <div className="relative">
                 <div 
-                  className="aspect-square bg-navy-800/50 rounded-2xl flex items-center justify-center border border-violet-DEFAULT/15"
+                  className="aspect-square bg-navy-800/50 rounded-2xl flex items-center justify-center border border-teal-500/15"
                 >
                   <div className="text-center">
                     <div className="text-6xl font-display font-bold gradient-text-teal mb-2">
@@ -239,7 +239,7 @@ export default function LandingPage() {
           </p>
           <Link
             href="/signup"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-DEFAULT via-indigo-DEFAULT to-teal-DEFAULT text-white font-bold text-lg px-10 py-5 rounded-xl transition-all hover:shadow-glow-lg hover:translate-y-[-1px]"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-500 text-white font-bold text-lg px-10 py-5 rounded-xl transition-all hover:shadow-glow-lg hover:translate-y-[-1px]"
           >
             <span>Create Free Account</span>
             <ArrowRightIcon />
@@ -248,7 +248,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="relative border-t border-violet-DEFAULT/8 py-8 px-6">
+      <footer className="relative border-t border-teal-500/8 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <Logo size="sm" showText={false} />
           <p className="text-navy-500 text-sm">
