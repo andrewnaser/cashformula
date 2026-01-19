@@ -19,10 +19,19 @@ import {
   Flame,
   Crown,
 } from 'lucide-react';
-import type { Page } from '@/lib/types';
+// Public page data for comparison pages
+interface ComparisonPublicPage {
+  id: string;
+  title: string;
+  affiliate_link: string;
+  product_data: any;
+  generated_content: any;
+  hero_image: string | null;
+  conversion_boosters?: string[];
+}
 
 interface ComparisonPageTemplateProps {
-  page: Page;
+  page: ComparisonPublicPage;
 }
 
 export default function ComparisonPageTemplate({ page }: ComparisonPageTemplateProps) {

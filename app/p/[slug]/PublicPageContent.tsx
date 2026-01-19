@@ -24,11 +24,27 @@ import {
   BadgeCheck,
   Flame,
 } from 'lucide-react';
-import type { Page, AmazonReview } from '@/lib/types';
+import type { AmazonReview } from '@/lib/types';
 import ComparisonPageTemplate from './ComparisonPageTemplate';
 
+// Public page data (subset of full Page type)
+interface PublicPage {
+  id: string;
+  title: string;
+  keyword: string;
+  asin: string;
+  affiliate_link: string;
+  public_slug: string;
+  product_data: any;
+  amazon_reviews: AmazonReview[];
+  generated_content: any;
+  hero_image: string | null;
+  page_type?: string;
+  conversion_boosters?: string[];
+}
+
 interface PublicPageContentProps {
-  page: Page;
+  page: PublicPage;
 }
 
 export default function PublicPageContent({ page }: PublicPageContentProps) {
