@@ -913,23 +913,25 @@ export default function PlatinumPage() {
                     key={product.id}
                     className="glass-card rounded-2xl overflow-hidden border border-white/10 hover:border-pink-primary/50 transition-all hover:shadow-glow-pink group"
                   >
-                    {/* Product Image - Professional White Background */}
-                    <div className="relative bg-white p-4 flex items-center justify-center">
+                    {/* Product Image - Clean Dark Background */}
+                    <div className="relative h-52 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center overflow-hidden">
                       {product.isHot && (
                         <div className="absolute top-3 left-3 px-3 py-1.5 bg-gradient-to-r from-red-500 to-orange-500 rounded-full text-white text-xs font-bold shadow-lg flex items-center gap-1.5 z-10">
                           🔥 HOT SELLER
                         </div>
                       )}
-                      <div className="relative w-40 h-40 flex items-center justify-center">
-                        <img
-                          src={product.imageUrl}
-                          alt={product.title}
-                          className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = 'https://via.placeholder.com/200x200?text=Product+Image';
-                          }}
-                        />
-                      </div>
+                      <img
+                        src={product.imageUrl}
+                        alt={product.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.objectFit = 'contain';
+                          (e.target as HTMLImageElement).style.padding = '1rem';
+                          (e.target as HTMLImageElement).src = 'https://via.placeholder.com/400x300?text=Product+Image';
+                        }}
+                      />
+                      {/* Subtle gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent pointer-events-none" />
                     </div>
 
                     {/* Product Info */}
@@ -1074,27 +1076,30 @@ export default function PlatinumPage() {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4 mb-6">
-                  {/* Product 1 - Professional Image Layout */}
+                  {/* Product 1 - Clean Image Layout */}
                   <div className={`relative overflow-hidden rounded-xl border-2 ${
                     comparison.winner === 1
                       ? 'border-emerald-primary/60'
                       : 'border-purple-primary/20'
-                  }`}>
+                  } group`}>
                     {comparison.winner === 1 && (
                       <div className="absolute top-3 right-3 px-3 py-1 bg-emerald-primary rounded-full text-xs font-bold text-deep-space-black z-10">
                         👑 WINNER
                       </div>
                     )}
-                    {/* White background for product image */}
-                    <div className="bg-white p-4 flex items-center justify-center">
+                    {/* Dark gradient background for product image */}
+                    <div className="relative h-44 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center overflow-hidden">
                       <img 
                         src={comparison.product1.image} 
                         alt={comparison.product1.name} 
-                        className="w-28 h-28 object-contain"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src = 'https://via.placeholder.com/150x150?text=Product';
+                          (e.target as HTMLImageElement).style.objectFit = 'contain';
+                          (e.target as HTMLImageElement).style.padding = '1rem';
+                          (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300x200?text=Product';
                         }}
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent pointer-events-none" />
                     </div>
                     {/* Info section */}
                     <div className={`p-4 ${comparison.winner === 1 ? 'bg-emerald-primary/10' : 'bg-purple-primary/5'}`}>
@@ -1109,27 +1114,30 @@ export default function PlatinumPage() {
                     </div>
                   </div>
 
-                  {/* Product 2 - Professional Image Layout */}
+                  {/* Product 2 - Clean Image Layout */}
                   <div className={`relative overflow-hidden rounded-xl border-2 ${
                     comparison.winner === 2
                       ? 'border-emerald-primary/60'
                       : 'border-purple-primary/20'
-                  }`}>
+                  } group`}>
                     {comparison.winner === 2 && (
                       <div className="absolute top-3 right-3 px-3 py-1 bg-emerald-primary rounded-full text-xs font-bold text-deep-space-black z-10">
                         👑 WINNER
                       </div>
                     )}
-                    {/* White background for product image */}
-                    <div className="bg-white p-4 flex items-center justify-center">
+                    {/* Dark gradient background for product image */}
+                    <div className="relative h-44 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center overflow-hidden">
                       <img 
                         src={comparison.product2.image} 
                         alt={comparison.product2.name} 
-                        className="w-28 h-28 object-contain"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src = 'https://via.placeholder.com/150x150?text=Product';
+                          (e.target as HTMLImageElement).style.objectFit = 'contain';
+                          (e.target as HTMLImageElement).style.padding = '1rem';
+                          (e.target as HTMLImageElement).src = 'https://via.placeholder.com/300x200?text=Product';
                         }}
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy-900/60 via-transparent to-transparent pointer-events-none" />
                     </div>
                     {/* Info section */}
                     <div className={`p-4 ${comparison.winner === 2 ? 'bg-emerald-primary/10' : 'bg-purple-primary/5'}`}>
@@ -1234,18 +1242,33 @@ export default function PlatinumPage() {
                 {/* Products */}
                 <div className="space-y-4 mb-6">
                   {list.products.map((product) => (
-                    <div key={product.rank} className="bg-gradient-to-r from-purple-primary/5 to-transparent border border-purple-primary/20 rounded-xl p-5">
-                      <div className="flex items-start gap-4">
-                        {/* Rank Badge */}
-                        <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl ${
-                          product.rank === 1 ? 'bg-gradient-to-br from-emerald-primary to-teal-primary text-deep-space-black' :
-                          product.rank === 2 ? 'bg-gradient-to-br from-purple-primary to-pink-primary text-white' :
-                          'bg-purple-primary/20 text-purple-primary'
-                        }`}>
-                          #{product.rank}
+                    <div key={product.rank} className="bg-gradient-to-r from-purple-primary/5 to-transparent border border-purple-primary/20 rounded-xl overflow-hidden group">
+                      <div className="flex items-stretch">
+                        {/* Product Image - Left Side */}
+                        <div className="relative w-36 h-auto shrink-0 bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden">
+                          <img 
+                            src={product.image} 
+                            alt={product.title} 
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).style.objectFit = 'contain';
+                              (e.target as HTMLImageElement).style.padding = '0.5rem';
+                              (e.target as HTMLImageElement).src = 'https://via.placeholder.com/150x150?text=Product';
+                            }}
+                          />
+                          {/* Rank Badge Overlay */}
+                          <div className={`absolute top-2 left-2 w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm shadow-lg ${
+                            product.rank === 1 ? 'bg-gradient-to-br from-emerald-primary to-teal-primary text-deep-space-black' :
+                            product.rank === 2 ? 'bg-gradient-to-br from-purple-primary to-pink-primary text-white' :
+                            'bg-purple-primary/80 text-white'
+                          }`}>
+                            #{product.rank}
+                          </div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-navy-900/30 pointer-events-none" />
                         </div>
 
-                        <div className="flex-1">
+                        {/* Content - Right Side */}
+                        <div className="flex-1 p-5">
                           {/* Badge */}
                           {product.badge && (
                             <div className="inline-block bg-pink-primary px-3 py-1 rounded-full text-xs font-bold text-white mb-2">
@@ -1277,18 +1300,6 @@ export default function PlatinumPage() {
                               </div>
                             ))}
                           </div>
-                        </div>
-
-                        {/* Product Image - Professional */}
-                        <div className="w-24 h-24 bg-white rounded-lg p-2 flex items-center justify-center shrink-0">
-                          <img 
-                            src={product.image} 
-                            alt={product.title} 
-                            className="max-w-full max-h-full object-contain"
-                            onError={(e) => {
-                              (e.target as HTMLImageElement).src = 'https://via.placeholder.com/100x100?text=Product';
-                            }}
-                          />
                         </div>
                       </div>
                     </div>
