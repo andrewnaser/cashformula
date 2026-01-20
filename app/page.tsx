@@ -250,7 +250,7 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="relative border-t border-teal-500/8 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Logo size="sm" showText={false} />
+          <Logo size="sm" />
           <p className="text-navy-500 text-sm">
             © {new Date().getFullYear()} Cash Formula. All rights reserved.
           </p>
