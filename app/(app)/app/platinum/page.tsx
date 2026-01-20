@@ -748,86 +748,102 @@ export default function PlatinumPage() {
               ))}
             </div>
 
-            {/* Expanded Pack View */}
+            {/* Expanded Pack View - CLEAN REDESIGN */}
             {selectedPack && expandedPack && (
               <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                className="glass-card p-6 rounded-2xl border-2 border-purple-primary/40"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="bg-navy-900 rounded-2xl border border-white/10 overflow-hidden"
               >
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <span className="text-4xl">{selectedPack.emoji}</span>
-                    <div>
-                      <h3 className="text-2xl font-bold text-white">{selectedPack.name}</h3>
-                      <p className="text-purple-primary/60">30 Days of Content</p>
-                    </div>
-                  </div>
-                  <Button
-                    variant="ghost"
-                    onClick={() => {
-                      setSelectedPack(null);
-                      setExpandedPack(null);
-                    }}
-                  >
-                    Close
-                  </Button>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {selectedPack.posts.slice(0, visiblePosts).map((post) => (
-                    <div
-                      key={post.day}
-                      className="bg-purple-primary/5 border border-purple-primary/20 rounded-xl p-4 hover:bg-purple-primary/10 transition-all"
-                    >
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="px-3 py-1 bg-purple-primary/20 rounded-full text-purple-primary font-bold text-sm">
-                          Day {post.day}
-                        </span>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => copyPostWithHashtags(post, selectedPack.id)}
-                        >
-                          {copiedId === `${selectedPack.id}-${post.day}` ? (
-                            <>
-                              <CheckIcon /> Copied!
-                            </>
-                          ) : (
-                            <>
-                              <CopyIcon /> Copy
-                            </>
-                          )}
-                        </Button>
+                {/* Header */}
+                <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-6">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <span className="text-5xl">{selectedPack.emoji}</span>
+                      <div>
+                        <h3 className="text-2xl font-bold text-white">{selectedPack.name}</h3>
+                        <p className="text-white/80">30 Days of Content • Copy & Paste Ready</p>
                       </div>
-
-                      {post.imageUrl && (
-                        <img
-                          src={post.imageUrl}
-                          alt={post.imageDescription}
-                          className="w-full h-32 object-cover rounded-lg mb-3"
-                        />
-                      )}
-
-                      <p className="text-sm text-purple-primary/80 line-clamp-4 mb-2">
-                        {post.caption}
-                      </p>
-
-                      <p className="text-xs text-purple-primary/50 line-clamp-2">
-                        {post.hashtags}
-                      </p>
                     </div>
-                  ))}
+                    <button
+                      onClick={() => {
+                        setSelectedPack(null);
+                        setExpandedPack(null);
+                      }}
+                      className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white font-bold rounded-lg transition-colors"
+                    >
+                      Close
+                    </button>
+                  </div>
                 </div>
 
-                {visiblePosts < selectedPack.posts.length && (
-                  <div className="mt-6 text-center">
-                    <Button variant="outline" onClick={loadMorePosts}>
-                      Load More Posts ({selectedPack.posts.length - visiblePosts} remaining)
-                    </Button>
+                {/* Content Grid - Clean Table-like Layout */}
+                <div className="p-6">
+                  <div className="space-y-3">
+                    {selectedPack.posts.slice(0, visiblePosts).map((post) => (
+                      <div
+                        key={post.day}
+                        className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 transition-all"
+                      >
+                        <div className="flex items-start gap-4">
+                          {/* Day Badge */}
+                          <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                            <div className="text-center">
+                              <div className="text-xs text-white/80">Day</div>
+                              <div className="text-2xl font-bold text-white">{post.day}</div>
+                            </div>
+                          </div>
+
+                          {/* Content */}
+                          <div className="flex-1 min-w-0">
+                            {/* Caption Preview */}
+                            <p className="text-white text-base leading-relaxed line-clamp-3 mb-2">
+                              {post.caption.substring(0, 200)}...
+                            </p>
+                            
+                            {/* Hashtags */}
+                            <p className="text-purple-400 text-sm line-clamp-1">
+                              {post.hashtags.substring(0, 80)}...
+                            </p>
+                          </div>
+
+                          {/* Copy Button */}
+                          <button
+                            onClick={() => copyPostWithHashtags(post, selectedPack.id)}
+                            className={`flex-shrink-0 px-5 py-3 rounded-xl font-bold text-base transition-all ${
+                              copiedId === `${selectedPack.id}-${post.day}`
+                                ? 'bg-green-500 text-white'
+                                : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:scale-105'
+                            }`}
+                          >
+                            {copiedId === `${selectedPack.id}-${post.day}` ? (
+                              <span className="flex items-center gap-2">
+                                <CheckIcon /> Copied!
+                              </span>
+                            ) : (
+                              <span className="flex items-center gap-2">
+                                <CopyIcon /> Copy
+                              </span>
+                            )}
+                          </button>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                )}
+
+                  {/* Load More */}
+                  {visiblePosts < selectedPack.posts.length && (
+                    <div className="mt-6 text-center">
+                      <button
+                        onClick={loadMorePosts}
+                        className="px-8 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl transition-all"
+                      >
+                        Load More Days ({selectedPack.posts.length - visiblePosts} remaining)
+                      </button>
+                    </div>
+                  )}
+                </div>
               </motion.div>
             )}
           </motion.div>
