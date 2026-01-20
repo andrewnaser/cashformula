@@ -748,7 +748,7 @@ export default function PlatinumPage() {
               ))}
             </div>
 
-            {/* Expanded Pack View - CLEAN REDESIGN */}
+            {/* Expanded Pack View - WITH IMAGES AND EXPAND */}
             {selectedPack && expandedPack && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -778,58 +778,80 @@ export default function PlatinumPage() {
                   </div>
                 </div>
 
-                {/* Content Grid - Clean Table-like Layout */}
+                {/* Content Grid */}
                 <div className="p-6">
-                  <div className="space-y-3">
-                    {selectedPack.posts.slice(0, visiblePosts).map((post) => (
-                      <div
-                        key={post.day}
-                        className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-4 transition-all"
-                      >
-                        <div className="flex items-start gap-4">
-                          {/* Day Badge */}
-                          <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-                            <div className="text-center">
-                              <div className="text-xs text-white/80">Day</div>
-                              <div className="text-2xl font-bold text-white">{post.day}</div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {selectedPack.posts.slice(0, visiblePosts).map((post) => {
+                      const isExpanded = expandedProduct === `post-${post.day}`;
+                      return (
+                        <div
+                          key={post.day}
+                          className="bg-white/5 border border-white/10 rounded-xl overflow-hidden transition-all"
+                        >
+                          {/* Image */}
+                          {post.imageUrl && (
+                            <div className="relative h-48 bg-gray-800">
+                              <img
+                                src={post.imageUrl}
+                                alt={post.imageDescription || `Day ${post.day}`}
+                                className="w-full h-full object-cover"
+                                onError={(e) => {
+                                  // Hide broken images
+                                  (e.target as HTMLImageElement).style.display = 'none';
+                                }}
+                              />
+                              {/* Day Badge Overlay */}
+                              <div className="absolute top-3 left-3 px-3 py-1.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg">
+                                <span className="text-white font-bold">Day {post.day}</span>
+                              </div>
                             </div>
-                          </div>
+                          )}
+                          
+                          {/* No image fallback */}
+                          {!post.imageUrl && (
+                            <div className="h-20 bg-gradient-to-r from-purple-600/20 to-pink-600/20 flex items-center justify-center">
+                              <span className="text-3xl font-bold text-white">Day {post.day}</span>
+                            </div>
+                          )}
 
                           {/* Content */}
-                          <div className="flex-1 min-w-0">
-                            {/* Caption Preview */}
-                            <p className="text-white text-base leading-relaxed line-clamp-3 mb-2">
-                              {post.caption.substring(0, 200)}...
-                            </p>
+                          <div className="p-4">
+                            {/* Caption - Expandable */}
+                            <div className={`text-white text-base leading-relaxed mb-3 ${!isExpanded ? 'line-clamp-3' : ''}`}>
+                              {post.caption}
+                            </div>
                             
                             {/* Hashtags */}
-                            <p className="text-purple-400 text-sm line-clamp-1">
-                              {post.hashtags.substring(0, 80)}...
-                            </p>
-                          </div>
+                            <div className={`text-purple-400 text-sm mb-4 ${!isExpanded ? 'line-clamp-1' : ''}`}>
+                              {post.hashtags}
+                            </div>
 
-                          {/* Copy Button */}
-                          <button
-                            onClick={() => copyPostWithHashtags(post, selectedPack.id)}
-                            className={`flex-shrink-0 px-5 py-3 rounded-xl font-bold text-base transition-all ${
-                              copiedId === `${selectedPack.id}-${post.day}`
-                                ? 'bg-green-500 text-white'
-                                : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:scale-105'
-                            }`}
-                          >
-                            {copiedId === `${selectedPack.id}-${post.day}` ? (
-                              <span className="flex items-center gap-2">
-                                <CheckIcon /> Copied!
-                              </span>
-                            ) : (
-                              <span className="flex items-center gap-2">
-                                <CopyIcon /> Copy
-                              </span>
-                            )}
-                          </button>
+                            {/* Actions */}
+                            <div className="flex items-center gap-2">
+                              {/* Expand/Collapse Button */}
+                              <button
+                                onClick={() => setExpandedProduct(isExpanded ? null : `post-${post.day}`)}
+                                className="flex-1 px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors text-sm"
+                              >
+                                {isExpanded ? '📖 Show Less' : '📖 Read Full Post'}
+                              </button>
+                              
+                              {/* Copy Button */}
+                              <button
+                                onClick={() => copyPostWithHashtags(post, selectedPack.id)}
+                                className={`flex-1 px-4 py-2.5 rounded-lg font-bold text-sm transition-all ${
+                                  copiedId === `${selectedPack.id}-${post.day}`
+                                    ? 'bg-green-500 text-white'
+                                    : 'bg-gradient-to-r from-purple-500 to-pink-500 text-white hover:scale-[1.02]'
+                                }`}
+                              >
+                                {copiedId === `${selectedPack.id}-${post.day}` ? '✓ Copied!' : '📋 Copy'}
+                              </button>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
 
                   {/* Load More */}
