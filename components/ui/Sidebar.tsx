@@ -100,8 +100,17 @@ const CloseIcon = () => (
   </svg>
 );
 
+const TargetIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <circle cx="12" cy="12" r="10" />
+    <circle cx="12" cy="12" r="6" />
+    <circle cx="12" cy="12" r="2" />
+  </svg>
+);
+
 const navItems = [
   { name: 'Dashboard', href: '/app', icon: DashboardIcon },
+  { name: 'Set Your Goal', href: '/app/goal', icon: TargetIcon, highlight: true },
   { name: 'Build Page', href: '/app/build', icon: BuildIcon },
   { name: 'Your Pages', href: '/app/pages', icon: PagesIcon },
   { name: 'Share & Promote', href: '/app/traffic', icon: ShareIcon },
@@ -273,7 +282,7 @@ export default function Sidebar() {
           <nav className="flex-1 overflow-y-auto px-3 pb-4">
             {/* Main navigation */}
             <ul className="space-y-1">
-              {navItems.slice(0, 5).map((item) => (
+              {navItems.slice(0, 6).map((item) => (
                 <li key={item.href}>
                   <NavLink item={item} />
                 </li>
@@ -298,7 +307,7 @@ export default function Sidebar() {
             {/* Resources */}
             <div className="my-4 mx-4 border-t border-white/5" />
             <ul className="space-y-1">
-              {navItems.slice(5).map((item) => (
+              {navItems.slice(6).map((item) => (
                 <li key={item.href}>
                   <NavLink item={item} />
                 </li>
