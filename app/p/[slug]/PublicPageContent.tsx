@@ -160,10 +160,32 @@ export default function PublicPageContent({ page }: PublicPageContentProps) {
 
   // Extract generated content with proper types
   const rawContentTitle = String(generated_content?.title || productTitle);
+  
+  // Clean up any legacy "Why X Is Amazing" titles
+  const cleanTitle = (title: string): string => {
+    let cleaned = title;
+    // Remove "Why " prefix if present
+    if (cleaned.toLowerCase().startsWith('why ')) {
+      cleaned = cleaned.slice(4);
+    }
+    // Remove awkward suffixes
+    cleaned = cleaned.replace(/ is amazing$/i, '');
+    cleaned = cleaned.replace(/ is worth every penny$/i, '');
+    cleaned = cleaned.replace(/ is worth it$/i, '');
+    cleaned = cleaned.replace(/ is the best$/i, '');
+    cleaned = cleaned.trim();
+    // Add a better suffix if title is now too plain
+    if (cleaned.length < 30 && !cleaned.toLowerCase().includes('review')) {
+      cleaned = `${cleaned} - Complete Review`;
+    }
+    return cleaned;
+  };
+  
   // Create a shorter headline for display - use a cleaner version
-  const contentTitle = rawContentTitle.length > 80 
-    ? rawContentTitle.substring(0, 80).trim() + '...'
-    : rawContentTitle;
+  const cleanedTitle = cleanTitle(rawContentTitle);
+  const contentTitle = cleanedTitle.length > 80 
+    ? cleanedTitle.substring(0, 80).trim() + '...'
+    : cleanedTitle;
   const contentOverview = String(generated_content?.overview || '');
   const pros = (generated_content?.pros as string[]) || [];
   const cons = (generated_content?.cons as string[]) || [];
