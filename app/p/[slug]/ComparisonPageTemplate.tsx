@@ -19,6 +19,8 @@ import {
   Flame,
   Crown,
   Award,
+  Gift,
+  AlertCircle,
 } from 'lucide-react';
 
 interface ComparisonPublicPage {
@@ -48,6 +50,17 @@ export default function ComparisonPageTemplate({ page }: ComparisonPageTemplateP
   const hasVisitors = boosters.includes('visitors');
   const hasUrgencyBanner = boosters.includes('urgency-banner');
   const hasTrustBadges = boosters.includes('trust-badges');
+  const hasRecentSales = boosters.includes('recent-sales');
+  const hasExitPopup = boosters.includes('exit-popup');
+  
+  // Recent Sales popup state
+  const [showRecentSale, setShowRecentSale] = useState(false);
+  const [recentSaleName, setRecentSaleName] = useState('');
+  const [recentSaleProduct, setRecentSaleProduct] = useState('');
+  
+  // Exit Intent popup state  
+  const [showExitPopup, setShowExitPopup] = useState(false);
+  const [exitPopupShown, setExitPopupShown] = useState(false);
 
   // Extract comparison data
   const comparisonData = product_data as any;
@@ -86,6 +99,49 @@ export default function ComparisonPageTemplate({ page }: ComparisonPageTemplateP
     }, 3000);
     return () => clearInterval(interval);
   }, [hasVisitors]);
+  
+  // Recent Sales popup
+  useEffect(() => {
+    if (!hasRecentSales) return;
+    
+    const names = ['Sarah M.', 'John D.', 'Emily R.', 'Michael T.', 'Jessica L.', 'David K.', 'Amanda S.', 'Chris B.'];
+    const products = [product1?.name, product2?.name].filter(Boolean);
+    
+    const showSale = () => {
+      const randomName = names[Math.floor(Math.random() * names.length)];
+      const randomProduct = products[Math.floor(Math.random() * products.length)] || 'this product';
+      setRecentSaleName(randomName);
+      setRecentSaleProduct(randomProduct);
+      setShowRecentSale(true);
+      
+      setTimeout(() => setShowRecentSale(false), 4000);
+    };
+    
+    // Show first popup after 5 seconds
+    const firstTimeout = setTimeout(showSale, 5000);
+    // Then show every 15-30 seconds
+    const interval = setInterval(showSale, 15000 + Math.random() * 15000);
+    
+    return () => {
+      clearTimeout(firstTimeout);
+      clearInterval(interval);
+    };
+  }, [hasRecentSales, product1?.name, product2?.name]);
+  
+  // Exit Intent popup
+  useEffect(() => {
+    if (!hasExitPopup || exitPopupShown) return;
+    
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0 && !exitPopupShown) {
+        setShowExitPopup(true);
+        setExitPopupShown(true);
+      }
+    };
+    
+    document.addEventListener('mouseleave', handleMouseLeave);
+    return () => document.removeEventListener('mouseleave', handleMouseLeave);
+  }, [hasExitPopup, exitPopupShown]);
 
   // Get affiliate links (stored as comma-separated)
   const affiliateLinks = affiliate_link?.split(',') || [];
@@ -119,6 +175,117 @@ export default function ComparisonPageTemplate({ page }: ComparisonPageTemplateP
 
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
+      {/* Standalone Countdown Timer - Sticky at top */}
+      {hasCountdown && !hasUrgencyBanner && (
+        <motion.div
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          className="bg-gradient-to-r from-red-600 via-orange-500 to-red-600 text-white py-4 sticky top-0 z-50"
+        >
+          <div className="max-w-4xl mx-auto flex flex-col items-center gap-2">
+            <div className="flex items-center gap-2">
+              <Flame className="w-6 h-6 animate-pulse" />
+              <span className="font-bold text-lg">⚡ DEAL ENDS SOON!</span>
+              <Flame className="w-6 h-6 animate-pulse" />
+            </div>
+            <div className="flex items-center gap-3 bg-black/30 px-6 py-2 rounded-full">
+              <Clock className="w-5 h-5" />
+              <span className="font-mono text-2xl font-bold tracking-wider">
+                {String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
+              </span>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Recent Sales Popup */}
+      <AnimatePresence>
+        {showRecentSale && hasRecentSales && (
+          <motion.div
+            initial={{ x: -400, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -400, opacity: 0 }}
+            className="fixed bottom-4 left-4 z-50 bg-white rounded-xl shadow-2xl p-4 max-w-sm border-l-4 border-emerald-500"
+          >
+            <div className="flex items-start gap-3">
+              <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <ShoppingCart className="w-6 h-6 text-emerald-600" />
+              </div>
+              <div>
+                <p className="text-gray-900 font-semibold">
+                  {recentSaleName} just purchased!
+                </p>
+                <p className="text-gray-600 text-sm">{recentSaleProduct}</p>
+                <p className="text-emerald-600 text-xs mt-1">A few seconds ago</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
+      {/* Exit Intent Popup */}
+      <AnimatePresence>
+        {showExitPopup && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
+            onClick={() => setShowExitPopup(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 max-w-md w-full border border-orange-500/50 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setShowExitPopup(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Gift className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  Wait! Don't Miss Out! 🎁
+                </h3>
+                <p className="text-gray-300 mb-6">
+                  These prices are only available for a limited time. Make your choice now before the deals expire!
+                </p>
+                <div className="flex flex-col gap-3">
+                  <a
+                    href={link1}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold py-3 px-6 rounded-xl hover:scale-105 transition-transform"
+                  >
+                    Check {product1?.name || 'Product 1'} →
+                  </a>
+                  <a
+                    href={link2}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-3 px-6 rounded-xl hover:scale-105 transition-transform"
+                  >
+                    Check {product2?.name || 'Product 2'} →
+                  </a>
+                </div>
+                <button
+                  onClick={() => setShowExitPopup(false)}
+                  className="mt-4 text-gray-400 hover:text-white text-sm"
+                >
+                  No thanks, I'll pass
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Urgency Banner */}
       {hasUrgencyBanner && (
         <motion.div
