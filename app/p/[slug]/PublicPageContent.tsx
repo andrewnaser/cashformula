@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+// AnimatePresence is required for exit animations
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Star,
