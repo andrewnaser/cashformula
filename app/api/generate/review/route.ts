@@ -160,11 +160,23 @@ Return ONLY valid JSON, no explanation or markdown.`;
         faq: [
           {
             question: 'Is this product worth the price?',
-            answer: 'Absolutely! The quality and features justify the investment.',
+            answer: 'Absolutely! The quality and features justify the investment. Thousands of customers have given it positive reviews.',
           },
           {
             question: 'How long does shipping take?',
-            answer: 'Most orders arrive within 3-5 business days with Amazon Prime.',
+            answer: 'With Amazon Prime, most orders arrive within 1-2 business days. Standard shipping takes 3-5 business days.',
+          },
+          {
+            question: 'What if I\'m not satisfied with my purchase?',
+            answer: 'Amazon offers hassle-free returns. You can return most items within 30 days for a full refund, no questions asked.',
+          },
+          {
+            question: 'Is this product durable?',
+            answer: 'Yes! Based on customer reviews, this product is built to last with high-quality materials and construction.',
+          },
+          {
+            question: 'Does this come with a warranty?',
+            answer: 'Yes, this product includes a manufacturer warranty. When purchased through Amazon, you also get their buyer protection.',
           },
         ],
         recommended_copy: 'Get yours today before they sell out!',
