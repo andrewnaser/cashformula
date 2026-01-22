@@ -53,6 +53,9 @@ export default function PublicPageContent({ page }: PublicPageContentProps) {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [timeLeft, setTimeLeft] = useState({ hours: 2, minutes: 47, seconds: 33 });
   const [viewerCount, setViewerCount] = useState(127);
+  const [recentSale, setRecentSale] = useState<{ name: string; time: string; visible: boolean } | null>(null);
+  const [showExitPopup, setShowExitPopup] = useState(false);
+  const [exitPopupShown, setExitPopupShown] = useState(false);
 
   // Extract conversion boosters
   const boosters = page.conversion_boosters || [];
@@ -61,10 +64,11 @@ export default function PublicPageContent({ page }: PublicPageContentProps) {
   const hasUrgencyBanner = boosters.includes('urgency-banner');
   const hasTrustBadges = boosters.includes('trust-badges');
   const hasRecentSales = boosters.includes('recent-sales');
+  const hasExitPopup = boosters.includes('exit-popup');
 
   // Countdown timer - only if enabled
   useEffect(() => {
-    if (!hasCountdown && !hasUrgencyBanner) return; // Only run if needed
+    if (!hasCountdown && !hasUrgencyBanner) return;
     const timer = setInterval(() => {
       setTimeLeft(prev => {
         if (prev.seconds > 0) {
@@ -88,6 +92,51 @@ export default function PublicPageContent({ page }: PublicPageContentProps) {
     }, 3000);
     return () => clearInterval(interval);
   }, [hasVisitors]);
+
+  // Recent sales popup - only if enabled
+  useEffect(() => {
+    if (!hasRecentSales) return;
+    
+    const names = ['Sarah M.', 'John D.', 'Emily R.', 'Michael T.', 'Jessica L.', 'David K.', 'Amanda P.', 'Chris W.'];
+    const times = ['2 minutes ago', '5 minutes ago', '8 minutes ago', '12 minutes ago', '15 minutes ago'];
+    
+    const showSale = () => {
+      const randomName = names[Math.floor(Math.random() * names.length)];
+      const randomTime = times[Math.floor(Math.random() * times.length)];
+      setRecentSale({ name: randomName, time: randomTime, visible: true });
+      
+      // Hide after 4 seconds
+      setTimeout(() => {
+        setRecentSale(prev => prev ? { ...prev, visible: false } : null);
+      }, 4000);
+    };
+    
+    // Show first popup after 5 seconds
+    const initialTimeout = setTimeout(showSale, 5000);
+    
+    // Then show every 15-25 seconds
+    const interval = setInterval(showSale, 15000 + Math.random() * 10000);
+    
+    return () => {
+      clearTimeout(initialTimeout);
+      clearInterval(interval);
+    };
+  }, [hasRecentSales]);
+
+  // Exit intent popup - only if enabled
+  useEffect(() => {
+    if (!hasExitPopup || exitPopupShown) return;
+    
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0 && !exitPopupShown) {
+        setShowExitPopup(true);
+        setExitPopupShown(true);
+      }
+    };
+    
+    document.addEventListener('mouseleave', handleMouseLeave);
+    return () => document.removeEventListener('mouseleave', handleMouseLeave);
+  }, [hasExitPopup, exitPopupShown]);
 
   // Check page type and render appropriate template
   if (page.page_type === 'comparison') {
@@ -148,7 +197,7 @@ export default function PublicPageContent({ page }: PublicPageContentProps) {
           <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-4 text-sm md:text-base font-medium">
             <div className="flex items-center gap-2">
               <Flame className="w-5 h-5 animate-pulse" />
-              <span>LIMITED TIME DEAL</span>
+              <span>🔥 LIMITED TIME DEAL - PRICES MAY INCREASE!</span>
             </div>
             {hasCountdown && (
               <div className="flex items-center gap-2 bg-black/20 px-4 py-1 rounded-full">
@@ -167,6 +216,139 @@ export default function PublicPageContent({ page }: PublicPageContentProps) {
           </div>
         </motion.div>
       )}
+
+      {/* Standalone Countdown Timer (if no urgency banner but countdown enabled) */}
+      {hasCountdown && !hasUrgencyBanner && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-gradient-to-r from-red-900/90 to-orange-900/90 backdrop-blur-sm text-white py-4 px-4 sticky top-0 z-50 border-b border-red-500/30"
+        >
+          <div className="max-w-6xl mx-auto flex items-center justify-center gap-4">
+            <div className="flex items-center gap-2">
+              <Clock className="w-5 h-5 text-red-400" />
+              <span className="font-medium">⏰ Special Offer Ends In:</span>
+            </div>
+            <div className="flex items-center gap-2 bg-black/30 px-6 py-2 rounded-lg">
+              <div className="text-center">
+                <span className="text-2xl font-bold font-mono">{String(timeLeft.hours).padStart(2, '0')}</span>
+                <p className="text-xs text-gray-400">HRS</p>
+              </div>
+              <span className="text-2xl font-bold">:</span>
+              <div className="text-center">
+                <span className="text-2xl font-bold font-mono">{String(timeLeft.minutes).padStart(2, '0')}</span>
+                <p className="text-xs text-gray-400">MIN</p>
+              </div>
+              <span className="text-2xl font-bold">:</span>
+              <div className="text-center">
+                <span className="text-2xl font-bold font-mono text-red-400">{String(timeLeft.seconds).padStart(2, '0')}</span>
+                <p className="text-xs text-gray-400">SEC</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Standalone Live Visitors Counter (if no urgency banner but visitors enabled) */}
+      {hasVisitors && !hasUrgencyBanner && !hasCountdown && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="bg-gradient-to-r from-blue-900/80 to-purple-900/80 text-white py-3 px-4 sticky top-0 z-50 border-b border-blue-500/30"
+        >
+          <div className="max-w-6xl mx-auto flex items-center justify-center gap-3">
+            <div className="relative">
+              <Users className="w-5 h-5 text-blue-400" />
+              <span className="absolute -top-1 -right-1 w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+            </div>
+            <span className="font-medium">
+              👀 <span className="text-blue-400 font-bold">{viewerCount}</span> people are viewing this page right now
+            </span>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Recent Sales Popup */}
+      <AnimatePresence>
+        {hasRecentSales && recentSale?.visible && (
+          <motion.div
+            initial={{ x: -400, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -400, opacity: 0 }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="fixed bottom-24 left-4 z-[60] bg-white rounded-xl shadow-2xl p-4 max-w-sm border border-gray-200"
+          >
+            <div className="flex items-start gap-3">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <Check className="w-6 h-6 text-green-600" />
+              </div>
+              <div>
+                <p className="font-semibold text-gray-900">
+                  {recentSale.name} just purchased!
+                </p>
+                <p className="text-sm text-gray-500">{recentSale.time}</p>
+                <p className="text-xs text-green-600 mt-1 flex items-center gap-1">
+                  <Shield className="w-3 h-3" /> Verified Purchase
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Exit Intent Popup */}
+      <AnimatePresence>
+        {hasExitPopup && showExitPopup && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[70]"
+              onClick={() => setShowExitPopup(false)}
+            />
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[75] bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4"
+            >
+              <button
+                onClick={() => setShowExitPopup(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Gift className="w-8 h-8 text-red-500" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  Wait! Don&apos;t Leave Yet!
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  You&apos;re about to miss out on this amazing deal. This special price won&apos;t last forever!
+                </p>
+                <a
+                  href={page.affiliate_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold px-8 py-4 rounded-xl w-full hover:shadow-lg transition-all"
+                >
+                  <ShoppingCart className="w-5 h-5" />
+                  Yes! I Want This Deal
+                </a>
+                <button
+                  onClick={() => setShowExitPopup(false)}
+                  className="mt-3 text-sm text-gray-400 hover:text-gray-600"
+                >
+                  No thanks, I&apos;ll pass on this offer
+                </button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       {/* Hero Section */}
       <section className="relative py-8 lg:py-16 overflow-hidden">
@@ -209,21 +391,28 @@ export default function PublicPageContent({ page }: PublicPageContentProps) {
                 </div>
               </div>
               
-              {/* Trust badges under image */}
-              <div className="mt-6 grid grid-cols-3 gap-3">
-                <div className="bg-[#111118] rounded-xl p-4 text-center border border-gray-800">
-                  <Shield className="w-6 h-6 text-green-400 mx-auto mb-2" />
-                  <p className="text-xs text-gray-400">Secure Checkout</p>
-                </div>
-                <div className="bg-[#111118] rounded-xl p-4 text-center border border-gray-800">
-                  <Truck className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-                  <p className="text-xs text-gray-400">Fast Shipping</p>
-                </div>
-                <div className="bg-[#111118] rounded-xl p-4 text-center border border-gray-800">
-                  <Gift className="w-6 h-6 text-purple-400 mx-auto mb-2" />
-                  <p className="text-xs text-gray-400">Easy Returns</p>
-                </div>
-              </div>
+              {/* Trust badges under image - Shows if enabled OR by default */}
+              {(hasTrustBadges || boosters.length === 0) && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="mt-6 grid grid-cols-3 gap-3"
+                >
+                  <div className="bg-[#111118] rounded-xl p-4 text-center border border-green-500/20 hover:border-green-500/40 transition-colors">
+                    <Shield className="w-6 h-6 text-green-400 mx-auto mb-2" />
+                    <p className="text-xs text-gray-400">Secure Checkout</p>
+                  </div>
+                  <div className="bg-[#111118] rounded-xl p-4 text-center border border-blue-500/20 hover:border-blue-500/40 transition-colors">
+                    <Truck className="w-6 h-6 text-blue-400 mx-auto mb-2" />
+                    <p className="text-xs text-gray-400">Fast Shipping</p>
+                  </div>
+                  <div className="bg-[#111118] rounded-xl p-4 text-center border border-purple-500/20 hover:border-purple-500/40 transition-colors">
+                    <Gift className="w-6 h-6 text-purple-400 mx-auto mb-2" />
+                    <p className="text-xs text-gray-400">Easy Returns</p>
+                  </div>
+                </motion.div>
+              )}
             </motion.div>
 
             {/* Product Info */}
