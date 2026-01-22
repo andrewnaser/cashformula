@@ -46,12 +46,15 @@ export default function ComparisonPageTemplate({ page }: ComparisonPageTemplateP
 
   // Extract conversion boosters
   const boosters = conversion_boosters || [];
-  const hasCountdown = boosters.includes('countdown');
-  const hasVisitors = boosters.includes('visitors');
-  const hasUrgencyBanner = boosters.includes('urgency-banner');
-  const hasTrustBadges = boosters.includes('trust-badges');
-  const hasRecentSales = boosters.includes('recent-sales');
-  const hasExitPopup = boosters.includes('exit-popup');
+  
+  // Enable all boosters by default if ANY booster was selected (for better UX)
+  const anyBoosterSelected = boosters.length > 0;
+  const hasCountdown = anyBoosterSelected || boosters.includes('countdown');
+  const hasVisitors = anyBoosterSelected || boosters.includes('visitors');
+  const hasUrgencyBanner = anyBoosterSelected || boosters.includes('urgency-banner');
+  const hasTrustBadges = anyBoosterSelected || boosters.includes('trust-badges');
+  const hasRecentSales = anyBoosterSelected || boosters.includes('recent-sales');
+  const hasExitPopup = anyBoosterSelected || boosters.includes('exit-popup');
   
   // Recent Sales popup state
   const [showRecentSale, setShowRecentSale] = useState(false);

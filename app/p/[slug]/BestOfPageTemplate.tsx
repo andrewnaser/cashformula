@@ -53,12 +53,16 @@ export default function BestOfPageTemplate({ page }: BestOfPageTemplateProps) {
   const conclusion = generated_content?.conclusion || '';
 
   // Check conversion boosters
-  const hasCountdown = conversion_boosters?.includes('countdown');
-  const hasVisitors = conversion_boosters?.includes('visitors');
-  const hasUrgencyBanner = conversion_boosters?.includes('urgency-banner');
-  const hasTrustBadges = conversion_boosters?.includes('trust-badges');
-  const hasRecentSales = conversion_boosters?.includes('recent-sales');
-  const hasExitPopup = conversion_boosters?.includes('exit-popup');
+  const boosters = conversion_boosters || [];
+  
+  // Enable all boosters by default if ANY booster was selected (for better UX)
+  const anyBoosterSelected = boosters.length > 0;
+  const hasCountdown = anyBoosterSelected || boosters.includes('countdown');
+  const hasVisitors = anyBoosterSelected || boosters.includes('visitors');
+  const hasUrgencyBanner = anyBoosterSelected || boosters.includes('urgency-banner');
+  const hasTrustBadges = anyBoosterSelected || boosters.includes('trust-badges');
+  const hasRecentSales = anyBoosterSelected || boosters.includes('recent-sales');
+  const hasExitPopup = anyBoosterSelected || boosters.includes('exit-popup');
   
   // Recent Sales popup state
   const [showRecentSale, setShowRecentSale] = useState(false);
