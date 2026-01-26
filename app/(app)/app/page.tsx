@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef, useCallback } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createClient } from '@/lib/supabase/client';
 import type { Page } from '@/lib/types';
@@ -183,7 +184,11 @@ const GROWTH_RATES = {
   totalMoneyToday: 1850,  // ~$1850 per hour
 };
 
+const BUILD_STAMP = 'dash-2026-01-26-remove-members-strip';
+
 export default function DashboardPage() {
+  const searchParams = useSearchParams();
+  const showBuildStamp = searchParams.get('debug') === '1';
   const [pages, setPages] = useState<Page[]>([]);
   const [loading, setLoading] = useState(true);
   const [userName, setUserName] = useState('');
@@ -387,6 +392,12 @@ export default function DashboardPage() {
           </p>
         </div>
       </motion.div>
+      
+      {showBuildStamp && (
+        <motion.div variants={item} className="text-xs text-gray-500">
+          Build: <span className="font-mono text-gray-400">{BUILD_STAMP}</span>
+        </motion.div>
+      )}
 
       {/* Stats Grid */}
       <motion.div variants={item} className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -583,26 +594,6 @@ export default function DashboardPage() {
                       >
                         <span className="text-4xl">📈</span>
                       </motion.div>
-                    </div>
-                    
-                    {/* Members earning indicator */}
-                    <div className="mt-4 pt-4 border-t border-green-500/20 flex items-center gap-3">
-                      <div className="flex -space-x-2">
-                        {['🧑', '👩', '👨', '🧑‍💼', '👩‍💼'].map((emoji, i) => (
-                          <motion.div 
-                            key={i} 
-                            className="w-8 h-8 rounded-full bg-gradient-to-br from-gray-700 to-gray-800 border-2 border-green-900 flex items-center justify-center text-sm"
-                            initial={{ scale: 0, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: i * 0.1 }}
-                          >
-                            {emoji}
-                          </motion.div>
-                        ))}
-                      </div>
-                      <p className="text-sm text-green-300/80">
-                        <span className="text-white font-bold">{mounted ? (liveStats.activeThisWeek % 100 + 50) : '—'}</span> members earning right now
-                      </p>
                     </div>
                   </div>
                 </div>
