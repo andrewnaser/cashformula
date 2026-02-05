@@ -434,10 +434,10 @@ export default function DashboardPage() {
       </motion.div>
 
       {/* Welcome Video Card with LIVE STATS next to it */}
-      <motion.div variants={item} className="glass-hero rounded-3xl overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-5">
-          {/* Video Player */}
-          <div className="relative lg:col-span-3 aspect-video lg:aspect-[16/10] bg-gradient-to-br from-navy-800/80 to-navy-900/80">
+      <motion.div variants={item} className="flex flex-col lg:flex-row justify-center items-stretch gap-6 lg:gap-8">
+        {/* Video Player Card */}
+        <div className="w-full lg:w-[40%] glass-hero rounded-3xl overflow-hidden">
+          <div className="relative aspect-video bg-gradient-to-br from-navy-800/80 to-navy-900/80">
             <iframe
               src="https://player.vimeo.com/video/1158728161?badge=0&autopause=0&player_id=0&app_id=58479"
               className="absolute inset-0 w-full h-full"
@@ -448,14 +448,15 @@ export default function DashboardPage() {
             />
             
             {/* Live badge */}
-            <div className="absolute top-6 left-6 px-4 py-2 bg-red-500 rounded-full text-white text-base font-bold flex items-center gap-2 shadow-lg z-10 pointer-events-none">
-              <span className="w-3 h-3 bg-white rounded-full animate-pulse" />
+            <div className="absolute top-4 left-4 px-3 py-1.5 bg-red-500 rounded-full text-white text-sm font-bold flex items-center gap-2 shadow-lg z-10 pointer-events-none">
+              <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
               MUST WATCH FIRST
             </div>
           </div>
-          
-          {/* LIVE Stats Panel - What's Happening Right Now */}
-          <div className="lg:col-span-2 p-6 lg:p-8 flex flex-col justify-center relative overflow-hidden">
+        </div>
+        
+        {/* LIVE Stats Panel - What's Happening Right Now */}
+        <div className="w-full lg:w-[40%] glass-hero rounded-3xl p-5 lg:p-6 flex flex-col justify-center relative overflow-hidden">
             {/* Animated gradient background */}
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/60 via-teal-900/80 to-cyan-900/60" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-400/20 via-transparent to-transparent" />
@@ -489,103 +490,84 @@ export default function DashboardPage() {
             {/* Content */}
             <div className="relative z-10">
               {/* Header with pulsing indicator */}
-              <div className="flex items-center gap-3 mb-5">
+              <div className="flex items-center gap-2 mb-4">
                 <div className="relative flex items-center justify-center">
-                  <span className="w-4 h-4 bg-green-400 rounded-full block" />
-                  <span className="absolute w-4 h-4 bg-green-400 rounded-full animate-ping" />
-                  <span className="absolute w-8 h-8 bg-green-400/20 rounded-full animate-pulse" />
+                  <span className="w-3 h-3 bg-green-400 rounded-full block" />
+                  <span className="absolute w-3 h-3 bg-green-400 rounded-full animate-ping" />
                 </div>
-                <div>
-                  <span className="text-green-400 font-bold text-base uppercase tracking-wider">Live Activity</span>
-                  <p className="text-gray-400 text-xs">Real-time member results</p>
-                </div>
+                <span className="text-green-400 font-bold text-sm uppercase tracking-wider">Live Activity</span>
               </div>
               
-              {/* Main Stats - Bigger & Bolder */}
-              <div className="space-y-4">
-                {/* Top Row - 2 big stats */}
-                <div className="grid grid-cols-2 gap-3">
+              {/* Main Stats - Compact Grid */}
+              <div className="space-y-3">
+                {/* Stats Grid - 2x2 */}
+                <div className="grid grid-cols-2 gap-2">
                   {/* Articles Created */}
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/10 rounded-2xl blur-sm group-hover:blur-md transition-all" />
-                    <div className="relative bg-black/30 backdrop-blur-sm rounded-2xl p-4 border border-cyan-400/20 group-hover:border-cyan-400/40 transition-all">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-lg">📄</span>
-                        <span className="text-cyan-300 text-xs font-medium uppercase tracking-wider">Articles</span>
-                      </div>
-                      <div className="text-3xl font-bold">
-                        {mounted ? <AnimatedNumber value={liveStats.articlesToday} color="text-cyan-400" /> : '—'}
-                      </div>
+                  <div className="bg-black/30 backdrop-blur-sm rounded-xl p-3 border border-cyan-400/20">
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <span className="text-sm">📄</span>
+                      <span className="text-cyan-300 text-xs font-medium">Articles</span>
+                    </div>
+                    <div className="text-xl font-bold">
+                      {mounted ? <AnimatedNumber value={liveStats.articlesToday} color="text-cyan-400" /> : '—'}
                     </div>
                   </div>
                   
                   {/* Clicks Tracked */}
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/10 rounded-2xl blur-sm group-hover:blur-md transition-all" />
-                    <div className="relative bg-black/30 backdrop-blur-sm rounded-2xl p-4 border border-purple-400/20 group-hover:border-purple-400/40 transition-all">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-lg">🎯</span>
-                        <span className="text-purple-300 text-xs font-medium uppercase tracking-wider">Clicks</span>
-                      </div>
-                      <div className="text-3xl font-bold">
-                        {mounted ? <AnimatedNumber value={liveStats.clicksTracked} color="text-purple-400" /> : '—'}
-                      </div>
+                  <div className="bg-black/30 backdrop-blur-sm rounded-xl p-3 border border-purple-400/20">
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <span className="text-sm">🎯</span>
+                      <span className="text-purple-300 text-xs font-medium">Clicks</span>
+                    </div>
+                    <div className="text-xl font-bold">
+                      {mounted ? <AnimatedNumber value={liveStats.clicksTracked} color="text-purple-400" /> : '—'}
                     </div>
                   </div>
-                </div>
-                
-                {/* Bottom Row - 2 big stats */}
-                <div className="grid grid-cols-2 gap-3">
+                  
                   {/* Active Members */}
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-indigo-500/10 rounded-2xl blur-sm group-hover:blur-md transition-all" />
-                    <div className="relative bg-black/30 backdrop-blur-sm rounded-2xl p-4 border border-blue-400/20 group-hover:border-blue-400/40 transition-all">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-lg">👥</span>
-                        <span className="text-blue-300 text-xs font-medium uppercase tracking-wider">Active</span>
-                      </div>
-                      <div className="text-3xl font-bold">
-                        {mounted ? <AnimatedNumber value={liveStats.activeThisWeek} color="text-blue-400" /> : '—'}
-                      </div>
+                  <div className="bg-black/30 backdrop-blur-sm rounded-xl p-3 border border-blue-400/20">
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <span className="text-sm">👥</span>
+                      <span className="text-blue-300 text-xs font-medium">Active</span>
+                    </div>
+                    <div className="text-xl font-bold">
+                      {mounted ? <AnimatedNumber value={liveStats.activeThisWeek} color="text-blue-400" /> : '—'}
                     </div>
                   </div>
                   
                   {/* Today's Earnings */}
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-500/10 rounded-2xl blur-sm group-hover:blur-md transition-all" />
-                    <div className="relative bg-black/30 backdrop-blur-sm rounded-2xl p-4 border border-amber-400/20 group-hover:border-amber-400/40 transition-all">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-lg">💰</span>
-                        <span className="text-amber-300 text-xs font-medium uppercase tracking-wider">Earned</span>
-                      </div>
-                      <div className="text-3xl font-bold">
-                        {mounted ? <AnimatedNumber value={liveStats.totalMoneyToday} prefix="$" color="text-amber-400" /> : '—'}
-                      </div>
+                  <div className="bg-black/30 backdrop-blur-sm rounded-xl p-3 border border-amber-400/20">
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <span className="text-sm">💰</span>
+                      <span className="text-amber-300 text-xs font-medium">Earned</span>
+                    </div>
+                    <div className="text-xl font-bold">
+                      {mounted ? <AnimatedNumber value={liveStats.totalMoneyToday} prefix="$" color="text-amber-400" /> : '—'}
                     </div>
                   </div>
                 </div>
                 
                 {/* Featured Total - The Big Number */}
-                <div className="relative group mt-2">
+                <div className="relative group">
                   <motion.div 
-                    className="absolute -inset-1 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 rounded-2xl opacity-50 blur-lg"
-                    animate={{ opacity: [0.4, 0.6, 0.4] }}
+                    className="absolute -inset-0.5 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 rounded-xl opacity-40 blur-md"
+                    animate={{ opacity: [0.3, 0.5, 0.3] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   />
-                  <div className="relative bg-gradient-to-r from-green-900/90 to-emerald-900/90 backdrop-blur-sm rounded-2xl p-5 border border-green-400/30">
+                  <div className="relative bg-gradient-to-r from-green-900/90 to-emerald-900/90 backdrop-blur-sm rounded-xl p-4 border border-green-400/30">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-green-300/80 text-sm font-medium uppercase tracking-wider mb-2">💵 Total Generated Today</p>
-                        <div className="text-4xl sm:text-5xl font-bold">
+                        <p className="text-green-300/80 text-xs font-medium uppercase tracking-wider mb-1">💵 Total Today</p>
+                        <div className="text-2xl sm:text-3xl font-bold">
                           {mounted ? <AnimatedNumber value={liveStats.totalMoneyToday} prefix="$" color="text-green-400" /> : '—'}
                         </div>
                       </div>
                       <motion.div 
-                        className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-400/30 to-emerald-500/20 flex items-center justify-center border border-green-400/30"
+                        className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400/30 to-emerald-500/20 flex items-center justify-center border border-green-400/30"
                         animate={{ scale: [1, 1.05, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
                       >
-                        <span className="text-4xl">📈</span>
+                        <span className="text-2xl">📈</span>
                       </motion.div>
                     </div>
                   </div>
