@@ -17,13 +17,6 @@ export async function GET(
       return NextResponse.json({ success: false, error: 'User not found' }, { status: 404 });
     }
 
-    // Get profile
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', id)
-      .single();
-
     // Get pages count
     const { count: pagesCount } = await supabase
       .from('pages')
@@ -37,7 +30,6 @@ export async function GET(
         email: user.email,
         created_at: user.created_at,
         last_sign_in_at: user.last_sign_in_at,
-        plan: profile?.plan || 'free',
         pages_count: pagesCount || 0
       }
     });
@@ -55,33 +47,39 @@ export async function PUT(
   try {
     const { id } = await params;
     const body = await request.json();
-    const { email, plan } = body;
+    const { email, password } = body;
     
     const supabase = await createServiceClient();
 
-    // Update email in auth if changed
+    // Build update object for auth
+    const authUpdate: { email?: string; password?: string } = {};
     if (email) {
-      const { error: authError } = await supabase.auth.admin.updateUserById(id, {
-        email: email
-      });
+      authUpdate.email = email;
+    }
+    if (password) {
+      authUpdate.password = password;
+    }
+
+    // Update user in auth if there are changes
+    if (Object.keys(authUpdate).length > 0) {
+      const { error: authError } = await supabase.auth.admin.updateUserById(id, authUpdate);
       
       if (authError) {
         return NextResponse.json({ success: false, error: authError.message }, { status: 400 });
       }
     }
 
-    // Update profile (plan and email)
-    const { error: profileError } = await supabase
-      .from('profiles')
-      .update({ 
-        email: email,
-        plan: plan 
-      })
-      .eq('id', id);
+    // Update profile email if changed
+    if (email) {
+      const { error: profileError } = await supabase
+        .from('profiles')
+        .update({ email: email })
+        .eq('id', id);
 
-    if (profileError) {
-      console.error('Profile update error:', profileError);
-      // Don't fail if profile update fails - user might not have a profile
+      if (profileError) {
+        console.error('Profile update error:', profileError);
+        // Don't fail if profile update fails - user might not have a profile
+      }
     }
 
     return NextResponse.json({ success: true });

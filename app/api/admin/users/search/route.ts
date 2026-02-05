@@ -28,26 +28,15 @@ export async function GET(request: Request) {
       user.email?.toLowerCase().includes(email.toLowerCase())
     );
 
-    // Get profiles for additional info
-    const userIds = filteredUsers.map(u => u.id);
-    const { data: profiles } = await supabase
-      .from('profiles')
-      .select('*')
-      .in('id', userIds);
+    // Map user data
+    const mappedUsers = filteredUsers.map(user => ({
+      id: user.id,
+      email: user.email,
+      created_at: user.created_at,
+      last_sign_in_at: user.last_sign_in_at
+    }));
 
-    // Combine user data with profile data
-    const combinedUsers = filteredUsers.map(user => {
-      const profile = profiles?.find(p => p.id === user.id);
-      return {
-        id: user.id,
-        email: user.email,
-        created_at: user.created_at,
-        last_sign_in_at: user.last_sign_in_at,
-        plan: profile?.plan || 'free'
-      };
-    });
-
-    return NextResponse.json({ success: true, users: combinedUsers });
+    return NextResponse.json({ success: true, users: mappedUsers });
   } catch (error) {
     console.error('Search error:', error);
     return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 });

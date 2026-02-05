@@ -8,7 +8,6 @@ interface User {
   id: string;
   email: string;
   created_at: string;
-  plan: string;
   last_sign_in_at?: string;
 }
 
@@ -16,7 +15,6 @@ interface UserDetails {
   id: string;
   email: string;
   created_at: string;
-  plan: string;
   last_sign_in_at?: string;
   pages_count?: number;
 }
@@ -36,10 +34,9 @@ export default function AdminDashboard() {
   
   // Form states
   const [editEmail, setEditEmail] = useState('');
-  const [editPlan, setEditPlan] = useState('');
+  const [editPassword, setEditPassword] = useState('');
   const [newEmail, setNewEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
-  const [newPlan, setNewPlan] = useState('free');
 
   // Check admin authentication
   useEffect(() => {
@@ -101,7 +98,7 @@ export default function AdminDashboard() {
       if (data.success) {
         setSelectedUser(data.user);
         setEditEmail(data.user.email);
-        setEditPlan(data.user.plan || 'free');
+        setEditPassword('');
         setEditMode(false);
       } else {
         showMessage('error', data.error || 'Failed to load user details');
@@ -116,16 +113,31 @@ export default function AdminDashboard() {
     
     setActionLoading(true);
     try {
+      const updateData: { email?: string; password?: string } = {};
+      if (editEmail !== selectedUser.email) {
+        updateData.email = editEmail;
+      }
+      if (editPassword) {
+        updateData.password = editPassword;
+      }
+      
+      if (Object.keys(updateData).length === 0) {
+        showMessage('error', 'No changes to save');
+        setActionLoading(false);
+        return;
+      }
+      
       const res = await fetch(`/api/admin/users/${selectedUser.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: editEmail, plan: editPlan })
+        body: JSON.stringify(updateData)
       });
       const data = await res.json();
       if (data.success) {
         showMessage('success', 'User updated successfully');
-        setSelectedUser({ ...selectedUser, email: editEmail, plan: editPlan });
+        setSelectedUser({ ...selectedUser, email: editEmail });
         setEditMode(false);
+        setEditPassword('');
         // Refresh search results
         searchUsers();
       } else {
@@ -174,7 +186,7 @@ export default function AdminDashboard() {
       const res = await fetch('/api/admin/users/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: newEmail, password: newPassword, plan: newPlan })
+        body: JSON.stringify({ email: newEmail, password: newPassword })
       });
       const data = await res.json();
       if (data.success) {
@@ -182,7 +194,6 @@ export default function AdminDashboard() {
         setCreateMode(false);
         setNewEmail('');
         setNewPassword('');
-        setNewPlan('free');
         // Search for the new user
         setSearchEmail(newEmail);
         setTimeout(() => searchUsers(), 500);
@@ -328,18 +339,9 @@ export default function AdminDashboard() {
                       }`}
                     >
                       <p className="text-white font-medium truncate">{user.email}</p>
-                      <div className="flex items-center gap-2 mt-1">
-                        <span className={`text-xs px-2 py-0.5 rounded-full ${
-                          user.plan === 'platinum' ? 'bg-purple-500/20 text-purple-400' :
-                          user.plan === 'gold' ? 'bg-yellow-500/20 text-yellow-400' :
-                          'bg-slate-500/20 text-slate-400'
-                        }`}>
-                          {user.plan || 'free'}
-                        </span>
-                        <span className="text-xs text-slate-500">
-                          {new Date(user.created_at).toLocaleDateString()}
-                        </span>
-                      </div>
+                      <span className="text-xs text-slate-500">
+                        Joined {new Date(user.created_at).toLocaleDateString()}
+                      </span>
                     </button>
                   ))}
                 </div>
@@ -395,18 +397,6 @@ export default function AdminDashboard() {
                         className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all"
                         placeholder="Enter password"
                       />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-slate-300 mb-2">Plan</label>
-                      <select
-                        value={newPlan}
-                        onChange={(e) => setNewPlan(e.target.value)}
-                        className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all"
-                      >
-                        <option value="free">Free</option>
-                        <option value="gold">Gold</option>
-                        <option value="platinum">Platinum</option>
-                      </select>
                     </div>
                     <button
                       onClick={handleCreateUser}
@@ -482,16 +472,15 @@ export default function AdminDashboard() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-slate-300 mb-2">Plan</label>
-                        <select
-                          value={editPlan}
-                          onChange={(e) => setEditPlan(e.target.value)}
-                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all"
-                        >
-                          <option value="free">Free</option>
-                          <option value="gold">Gold</option>
-                          <option value="platinum">Platinum</option>
-                        </select>
+                        <label className="block text-sm font-medium text-slate-300 mb-2">New Password</label>
+                        <input
+                          type="text"
+                          value={editPassword}
+                          onChange={(e) => setEditPassword(e.target.value)}
+                          placeholder="Leave empty to keep current password"
+                          className="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all"
+                        />
+                        <p className="text-xs text-slate-500 mt-1">Only fill this if you want to change the password</p>
                       </div>
                       <div className="flex gap-3 pt-4">
                         <button
@@ -515,7 +504,7 @@ export default function AdminDashboard() {
                           onClick={() => {
                             setEditMode(false);
                             setEditEmail(selectedUser.email);
-                            setEditPlan(selectedUser.plan || 'free');
+                            setEditPassword('');
                           }}
                           className="py-3 px-4 bg-slate-700 hover:bg-slate-600 text-white rounded-xl transition-colors"
                         >
@@ -533,16 +522,6 @@ export default function AdminDashboard() {
                         <div className="bg-slate-900/50 rounded-xl p-4">
                           <p className="text-sm text-slate-400 mb-1">Email</p>
                           <p className="text-white truncate">{selectedUser.email}</p>
-                        </div>
-                        <div className="bg-slate-900/50 rounded-xl p-4">
-                          <p className="text-sm text-slate-400 mb-1">Plan</p>
-                          <span className={`inline-flex px-3 py-1 rounded-full text-sm font-medium ${
-                            selectedUser.plan === 'platinum' ? 'bg-purple-500/20 text-purple-400' :
-                            selectedUser.plan === 'gold' ? 'bg-yellow-500/20 text-yellow-400' :
-                            'bg-slate-500/20 text-slate-400'
-                          }`}>
-                            {selectedUser.plan || 'free'}
-                          </span>
                         </div>
                         <div className="bg-slate-900/50 rounded-xl p-4">
                           <p className="text-sm text-slate-400 mb-1">Created</p>
