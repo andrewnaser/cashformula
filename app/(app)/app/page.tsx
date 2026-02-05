@@ -230,58 +230,65 @@ export default function DashboardPage() {
   
   const supabase = createClient();
 
-  // Calculate stats based on time elapsed since midnight EST
-  const calculateStats = useCallback(() => {
+  // Get initial stats - either from localStorage or calculate baseline for current time
+  const getInitialStats = useCallback(() => {
     if (typeof window === 'undefined') return BASE_STATS;
     
     // Check if it's a new day in EST - if so, reset
     if (shouldResetStats()) {
       localStorage.setItem(STATS_DATE_KEY, getTodayEST());
       localStorage.removeItem(STATS_STORAGE_KEY);
+      // Start fresh with base stats
+      localStorage.setItem(STATS_STORAGE_KEY, JSON.stringify(BASE_STATS));
       return BASE_STATS;
     }
     
-    // Calculate hours since midnight EST
+    // Try to load saved stats first
+    const savedStats = localStorage.getItem(STATS_STORAGE_KEY);
+    if (savedStats) {
+      try {
+        const parsed = JSON.parse(savedStats);
+        // Validate the parsed data has the expected structure
+        if (parsed.articlesToday && parsed.clicksTracked && parsed.activeThisWeek && parsed.totalMoneyToday) {
+          return {
+            articlesToday: Math.min(MAX_STATS.articlesToday, parsed.articlesToday),
+            clicksTracked: Math.min(MAX_STATS.clicksTracked, parsed.clicksTracked),
+            activeThisWeek: Math.min(MAX_STATS.activeThisWeek, parsed.activeThisWeek),
+            totalMoneyToday: Math.min(MAX_STATS.totalMoneyToday, parsed.totalMoneyToday),
+          };
+        }
+      } catch {
+        // Invalid saved data, calculate fresh
+      }
+    }
+    
+    // No saved stats for today - calculate based on hours elapsed (deterministic)
     const now = new Date();
     const estOffset = -5 * 60;
     const utcOffset = now.getTimezoneOffset();
     const estTime = new Date(now.getTime() + (utcOffset + estOffset) * 60 * 1000);
     const hoursElapsed = estTime.getHours() + (estTime.getMinutes() / 60);
     
-    // Calculate growth with some randomization for realism
-    const randomFactor = () => 0.9 + Math.random() * 0.2; // 90% to 110%
-    
-    // Calculate stats but cap at max values
-    return {
-      articlesToday: Math.min(MAX_STATS.articlesToday, Math.round(BASE_STATS.articlesToday + (hoursElapsed * GROWTH_RATES.articlesToday * randomFactor()))),
-      clicksTracked: Math.min(MAX_STATS.clicksTracked, Math.round(BASE_STATS.clicksTracked + (hoursElapsed * GROWTH_RATES.clicksTracked * randomFactor()))),
-      activeThisWeek: Math.min(MAX_STATS.activeThisWeek, Math.round(BASE_STATS.activeThisWeek + (hoursElapsed * GROWTH_RATES.activeThisWeek * randomFactor()))),
-      totalMoneyToday: Math.min(MAX_STATS.totalMoneyToday, Math.round(BASE_STATS.totalMoneyToday + (hoursElapsed * GROWTH_RATES.totalMoneyToday * randomFactor()))),
+    // Calculate stats deterministically (no random factor for initial calculation)
+    const initialStats = {
+      articlesToday: Math.min(MAX_STATS.articlesToday, Math.round(BASE_STATS.articlesToday + (hoursElapsed * GROWTH_RATES.articlesToday))),
+      clicksTracked: Math.min(MAX_STATS.clicksTracked, Math.round(BASE_STATS.clicksTracked + (hoursElapsed * GROWTH_RATES.clicksTracked))),
+      activeThisWeek: Math.min(MAX_STATS.activeThisWeek, Math.round(BASE_STATS.activeThisWeek + (hoursElapsed * GROWTH_RATES.activeThisWeek))),
+      totalMoneyToday: Math.min(MAX_STATS.totalMoneyToday, Math.round(BASE_STATS.totalMoneyToday + (hoursElapsed * GROWTH_RATES.totalMoneyToday))),
     };
+    
+    // Save these initial stats
+    localStorage.setItem(STATS_STORAGE_KEY, JSON.stringify(initialStats));
+    localStorage.setItem(STATS_DATE_KEY, getTodayEST());
+    
+    return initialStats;
   }, []);
 
   useEffect(() => {
     setMounted(true);
     
-    // Initialize stats from localStorage or calculate
-    const savedStats = localStorage.getItem(STATS_STORAGE_KEY);
-    if (savedStats) {
-      try {
-        const parsed = JSON.parse(savedStats);
-        // Ensure stats never go down - take max of saved and calculated
-        const calculated = calculateStats();
-        setLiveStats({
-          articlesToday: Math.max(parsed.articlesToday || 0, calculated.articlesToday),
-          clicksTracked: Math.max(parsed.clicksTracked || 0, calculated.clicksTracked),
-          activeThisWeek: Math.max(parsed.activeThisWeek || 0, calculated.activeThisWeek),
-          totalMoneyToday: Math.max(parsed.totalMoneyToday || 0, calculated.totalMoneyToday),
-        });
-      } catch {
-        setLiveStats(calculateStats());
-      }
-    } else {
-      setLiveStats(calculateStats());
-    }
+    // Initialize stats from localStorage (persistent)
+    setLiveStats(getInitialStats());
     
     const fetchData = async () => {
       // Fetch pages
@@ -318,7 +325,7 @@ export default function DashboardPage() {
       // Check if we need to reset for new day (11:59 PM EST passed)
       if (shouldResetStats()) {
         localStorage.setItem(STATS_DATE_KEY, getTodayEST());
-        localStorage.removeItem(STATS_STORAGE_KEY);
+        localStorage.setItem(STATS_STORAGE_KEY, JSON.stringify(BASE_STATS));
         setLiveStats(BASE_STATS);
         return;
       }
@@ -352,7 +359,7 @@ export default function DashboardPage() {
     scheduleNextUpdate();
 
     return () => clearTimeout(timeoutId);
-  }, [supabase, calculateStats]);
+  }, [supabase, getInitialStats]);
 
   const totalPages = pages.length;
 
